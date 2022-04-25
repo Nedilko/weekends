@@ -13,13 +13,23 @@
     "lint": "eslint --ignore-path .eslintignore --ext .js --ext .jsx .",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "test:e2e": "npx playwright test",
+    "test:e2e:debug": "PWDEBUG=1 npx playwright test",
+    "test:e2e:update-screenshots": "npx playwright test --update-snapshots",
+    "test:e2e:report": "npx playwright show-report",
+    "test:e2e:chromium": "npx playwright test --project=chromium",
+    "test:e2e:firefox": "npx playwright test --project=firefox",
+    "test:e2e:webkit": "npx playwright test --project=webkit",
+    "test:e2e:mobile-android": "npx playwright test --project='Mobile Chrome'",
+    "test:e2e:mobile-safari": "npx playwright test --project='Mobile Safari'"
   },
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.21.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/react-hooks": "^8.0.0",
