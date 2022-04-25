@@ -18,4 +18,5 @@ export default defineConfig({
       '**/.{idea,git,cache,output,temp}/**',
     ],
   },
+  envDir: '.env',
 })
