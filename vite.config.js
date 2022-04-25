@@ -14,9 +14,14 @@ export default defineConfig({
     exclude: [
       '**/node_modules/**',
       '**/dist/**',
-      // '**/e2e/**',
+      '**/e2e/**',
       '**/.{idea,git,cache,output,temp}/**',
     ],
   },
   envDir: '.env',
+  server: {
+    host: true,
+    port: 3000,
+    open: true,
+  },
 })
