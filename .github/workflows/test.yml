@@ -2,7 +2,13 @@ name: test CI
 
 on:
   push:
-    branches: [ main, "feature/*" ]
+    branches: 
+      - main
+      - "feature/*"
+      - "bug/*"
+      - "bugfix/*"
+      - "fix/*"
+      - "hotfix/*"
   pull_request:
     branches: [ main ]
 
