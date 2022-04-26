@@ -5,7 +5,7 @@ Digit.propTypes = {
 }
 
 function Digit({ digit }) {
-  return <div>{digit}</div>
+  return <div className="text-5xl">{digit}</div>
 }
 
 export default Digit

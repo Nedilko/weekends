@@ -6,8 +6,8 @@ import Actiontext from './components/ActionText'
 
 function App() {
   return (
-    <div className="App">
-      <section className="flex flex-col h-screen bg-white">
+    <div className="flex justify-center h-screen">
+      <section className="flex flex-col bg-white">
         <Description />
         <Actiontext />
         <Clock />
