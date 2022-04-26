@@ -1,5 +1,5 @@
 import Greetings from './Greetings'
-import Clock from './Clock'
+import Clock from './Clock/Clock'
 import './index.css'
 
 function App() {
