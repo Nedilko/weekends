@@ -4,7 +4,7 @@ import { render, screen } from './utils/test-utils'
 describe('text in the document', () => {
   it('title is visible', () => {
     render(<Greetings />)
-    const title = screen.getByText(/Hello Vite!/i)
+    const title = screen.getByText(/weekends countdown/i)
     expect(title).toBeInTheDocument()
   })
 })
