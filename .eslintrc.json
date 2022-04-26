@@ -10,6 +10,7 @@
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
         "plugin:security/recommended",
+        "plugin:import/recommended",
         "prettier"
     ],
     "parserOptions": {
@@ -84,6 +85,11 @@
           // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
           "Hyperlink",
           {"name": "Link", "linkAttribute": "to"}
-        ]
+        ],
+        "import/resolver": {
+            "node": {
+              "extensions": [".js",".jsx"]
+             }
+          }
     }
 }

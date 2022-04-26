@@ -1,3 +1,4 @@
 dist
 node_modules
 playwright-report
+src/utils/test-utils.js

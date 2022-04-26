@@ -1,4 +1,4 @@
-import Actiontext from './Actiontext'
+import Actiontext from './ActionText'
 import { render, screen } from '../utils/test-utils'
 
 describe('text in the document', () => {
