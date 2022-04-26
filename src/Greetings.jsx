@@ -1,7 +1,7 @@
 function Greetings() {
   return (
     <>
-      <h1 className="font-roboto font-light text-center text-5xl text-stone-200 my-10">
+      <h1 className="font-thin uppercase text-center text-slate-600 text-5xl mb-10 mt-40">
         weekends countdown
       </h1>
     </>

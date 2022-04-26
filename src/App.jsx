@@ -1,12 +1,14 @@
 import Greetings from './Greetings'
+import Clock from './Clock'
 import './index.css'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <section className="flex flex-col h-screen bg-white">
         <Greetings />
-      </header>
+        <Clock />
+      </section>
     </div>
   )
 }
