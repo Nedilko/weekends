@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 
 Separator.propTypes = {
-  separator: PropTypes.string,
+  symbol: PropTypes.string,
 }
 
-function Separator({ separator }) {
-  return <div className="text-5xl mt-4">{separator || ':'}</div>
+function Separator({ symbol }) {
+  return <div className="text-5xl mt-4">{symbol}</div>
 }
 
 export default Separator

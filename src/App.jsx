@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import getTimeLeft from './utils/getTimeLeft'
+import { getTimeLeft, isFriday } from './utils/getTimeLeft'
 import './index.css'
 
 import Description from './components/Description'
@@ -19,9 +19,9 @@ function App() {
     <div className="flex justify-center h-screen">
       <section className="flex flex-col bg-white">
         <Description />
-        <Actiontext />
-        <Clock time={time} />
-        <Greetings />
+        {!isFriday(time) && <Actiontext />}
+        {!isFriday(time) && <Clock time={time} />}
+        {isFriday(time) && <Greetings />}
       </section>
     </div>
   )

@@ -1,11 +1,12 @@
 import dayjs from 'dayjs'
 import objectSupport from 'dayjs/plugin/objectSupport'
 dayjs.extend(objectSupport)
+
 const FRIDAY = {
-  day: 3,
-  hour: 0,
-  minute: 35,
-  second: 30,
+  day: 4,
+  hour: 17,
+  minute: 59,
+  second: 59,
 }
 
 const SECONDS_IN = {
@@ -27,13 +28,14 @@ const getTimeLeft = (friday = FRIDAY) => {
   const days = Math.trunc(secondsLeft / SECONDS_IN.day)
   const hours = Math.trunc(secondsLeft / SECONDS_IN.hour)
   const minutes = Math.trunc(secondsLeft / SECONDS_IN.minute)
-  const seconds = Math.trunc(secondsLeft / SECONDS_IN.minute)
   return {
     days,
-    hours,
-    minutes,
-    seconds,
+    hours: hours - days * 24,
+    minutes: minutes - hours * 60,
+    seconds: secondsLeft - minutes * 60,
   }
 }
 
-export default getTimeLeft
+const isFriday = (friday) => Object.values(friday).every((value) => value === 0)
+
+export { getTimeLeft, isFriday }
