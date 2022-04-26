@@ -5,8 +5,7 @@ Separator.propTypes = {
 }
 
 function Separator({ separator }) {
-  const currentSeparator = separator || ':'
-  return <div>{currentSeparator}</div>
+  return <div>{separator || ':'}</div>
 }
 
 export default Separator
