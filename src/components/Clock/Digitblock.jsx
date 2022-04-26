@@ -3,8 +3,7 @@ import Digit from './Digit'
 
 Digitblock.propTypes = {
   label: PropTypes.string.isRequired,
-  digit: PropTypes.string.isRequired,
-  noSeparator: PropTypes.bool,
+  digit: PropTypes.number.isRequired,
 }
 
 function Digitblock({ label, digit }) {

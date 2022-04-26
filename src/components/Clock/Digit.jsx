@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
 Digit.propTypes = {
-  digit: PropTypes.string.isRequired,
+  digit: PropTypes.number.isRequired,
 }
 
 function Digit({ digit }) {

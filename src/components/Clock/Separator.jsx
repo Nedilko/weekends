@@ -5,7 +5,7 @@ Separator.propTypes = {
 }
 
 function Separator({ separator }) {
-  return <div className="text-5xl">{separator || ':'}</div>
+  return <div className="text-5xl mt-4">{separator || ':'}</div>
 }
 
 export default Separator
