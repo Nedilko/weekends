@@ -24,12 +24,10 @@
         "react",
         "prettier",
         "jest",
-        "no-unsafe-innerhtml",
         "security"
     ],
     "rules": {
         "prettier/prettier": "error",
-        "no-unsafe-innerhtml/no-unsafe-innerhtml": 2,
         "security/detect-non-literal-fs-filename": 2,
         "security/detect-non-literal-regexp": 2,
         "security/detect-unsafe-regex": 2,
