@@ -6,9 +6,11 @@ import Greetings from './components/Greetings'
 import Actiontext from './components/ActionText'
 import Timer from './components/Timer'
 import Header from './components/Header'
+// import { getSettings } from './utils/settings'
 
 function App() {
   const [isFinished, setIsFinished] = useState(false)
+  // const [settings, setSettigns] = useState(getSettings())
 
   return (
     <>
