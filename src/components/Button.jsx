@@ -8,7 +8,7 @@ Button.propTypes = {
 function Button({ onClick, title }) {
   return (
     <button
-      className="bg-green-300 rounded-lg w-24 p-2 m-2 shadow-md"
+      className="w-16 mx-4 py-2 font-thin text-xl hover:scale-110 duration-200 ease-in-out"
       onClick={onClick}
     >
       {title}
