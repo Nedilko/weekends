@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Modal from './Modal'
 import SettingsIcon from './SettingsIcon'
 import SettingsModal from './SettingsModal'
 
@@ -8,16 +7,18 @@ function Settings() {
   const onChange = () => {}
   const handleClose = () => {
     seIsModalOpened((prevIsModalOpened) => !prevIsModalOpened)
-    console.log('clicked')
+    console.log('modal toggled')
     onChange(isModalOpened)
   }
   return (
     <>
       <SettingsIcon onClick={handleClose} />
       {isModalOpened && (
-        <Modal title="Settings" onApply={handleClose} onCancel={handleClose}>
-          <SettingsModal className="font-thin text-xl text-slate-600 dark:text-gray-400" />
-        </Modal>
+        <SettingsModal
+          title="Settings"
+          onApply={handleClose}
+          onCancel={handleClose}
+        />
       )}
     </>
   )
