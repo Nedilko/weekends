@@ -4,19 +4,37 @@ import SettingsModal from './SettingsModal'
 
 function Settings() {
   const [isModalOpened, seIsModalOpened] = useState(false)
-  const onChange = () => {}
-  const handleClose = () => {
-    seIsModalOpened((prevIsModalOpened) => !prevIsModalOpened)
-    console.log('modal toggled')
-    onChange(isModalOpened)
+  const applySettings = () => {
+    console.log('Settings Applied')
   }
+
+  const handleOpen = () => {
+    openModal()
+  }
+  const handleClose = () => {
+    closeModal()
+  }
+  const handleApply = () => {
+    applySettings()
+    closeModal()
+  }
+
+  const openModal = () => {
+    seIsModalOpened(true)
+    console.log('modal opened')
+  }
+  const closeModal = () => {
+    seIsModalOpened(false)
+    console.log('modal closed')
+  }
+
   return (
     <>
-      <SettingsIcon onClick={handleClose} />
+      <SettingsIcon onClick={handleOpen} />
       {isModalOpened && (
         <SettingsModal
           title="Settings"
-          onApply={handleClose}
+          onApply={handleApply}
           onCancel={handleClose}
         />
       )}
