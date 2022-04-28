@@ -9,6 +9,7 @@ function Panel({ children, size = 'sm' }) {
   return (
     <div
       className={`mx-auto max-w-${size} bg-white p-4 dark:bg-zinc-800 rounded-xl shadow-md`}
+      onClick={(e) => e.stopPropagation()}
     >
       {children}
     </div>

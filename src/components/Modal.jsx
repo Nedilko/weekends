@@ -15,7 +15,7 @@ function Modal({ children, title, onApply, onCancel }) {
       <div className="fixed inset-0 backdrop-blur-sm bg-black/30" />
       <div
         className="fixed inset-0 flex items-center justify-center"
-        // onClick={onCancel}
+        onClick={onCancel}
       >
         <Panel size="xl">
           <div className="font-thin text-3xl mb-4 text-slate-600 dark:text-gray-400">
