@@ -11,7 +11,7 @@ Digitblock.propTypes = {
 function Digitblock({ label, digit, separator }) {
   return (
     <>
-      <div className="font-thin uppercase text-slate-600">
+      <div className="font-thin uppercase text-slate-600 dark:text-gray-400">
         <label className="">{label}</label>
         <Digit digit={digit} />
       </div>
