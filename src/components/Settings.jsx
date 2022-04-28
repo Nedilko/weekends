@@ -16,7 +16,7 @@ function Settings() {
       <SettingsIcon onClick={handleClose} />
       {isModalOpened && (
         <Modal title="Settings" onApply={handleClose} onCancel={handleClose}>
-          <SettingsModal className="font-thin text-xl" />
+          <SettingsModal className="font-thin text-xl text-slate-600 dark:text-gray-400" />
         </Modal>
       )}
     </>
