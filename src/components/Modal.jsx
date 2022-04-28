@@ -12,9 +12,8 @@ Modal.propTypes = {
 function Modal({ children, title, onApply, onCancel }) {
   return (
     <div className="relative z-10">
-      <div className="fixed inset-0 backdrop-blur-sm bg-black/30" />
       <div
-        className="fixed inset-0 flex items-center justify-center"
+        className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black/30"
         onClick={onCancel}
       >
         <Panel size="xl">
