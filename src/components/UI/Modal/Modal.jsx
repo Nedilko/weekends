@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import Button from '../../Button'
+import Button from '../Button/Button'
 import Panel from '../Panel'
 
 Modal.propTypes = {
