@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import Button from './Button'
-import Panel from './Panel'
+import Button from '../../Button'
+import Panel from '../Panel'
 
 Modal.propTypes = {
   children: PropTypes.node.isRequired,
