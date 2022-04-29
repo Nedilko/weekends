@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import Modal from './Modal'
 import SettingsModalRow from './SettingsModalRow'
-import TextInput from './TextInput'
-import Toggle from './Toggle'
+import TextInput from '../Inputs/TextInput'
+import Toggle from '../Toggles/Toggle'
 
 SettingsModal.propTypes = {
   onApply: PropTypes.func.isRequired,

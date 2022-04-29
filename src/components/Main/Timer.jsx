@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
-import { getTimeLeft, isFriday } from '../utils/getTimeLeft'
-import Clock from './Clock/Clock'
+import { getTimeLeft, isFriday } from '../../utils/getTimeLeft'
+import Clock from './../Clock/Clock'
 
 Timer.propTypes = {
   isFinishedHandler: PropTypes.func.isRequired,

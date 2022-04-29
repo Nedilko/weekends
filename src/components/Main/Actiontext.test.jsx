@@ -1,5 +1,5 @@
 import Actiontext from './ActionText'
-import { render, screen } from '../utils/test-utils'
+import { render, screen } from '../../utils/test-utils'
 
 describe('text in the document', () => {
   it('action text is visible', () => {
