@@ -21,7 +21,7 @@ function Modal({ children, title, onApply, onCancel }) {
             {title}
           </div>
           {children}
-          <div className="flex justify-end mt-4">
+          <div className="flex justify-end mt-2">
             <Button onClick={onApply} title="Apply" />
             <Button onClick={onCancel} title="Cancel" />
           </div>
