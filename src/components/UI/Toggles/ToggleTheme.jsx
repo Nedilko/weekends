@@ -2,13 +2,13 @@ import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import { MoonIcon, SunIcon } from '@heroicons/react/outline'
 
-ToggleIcon.propTypes = {
+ToggleTheme.propTypes = {
   label: PropTypes.string,
   checked: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
 }
 
-function ToggleIcon({ label, checked = false, onChange }) {
+function ToggleTheme({ label, checked = false, onChange }) {
   const [isChecked, setIsChecked] = useState(checked)
   const handleClick = () => {
     setIsChecked((prevIsChecked) => !prevIsChecked)
@@ -47,4 +47,4 @@ function ToggleIcon({ label, checked = false, onChange }) {
   )
 }
 
-export default ToggleIcon
+export default ToggleTheme

@@ -1,4 +1,4 @@
-import ToggleIcon from '../UI/Toggles/ToggleIcon'
+import ToggleTheme from '../UI/Toggles/ToggleTheme'
 
 function DarkModeSwitcher() {
   const toggleDarkMode = (isDarkMode) => {
@@ -10,7 +10,7 @@ function DarkModeSwitcher() {
       root.classList.remove('dark')
     }
   }
-  return <ToggleIcon checked={false} onChange={toggleDarkMode} />
+  return <ToggleTheme checked={false} onChange={toggleDarkMode} />
 }
 
 export default DarkModeSwitcher
