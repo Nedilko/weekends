@@ -1,11 +1,11 @@
 import './index.css'
 
 import { useState } from 'react'
-import Description from './components/Description'
-import Greetings from './components/Greetings'
-import Actiontext from './components/ActionText'
-import Timer from './components/Timer'
-import Header from './components/Header'
+import Description from './components/Main/Description'
+import Greetings from './components/Main/Greetings'
+import Actiontext from './components/Main/ActionText'
+import Timer from './components/Main/Timer'
+import Header from './components/Header/Header'
 // import { getSettings } from './utils/settings'
 
 function App() {

@@ -3,7 +3,7 @@ import objectSupport from 'dayjs/plugin/objectSupport'
 dayjs.extend(objectSupport)
 
 const FRIDAY = {
-  day: 5,
+  day: 6,
   hour: 17,
   minute: 59,
   second: 59,

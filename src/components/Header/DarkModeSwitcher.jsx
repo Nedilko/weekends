@@ -1,4 +1,4 @@
-import ToggleIcon from './UI/Toggle/ToggleIcon'
+import ToggleIcon from '../UI/Toggle/ToggleIcon'
 
 function DarkModeSwitcher() {
   const toggleDarkMode = (isDarkMode) => {
