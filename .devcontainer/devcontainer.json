@@ -6,7 +6,16 @@
     // "terminal.integrated.shell.linux": "/bin/bash"
   },
 
-  "extensions": [],
+  "extensions": [
+    "bradlc.vscode-tailwindcss",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "GitHub.copilot",
+    "ms-playwright.playwright",
+  ],
 
   // "forwardPorts": [3000],
 
