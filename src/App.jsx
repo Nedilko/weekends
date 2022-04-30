@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className="flex justify-center h-screen bg-white dark:bg-zinc-900 duration-300 ease-in-out">
+      <div className="flex justify-center h-screen bg-white dark:bg-zinc-900">
         <section className="flex flex-col transition-all">
           <Description />
           {!isFinished && <Actiontext />}
