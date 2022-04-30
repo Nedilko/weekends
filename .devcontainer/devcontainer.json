@@ -1,0 +1,25 @@
+{
+  "name": "weekends",
+  "dockerFile": "Dockerfile",
+
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+
+  "extensions": [],
+
+  // "forwardPorts": [3000],
+
+  "portsAttributes": {
+  
+    "3000": {
+    
+    "label": "localhost debug",
+    
+    "onAutoForward": "notify"
+    
+    },
+  },
+
+  "remoteUser": "node"
+}
