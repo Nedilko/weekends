@@ -13,7 +13,7 @@ function ToggleTheme({ label, checked, onClick }) {
       {label}
       <span
         onClick={onClick}
-        className={`flex justify-between w-16 h-8 items-center flex-shrink-0 ml-4 p-1 rounded-full duration-300 ease-in-out ${
+        className={`flex justify-between w-16 h-8 items-center flex-shrink-0 ml-4 p-1 rounded-full ${
           checked ? 'bg-slate-700' : 'bg-gray-200'
         }`}
       >
