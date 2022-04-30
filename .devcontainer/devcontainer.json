@@ -18,10 +18,10 @@
       "label": "localhost debug",
       "onAutoForward": "notify"
     },
-    "9222": {
-      "label": "localhost attach debug",
-      "onAutoForward": "notify"
-    },
+    // "9222": {
+    //   "label": "localhost attach debug",
+    //   "onAutoForward": "notify"
+    // },
   },
   "remoteUser": "node"
 }
