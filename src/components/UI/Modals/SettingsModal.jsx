@@ -4,28 +4,31 @@ import Modal from './Modal'
 import SettingsModalRow from './SettingsModalRow'
 import TextInput from '../Inputs/TextInput'
 import Toggle from '../Toggles/Toggle'
+import { getSettings } from '../../../utils/settings'
 
 SettingsModal.propTypes = {
   onApply: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
-}
-
-const DEFAULT_SETTINGS = {
-  greetingsText: 'Take your time!',
-  name: 'John Doe',
-  age: '42',
+  settings: PropTypes.object.isRequired,
 }
 
 function SettingsModal({ onApply, onCancel }) {
-  const [settings, setSettings] = useState({ ...DEFAULT_SETTINGS })
+  const [settings, setSettings] = useState(getSettings())
   const [greetingsText, setGeetingsText] = useState(settings.greetingsText)
-  const [name, setName] = useState(settings.name)
-  const [age, setAge] = useState(settings.age)
+  const [day, setDay] = useState(settings.day)
+  const [hour, setHour] = useState(settings.hour)
   useEffect(() => {
-    setSettings({ greetingsText, name, age })
-  }, [greetingsText, name, age])
+    setSettings({ greetingsText, day: Number(day), hour: Number(hour) })
+  }, [greetingsText, day, hour])
+
   return (
-    <Modal title="Settings" onApply={onApply} onCancel={onCancel}>
+    <Modal
+      title="Settings"
+      onApply={() =>
+        onApply({ greetingsText, day: Number(day), hour: Number(hour) })
+      }
+      onCancel={onCancel}
+    >
       <section className="flex flex-col font-thin text-xl text-slate-600 dark:text-gray-400">
         <SettingsModalRow>
           <div className="flex">Greetings text</div>
@@ -37,11 +40,11 @@ function SettingsModal({ onApply, onCancel }) {
         </SettingsModalRow>
         <SettingsModalRow>
           <div className="flex">Day</div>
-          <TextInput placeholder="5" value={name} onChange={setName} />
+          <TextInput placeholder="5" value={String(day)} onChange={setDay} />
         </SettingsModalRow>
         <SettingsModalRow>
           <div className="flex">Hour</div>
-          <TextInput placeholder="18" value={age} onChange={setAge} />
+          <TextInput placeholder="18" value={String(hour)} onChange={setHour} />
         </SettingsModalRow>
         <SettingsModalRow>
           <div className="flex">Use system theme</div>

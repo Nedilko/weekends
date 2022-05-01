@@ -2,20 +2,13 @@ import dayjs from 'dayjs'
 import objectSupport from 'dayjs/plugin/objectSupport'
 dayjs.extend(objectSupport)
 
-const FRIDAY = {
-  day: 5,
-  hour: 17,
-  minute: 59,
-  second: 59,
-}
-
 const SECONDS_IN = {
   day: 86400,
   hour: 3600,
   minute: 60,
 }
 
-const getTimeLeft = (friday = FRIDAY) => {
+const getTimeLeft = (friday) => {
   const secondsLeft = dayjs().set(friday).diff(dayjs(), 'second')
   if (secondsLeft <= 0) {
     return {

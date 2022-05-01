@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import SettingsIcon from './SettingsIcon'
 import SettingsModal from '../UI/Modals/SettingsModal'
+import { getSettings, setSettings } from '../../utils/settings'
 
 function Settings() {
   const [isModalOpened, seIsModalOpened] = useState(false)
-  const applySettings = () => {
-    console.log('Settings Applied')
+
+  const applySettings = (data) => {
+    setSettings(data)
   }
 
   const handleOpen = () => {
@@ -14,18 +16,16 @@ function Settings() {
   const handleClose = () => {
     closeModal()
   }
-  const handleApply = () => {
-    applySettings()
+  const handleApply = (data) => {
+    applySettings(data)
     closeModal()
   }
 
   const openModal = () => {
     seIsModalOpened(true)
-    console.log('modal opened')
   }
   const closeModal = () => {
     seIsModalOpened(false)
-    console.log('modal closed')
   }
 
   return (
@@ -36,6 +36,7 @@ function Settings() {
           title="Settings"
           onApply={handleApply}
           onCancel={handleClose}
+          settings={getSettings()}
         />
       )}
     </>

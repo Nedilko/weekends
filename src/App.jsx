@@ -6,11 +6,10 @@ import Greetings from './components/Main/Greetings'
 import Actiontext from './components/Main/ActionText'
 import Timer from './components/Main/Timer'
 import Header from './components/Header/Header'
-// import { getSettings } from './utils/settings'
+import { getSettings } from './utils/settings'
 
 function App() {
   const [isFinished, setIsFinished] = useState(false)
-  // const [settings, setSettigns] = useState(getSettings())
 
   return (
     <>
@@ -19,7 +18,9 @@ function App() {
         <section className="flex flex-col transition-all">
           <Description />
           {!isFinished && <Actiontext />}
-          {!isFinished && <Timer isFinishedHandler={setIsFinished} />}
+          {!isFinished && (
+            <Timer settings={getSettings()} isFinishedHandler={setIsFinished} />
+          )}
           {isFinished && <Greetings />}
         </section>
       </div>
