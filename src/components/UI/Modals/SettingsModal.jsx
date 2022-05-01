@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
+import ReactDOM from 'react-dom'
 import Modal from './Modal'
 import SettingsModalRow from './SettingsModalRow'
 import TextInput from '../Inputs/TextInput'
@@ -21,7 +22,7 @@ function SettingsModal({ onApply, onCancel }) {
     setSettings({ greetingsText, day: Number(day), hour: Number(hour) })
   }, [greetingsText, day, hour])
 
-  return (
+  return ReactDOM.createPortal(
     <Modal
       title="Settings"
       onApply={() =>
@@ -51,7 +52,8 @@ function SettingsModal({ onApply, onCancel }) {
           <Toggle checked={false} onChange={() => {}} />
         </SettingsModalRow>
       </section>
-    </Modal>
+    </Modal>,
+    document.getElementById('modal-root')
   )
 }
 
