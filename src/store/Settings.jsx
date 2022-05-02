@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-
-const DEAFULT_FRIDAY = {
-  day: 5,
-  hour: 17,
-  minute: 59,
-  second: 59,
-}
-
-const getDefaultSettings = () => ({
-  greetingsText: 'Have a beer!',
-  day: DEAFULT_FRIDAY.day,
-  hour: DEAFULT_FRIDAY.hour,
-})
+import { getDefaultSettings } from '@utils/settings'
 
 const SettingsContext = React.createContext({
   settings: getDefaultSettings(),

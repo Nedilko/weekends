@@ -31,4 +31,4 @@ const getTheme = () => {
   return theme === 'true' ? true : false
 }
 
-export { DEAFULT_FRIDAY, getDefaultSettings, getTheme, saveTheme, getTimerData }
+export { DEAFULT_FRIDAY, getTheme, saveTheme, getTimerData, getDefaultSettings }
