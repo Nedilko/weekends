@@ -145,6 +145,12 @@ jobs:
 
       - name: build app
         run: npm run build:production
+      
+      - name: upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist
+          path: dist
 
   pack:
     name: pack and push
@@ -171,6 +177,11 @@ jobs:
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@v1
+
+      - name: download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
 
       - name: Build and push
         uses: docker/build-push-action@v2
