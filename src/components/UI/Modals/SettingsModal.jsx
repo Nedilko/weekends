@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { useContext, useState } from 'react'
-import ReactDOM from 'react-dom'
+
 import Modal from './Modal'
 import SettingsModalRow from './SettingsModalRow'
 import TextInput from '../Inputs/TextInput'
@@ -11,6 +11,7 @@ SettingsModal.propTypes = {
   onApply: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
   settings: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 function SettingsModal({ title, settings, onApply, onCancel }) {
@@ -20,7 +21,7 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
 
   const ctx = useContext(SettingsContext)
 
-  return ReactDOM.createPortal(
+  return (
     <Modal
       title={title}
       onApply={() =>
@@ -50,8 +51,7 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
           <Toggle checked={false} onChange={() => {}} />
         </SettingsModalRow>
       </section>
-    </Modal>,
-    document.getElementById('modal-root') //TODO: use this inside the modal component
+    </Modal>
   )
 }
 

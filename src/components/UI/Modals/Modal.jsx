@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import ReactDOM from 'react-dom'
 import Button from '../Buttons/Button'
 import Panel from '../Panel'
 
@@ -10,7 +11,7 @@ Modal.propTypes = {
 }
 
 function Modal({ children, title, onApply, onCancel }) {
-  return (
+  return ReactDOM.createPortal(
     <div className="relative z-10">
       <div
         className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black/30"
@@ -27,7 +28,8 @@ function Modal({ children, title, onApply, onCancel }) {
           </div>
         </Panel>
       </div>
-    </div>
+    </div>,
+    document.getElementById('modal-root')
   )
 }
 

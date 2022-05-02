@@ -7,10 +7,6 @@ function Settings() {
   const [isModalOpened, seIsModalOpened] = useState(false)
   const settings = useContext(SettingsContext)
 
-  const applySettings = (data) => {
-    settings.applySettings(data)
-  }
-
   const handleOpen = () => {
     openModal()
   }
@@ -18,7 +14,7 @@ function Settings() {
     closeModal()
   }
   const handleApply = (data) => {
-    applySettings(data)
+    settings.handleApply(data)
     closeModal()
   }
 

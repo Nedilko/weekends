@@ -27,15 +27,13 @@ export const SettingsContextProvider = ({ children }) => {
     setSettings(loadSettings())
   }, [])
 
-  const applySettings = (newSettings) => {
+  const handleApply = (newSettings) => {
     setSettings(newSettings)
     writeSettings(newSettings)
   }
 
   return (
-    <SettingsContext.Provider
-      value={{ data: settings, applySettings: applySettings }} //TODO: reafctor -> remove redundant applySettings
-    >
+    <SettingsContext.Provider value={{ data: settings, handleApply }}>
       {children}
     </SettingsContext.Provider>
   )
