@@ -191,8 +191,8 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ghcr.io/nedilko/weekends:latest
-          # cache-from: type=registry,ref=ghcr.io/nedilko/weekends:buildcache
-          # cache-to: type=registry,ref=ghcr.io/nedilko/weekends:buildcache,mode=max
+          cache-from: type=registry,ref=ghcr.io/nedilko/weekends:buildcache
+          cache-to: type=registry,ref=ghcr.io/nedilko/weekends:buildcache,mode=max
 
   # deployment:
   #   runs-on: ubuntu-latest
