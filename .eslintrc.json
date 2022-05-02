@@ -91,7 +91,10 @@
              "alias": {
                 "map": [
                   ["@", "./src"],
-                  ["@components", "./src/components"]
+                  ["@components", "./src/components"],
+                  ["@hooks", "./src/hooks"],
+                  ["@store", "./src/store"],
+                  ["@utils", "./src/utils"]
                 ],
                 "extensions": [".js", ".jsx", ".json"]
               }

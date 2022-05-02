@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
-import { useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import ReactDOM from 'react-dom'
 import Modal from './Modal'
 import SettingsModalRow from './SettingsModalRow'
 import TextInput from '../Inputs/TextInput'
 import Toggle from '../Toggles/Toggle'
-import { getSettings } from '../../../utils/settings'
+import SettingsContext from '../../../store/Settings'
 
 SettingsModal.propTypes = {
   onApply: PropTypes.func.isRequired,
@@ -13,18 +13,16 @@ SettingsModal.propTypes = {
   settings: PropTypes.object.isRequired,
 }
 
-function SettingsModal({ onApply, onCancel }) {
-  const [settings, setSettings] = useState(getSettings())
+function SettingsModal({ title, settings, onApply, onCancel }) {
   const [greetingsText, setGeetingsText] = useState(settings.greetingsText)
   const [day, setDay] = useState(settings.day)
   const [hour, setHour] = useState(settings.hour)
-  useEffect(() => {
-    setSettings({ greetingsText, day: Number(day), hour: Number(hour) })
-  }, [greetingsText, day, hour])
+
+  const ctx = useContext(SettingsContext)
 
   return ReactDOM.createPortal(
     <Modal
-      title="Settings"
+      title={title}
       onApply={() =>
         onApply({ greetingsText, day: Number(day), hour: Number(hour) })
       }
@@ -34,7 +32,7 @@ function SettingsModal({ onApply, onCancel }) {
         <SettingsModalRow>
           <div className="flex">Greetings text</div>
           <TextInput
-            placeholder="Have a beer!"
+            placeholder={ctx.theme}
             value={greetingsText}
             onChange={setGeetingsText}
           />
@@ -53,7 +51,7 @@ function SettingsModal({ onApply, onCancel }) {
         </SettingsModalRow>
       </section>
     </Modal>,
-    document.getElementById('modal-root')
+    document.getElementById('modal-root') //TODO: use this inside the modal component
   )
 }
 

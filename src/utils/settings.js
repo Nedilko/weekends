@@ -1,5 +1,5 @@
 const DEAFULT_FRIDAY = {
-  day: 0,
+  day: 5,
   hour: 17,
   minute: 59,
   second: 59,
@@ -31,27 +31,4 @@ const getTheme = () => {
   return theme === 'true' ? true : false
 }
 
-const getSettings = () => {
-  const localStorData = localStorage.getItem('settings')
-  if (!localStorData) {
-    localStorage.setItem(
-      'settings',
-      btoa(JSON.stringify({ ...getDefaultSettings() }))
-    )
-    return getDefaultSettings()
-  }
-  return JSON.parse(atob(localStorData))
-}
-
-const setSettings = (settings) => {
-  return localStorage.setItem('settings', btoa(JSON.stringify(settings)))
-}
-
-export {
-  DEAFULT_FRIDAY,
-  getSettings,
-  setSettings,
-  getTheme,
-  saveTheme,
-  getTimerData,
-}
+export { DEAFULT_FRIDAY, getDefaultSettings, getTheme, saveTheme, getTimerData }

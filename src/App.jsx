@@ -17,7 +17,7 @@ function App() {
         <section className="flex flex-col transition-all">
           <Description />
           {!isFinished && <Actiontext />}
-          {!isFinished && <Timer isFinishedHandler={setIsFinished} />}
+          {!isFinished && <Timer onFinish={setIsFinished} />}
           {isFinished && <Greetings />}
         </section>
       </main>

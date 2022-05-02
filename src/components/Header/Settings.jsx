@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import SettingsIcon from './SettingsIcon'
 import SettingsModal from '../UI/Modals/SettingsModal'
-import { getSettings, setSettings } from '../../utils/settings'
+import SettingsContext from '../../store/Settings'
 
 function Settings() {
   const [isModalOpened, seIsModalOpened] = useState(false)
+  const settings = useContext(SettingsContext)
 
   const applySettings = (data) => {
-    setSettings(data)
+    settings.applySettings(data)
   }
 
   const handleOpen = () => {
@@ -36,7 +37,7 @@ function Settings() {
           title="Settings"
           onApply={handleApply}
           onCancel={handleClose}
-          settings={getSettings()}
+          settings={settings.data}
         />
       )}
     </>
