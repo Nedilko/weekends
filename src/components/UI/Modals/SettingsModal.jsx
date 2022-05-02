@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 
 import Modal from './Modal'
 import SettingsModalRow from './SettingsModalRow'
 import TextInput from '../Inputs/TextInput'
+import NumberInput from '../Inputs/NumberInput'
 import Toggle from '../Toggles/Toggle'
-import SettingsContext from '../../../store/Settings'
 
 SettingsModal.propTypes = {
   onApply: PropTypes.func.isRequired,
@@ -20,16 +20,14 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
   const [hour, setHour] = useState(settings.hour)
   const [useSystemTheme, setuUseSystemTheme] = useState(settings.useSystemTheme)
 
-  const ctx = useContext(SettingsContext)
-
   return (
     <Modal
       title={title}
       onApply={() =>
         onApply({
           greetingsText,
-          day: Number(day),
-          hour: Number(hour),
+          day,
+          hour,
           useSystemTheme,
         })
       }
@@ -37,23 +35,35 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
     >
       <section className="flex flex-col font-thin text-xl text-slate-600 dark:text-gray-400">
         <SettingsModalRow>
-          <div className="flex">Greetings text</div>
+          <div className="flex w-1/2">Greetings text</div>
           <TextInput
-            placeholder={ctx.theme}
+            placeholder="Have a beer"
             value={greetingsText}
             onChange={setGeetingsText}
           />
         </SettingsModalRow>
         <SettingsModalRow>
-          <div className="flex">Day</div>
-          <TextInput placeholder="5" value={String(day)} onChange={setDay} />
+          <div className="flex w-1/2">Day</div>
+          <NumberInput
+            placeholder="5"
+            value={Number(day)}
+            min={1}
+            max={6}
+            onChange={setDay}
+          />
         </SettingsModalRow>
         <SettingsModalRow>
-          <div className="flex">Hour</div>
-          <TextInput placeholder="18" value={String(hour)} onChange={setHour} />
+          <div className="flex w-1/2">Hour</div>
+          <NumberInput
+            placeholder="18"
+            value={Number(hour)}
+            min={0}
+            max={23}
+            onChange={setHour}
+          />
         </SettingsModalRow>
         <SettingsModalRow>
-          <div className="flex">Use system theme</div>
+          <div className="flex w-1/2">Use system theme</div>
           <Toggle checked={useSystemTheme} onChange={setuUseSystemTheme} />
         </SettingsModalRow>
       </section>
