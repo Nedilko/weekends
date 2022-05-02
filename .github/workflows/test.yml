@@ -9,8 +9,8 @@ on:
       - "bugfix/*"
       - "fix/*"
       - "hotfix/*"
-  pull_request:
-    branches: [ main ]
+  # pull_request:
+  #   branches: [ main ]
 
 jobs:
   test:

@@ -1,0 +1,55 @@
+name: Feature Deploy
+
+on:
+  push:
+    # branches: 
+    #   - main
+    #   - "feature/*"
+    #   - "bug/*"
+    #   - "bugfix/*"
+    #   - "fix/*"
+    #   - "hotfix/*"
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Test
+    runs-on: self-hosted
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: use node v14  
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: run tests
+        run: npm test
+
+      - name: build app
+        run: npm run build:production
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/weekends:latest
