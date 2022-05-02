@@ -1,7 +1,7 @@
 name: Feature Deploy
 
 on:
-  push:
+  # push:
     # branches: 
     #   - main
     #   - "feature/*"
