@@ -66,6 +66,6 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/weekends:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/weekends:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/weekends:buildcache,mode=max
+          tags: ghcr.io/nedilko/weekends:latest
+          cache-from: type=registry,ref=ghcr.io/nedilko/weekends:buildcache
+          cache-to: type=registry,ref=ghcr.io/nedilko/weekends:buildcache,mode=max
