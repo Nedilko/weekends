@@ -5,10 +5,13 @@ const DEAFULT_FRIDAY = {
   second: 59,
 }
 
+const DEFAULT_THEME = 'light'
+
 const getDefaultSettings = () => ({
   greetingsText: 'Have a beer!',
   day: DEAFULT_FRIDAY.day,
   hour: DEAFULT_FRIDAY.hour,
+  theme: DEFAULT_THEME,
 })
 
 const getTimerData = (friday) => ({
