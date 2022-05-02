@@ -2,21 +2,14 @@ import dayjs from 'dayjs'
 import objectSupport from 'dayjs/plugin/objectSupport'
 dayjs.extend(objectSupport)
 
-const FRIDAY = {
-  day: 5,
-  hour: 17,
-  minute: 59,
-  second: 59,
-}
-
 const SECONDS_IN = {
   day: 86400,
   hour: 3600,
   minute: 60,
 }
 
-const getTimeLeft = (friday = FRIDAY) => {
-  const secondsLeft = dayjs().set(friday).diff(dayjs(), 'second')
+const getTimeLeft = (time) => {
+  const secondsLeft = dayjs().set(time).diff(dayjs(), 'second')
   if (secondsLeft <= 0) {
     return {
       days: 0,
@@ -36,6 +29,6 @@ const getTimeLeft = (friday = FRIDAY) => {
   }
 }
 
-const isFriday = (friday) => Object.values(friday).every((value) => value === 0)
+const isFinished = (time) => Object.values(time).every((value) => value === 0)
 
-export { getTimeLeft, isFriday }
+export { getTimeLeft, isFinished }
