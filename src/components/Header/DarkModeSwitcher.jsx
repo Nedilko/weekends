@@ -1,27 +1,32 @@
 import ToggleTheme from '../UI/Toggles/ToggleTheme'
-import { useEffect, useState } from 'react'
-import { getTheme, saveTheme } from '../../utils/settings'
+import { useEffect, useState, useContext } from 'react'
+import SettingsContext from '@store/Settings'
 
 function DarkModeSwitcher() {
-  const [isDarkMode, setIsDarkMode] = useState(getTheme())
+  const settings = useContext(SettingsContext)
+  const [isDarkMode, setIsDarkMode] = useState(settings.data.theme === 'dark')
 
-  const applyTheme = (isDark) => {
+  useEffect(() => {
+    setIsDarkMode(settings.data.theme === 'dark')
+  }, [settings.data.theme])
+
+  const applyTheme = () => {
     const root = document.documentElement
-    if (isDark) {
+    if (isDarkMode) {
       root.classList.add('dark')
     } else {
       root.classList.remove('dark')
     }
-    saveTheme(isDark)
+    settings.handleApply({ theme: isDarkMode ? 'dark' : 'light' })
   }
 
   const handleToggleTheme = () => {
-    setIsDarkMode(() => !isDarkMode)
+    setIsDarkMode((prevDarkMode) => !prevDarkMode)
     applyTheme(!isDarkMode)
   }
 
   useEffect(() => {
-    applyTheme(isDarkMode)
+    applyTheme()
   }, [isDarkMode])
 
   return <ToggleTheme checked={isDarkMode} onClick={handleToggleTheme} />

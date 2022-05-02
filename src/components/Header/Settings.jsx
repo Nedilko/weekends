@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import SettingsIcon from './SettingsIcon'
 import SettingsModal from '../UI/Modals/SettingsModal'
-import SettingsContext from '../../store/Settings'
+import SettingsContext from '@store/Settings'
 
 function Settings() {
   const [isModalOpened, seIsModalOpened] = useState(false)

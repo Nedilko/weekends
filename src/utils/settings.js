@@ -22,17 +22,4 @@ const getTimerData = (friday) => ({
   seconds: DEAFULT_FRIDAY.second,
 })
 
-const saveTheme = (isDark) => {
-  return localStorage.setItem('darkMode', isDark)
-}
-
-const getTheme = () => {
-  const theme = localStorage.getItem('darkMode')
-  if (!theme) {
-    localStorage.setItem('darkMode', false)
-    return false
-  }
-  return theme === 'true' ? true : false
-}
-
-export { DEAFULT_FRIDAY, getTheme, saveTheme, getTimerData, getDefaultSettings }
+export { DEAFULT_FRIDAY, getTimerData, getDefaultSettings }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { getDefaultSettings } from '@utils/settings'
 
@@ -21,15 +21,15 @@ const writeSettings = (settings) => {
 }
 
 export const SettingsContextProvider = ({ children }) => {
-  const [settings, setSettings] = useState(getDefaultSettings())
-
-  useEffect(() => {
-    setSettings(loadSettings())
-  }, [])
+  const [settings, setSettings] = useState(loadSettings())
 
   const handleApply = (newSettings) => {
-    setSettings(newSettings)
-    writeSettings(newSettings)
+    setSettings((oldSettings) => {
+      const mergedSettings = { ...oldSettings, ...newSettings }
+      writeSettings(mergedSettings)
+
+      return mergedSettings
+    })
   }
 
   return (
