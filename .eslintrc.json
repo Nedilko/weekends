@@ -87,7 +87,14 @@
         "import/resolver": {
             "node": {
               "extensions": [".js",".jsx"]
-             }
+             },
+             "alias": {
+                "map": [
+                  ["@", "./src"],
+                  ["@components", "./src/components"]
+                ],
+                "extensions": [".js", ".jsx", ".json"]
+              }
           }
     }
 }
