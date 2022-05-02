@@ -12,6 +12,7 @@ const getDefaultSettings = () => ({
   day: DEAFULT_FRIDAY.day,
   hour: DEAFULT_FRIDAY.hour,
   theme: DEFAULT_THEME,
+  useSystemTheme: false,
 })
 
 const getTimerData = (friday) => ({
