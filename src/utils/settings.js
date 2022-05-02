@@ -22,4 +22,9 @@ const getTimerData = (friday) => ({
   seconds: DEAFULT_FRIDAY.second,
 })
 
-export { DEAFULT_FRIDAY, getTimerData, getDefaultSettings }
+const getSystemTheme = () =>
+  window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
+
+export { DEAFULT_FRIDAY, getTimerData, getDefaultSettings, getSystemTheme }

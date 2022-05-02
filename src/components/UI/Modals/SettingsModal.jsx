@@ -18,6 +18,7 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
   const [greetingsText, setGeetingsText] = useState(settings.greetingsText)
   const [day, setDay] = useState(settings.day)
   const [hour, setHour] = useState(settings.hour)
+  const [useSystemTheme, setuUseSystemTheme] = useState(settings.useSystemTheme)
 
   const ctx = useContext(SettingsContext)
 
@@ -25,7 +26,12 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
     <Modal
       title={title}
       onApply={() =>
-        onApply({ greetingsText, day: Number(day), hour: Number(hour) })
+        onApply({
+          greetingsText,
+          day: Number(day),
+          hour: Number(hour),
+          useSystemTheme,
+        })
       }
       onCancel={onCancel}
     >
@@ -48,7 +54,7 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
         </SettingsModalRow>
         <SettingsModalRow>
           <div className="flex">Use system theme</div>
-          <Toggle checked={false} onChange={() => {}} />
+          <Toggle checked={useSystemTheme} onChange={setuUseSystemTheme} />
         </SettingsModalRow>
       </section>
     </Modal>
