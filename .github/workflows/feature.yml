@@ -1,14 +1,6 @@
 name: Feature Deploy
 
 on:
-  # push:
-    # branches: 
-    #   - main
-    #   - "feature/*"
-    #   - "bug/*"
-    #   - "bugfix/*"
-    #   - "fix/*"
-    #   - "hotfix/*"
   pull_request:
     branches: [ main ]
 
