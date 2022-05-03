@@ -10,7 +10,7 @@ body:
   - type: textarea
     id: story-description
     attributes:
-      label: Story description
+      label: Description
       description: Describe the user story
       placeholder: As a user, I want to do something...
       value: "As a user, I want to"
@@ -19,10 +19,9 @@ body:
   - type: textarea
     id: pre-conditions
     attributes:
-      label: Story pre-conditions
+      label: Pre-conditions
       description: Describe pre-conditions
       placeholder: Local storage is empty
-      value: "Clear local storage"
     validations:
       required: false
   - type: textarea
@@ -30,7 +29,7 @@ body:
     attributes:
       label: Acceptance criteria
       description: Describe acceptance criteria
-      placeholder: Label has text and is visible
-      value: "List of acceptance criterias"
+      value: |
+        - Functionality 1 workds as accepted
     validations:
       required: true
