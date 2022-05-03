@@ -1,0 +1,27 @@
+name: User Story
+description: User story template
+title: "[Story]: "
+labels: ["User Story"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill inall available fields!
+  - type: textarea
+    id: story-description
+    attributes:
+      label: Story description
+      description: Describe the user story
+      placeholder: Example: As a user, I want to do something...
+      value: "As a user, I want to"
+    validations:
+      required: true
+  - type: textarea
+    id: pre-conditions
+    attributes:
+      label: Story pre-conditions
+      description: Describe pre-conditions
+      placeholder: Example: Local storage is empty
+      value: "Clear local storage"
+    validations:
+      required: false
