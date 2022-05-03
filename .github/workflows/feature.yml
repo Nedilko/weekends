@@ -5,6 +5,20 @@ on:
     branches: [ main ]
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      repo: ${{ steps.vars.outputs.repo }}
+      tag: ${{ steps.vars.outputs.tag }}
+    steps:
+      - name: Use repository
+        uses: actions/checkout@v2
+      - name: Build variables
+        id: vars
+        run: |
+          echo "::set-output name=repo::$GITHUB_REPOSITORY"
+          echo "::set-output name=tag::$(git rev-parse --short "$GITHUB_SHA")"
+
   test:
     name: test
     # runs-on: self-hosted
@@ -40,11 +54,11 @@ jobs:
       - name: run tests
         run: npm test
 
-      - name: tag name
-        run: |
-          echo "{{ env.GITHUB_REF }}"
-          echo "{{ env.GITHUB_SHA }}"
-          echo "{{ env.GITHUB_REPOSITORY }}"
+      # - name: tag name
+      #   run: |
+      #     echo "{{ env.GITHUB_REF }}"
+      #     echo "{{ env.GITHUB_SHA }}"
+      #     echo "{{ env.GITHUB_REPOSITORY }}"
   
   coverage:
     name: coverage
@@ -162,7 +176,7 @@ jobs:
     name: pack and push
     # runs-on: self-hosted
     runs-on: ubuntu-latest
-    needs: build
+    needs: [build, setup]
 
     steps:
       - name: checkout
@@ -196,9 +210,9 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ghcr.io/nedilko/weekends:latest
-          cache-from: type=registry,ref=ghcr.io/nedilko/weekends:buildcache
-          cache-to: type=registry,ref=ghcr.io/nedilko/weekends:buildcache,mode=max
+          tags: ${{ needs.setup.outputs.repo }}:${{ needs.setup.outputs.tag }}
+          # cache-from: type=registry,ref=ghcr.io/nedilko/weekends:buildcache
+          # cache-to: type=registry,ref=ghcr.io/nedilko/weekends:buildcache,mode=max
 
   # deployment:
   #   runs-on: ubuntu-latest
