@@ -260,7 +260,8 @@ jobs:
       #   run: helm lint ./infra/helm/
       - name: Deploy
         run: |
-          helm upgrade --install --atomic --timeout 1m weekends ./infra/helm/ -f ./infra/helm/values.yaml \
+          helm upgrade -f ./infra/helm/values.yaml dev-weekends ./infra/helm/ \
+            --install \
             --namespace develop --create-namespace \
             --set ingress.host="dev.weekends.love.nac.in.ua"
             --set ingress.tls.hosts="dev.weekends.love.nac.in.ua"
