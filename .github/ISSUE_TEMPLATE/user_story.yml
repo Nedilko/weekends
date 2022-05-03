@@ -29,7 +29,6 @@ body:
     attributes:
       label: Acceptance criteria
       description: Describe acceptance criteria
-      value: |
-        - Functionality 1 workds as accepted
+      value: - Functionality 1 works as accepted
     validations:
       required: true
