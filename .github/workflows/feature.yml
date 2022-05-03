@@ -256,8 +256,8 @@ jobs:
           tar -zxvf helm-v3.8.0-linux-amd64.tar.gz
           mv linux-amd64/helm /usr/local/bin/helm
           helm version
-      - name: Lint helm charts
-        run: helm lint ./infra/helm/
+      # - name: Lint helm charts
+      #   run: helm lint ./infra/helm/
       - name: Deploy
         run: |
           helm upgrade --install --atomic --timeout 1m weekends ./infra/helm/ -f ./infra/helm/values.yaml \
