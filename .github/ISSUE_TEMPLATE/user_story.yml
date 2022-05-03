@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Please fill inall available fields!
+        Please fill in all available fields!
   - type: textarea
     id: story-description
     attributes:
@@ -29,5 +29,6 @@ body:
     attributes:
       label: Acceptance criteria
       description: Describe acceptance criteria
+      value: "1. Functionality #1 must work as expected"
     validations:
       required: true
