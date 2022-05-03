@@ -243,9 +243,9 @@ jobs:
   deploy:
     needs: [setup, pack]
     runs-on: ubuntu-latest
-    # environment:
-    #   name: development
-    #   url: https://dev.weekends.nac.in.ua
+    environment:
+      name: development
+      url: https://dev.weekends.nac.in.ua
     steps:
       - name: Download repository
         uses: actions/download-artifact@v2
