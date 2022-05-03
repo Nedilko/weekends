@@ -268,4 +268,5 @@ jobs:
           helm upgrade -f ./infra/helm/dev-values.yaml dev-weekends ./infra/helm/ \
             --install \
             --namespace develop --create-namespace \
+            --set ingress.tls.secretName=${{ needs.setup.outputs.tag }}
             --set image.tag=${{ needs.setup.outputs.tag }}
