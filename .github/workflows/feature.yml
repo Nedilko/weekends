@@ -251,7 +251,7 @@ jobs:
       - name: Create kube config
         run: |
           mkdir -p $HOME/.kube/
-          echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+          echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > $HOME/.kube/config
           chmod 600 $HOME/.kube/config
       - name: Install helm
         run: |
