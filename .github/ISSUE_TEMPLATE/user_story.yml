@@ -31,6 +31,6 @@ body:
       label: Acceptance criteria
       description: Describe acceptance criteria
       placeholder: Label has text and is visible
-      value: ""
+      value: "List of acceptance criterias"
     validations:
       required: false
