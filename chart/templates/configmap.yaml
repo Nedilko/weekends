@@ -1,0 +1,22 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ include "chart.fullname" . }}
+data:
+  default.conf: |
+    server {
+      server_name _;
+      listen 80 default_server;
+      root /opt/app;
+
+      location / {
+        index  index.html index.htm;
+        try_files $uri $uri/ /index.html;
+      }
+
+      error_page 500 502 503 504 /50x.html;
+
+      location = /50x.html {
+          root /usr/share/nginx/html;
+      }
+    }

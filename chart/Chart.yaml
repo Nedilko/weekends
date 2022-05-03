@@ -1,0 +1,6 @@
+apiVersion: v2
+name: chart
+description: Weekends countdown application
+type: application
+version: 0.1.0
+appVersion: "v1.0.5"
