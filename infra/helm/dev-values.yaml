@@ -29,10 +29,10 @@ ingress:
   className: "nginx"
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
-  host: "dev.weekends.love.nac.in.ua"
+  host: "dev.weekends.nac.in.ua"
   tls:
     secretName: ""
-    hosts: "dev.weekends.love.nac.in.ua"
+    hosts: "dev.weekends.nac.in.ua"
 
 resources:
   limits:
