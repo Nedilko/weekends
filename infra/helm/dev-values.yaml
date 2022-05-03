@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: ""
+  repository: "ghcr.io/nedilko/weekends"
   tag: ""
   pullPolicy: IfNotPresent
 
@@ -29,10 +29,10 @@ ingress:
   className: "nginx"
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
-  host: ""
+  host: "dev.weekends.love.nac.in.ua"
   tls:
     secretName: ""
-    hosts: ""
+    hosts: "dev.weekends.love.nac.in.ua"
 
 resources:
   limits:

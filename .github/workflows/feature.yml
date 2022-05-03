@@ -268,8 +268,4 @@ jobs:
           helm upgrade -f ./infra/helm/dev-values.yaml dev-weekends ./infra/helm/ \
             --install \
             --namespace develop --create-namespace \
-            --set ingress.host="dev.weekends.love.nac.in.ua"
-            --set ingress.tls.hosts="dev.weekends.love.nac.in.ua"
-            --set ingress.tls.secretName=${{ needs.setup.outputs.tag }}
-            --set image.repository="ghcr.io/nedilko/weekends"
             --set image.tag=${{ needs.setup.outputs.tag }}
