@@ -21,8 +21,10 @@ jobs:
       - name: Upload chart
         uses: actions/upload-artifact@v2
         with:
-          name: chart
-          path: ${{ github.workspace }}/infra
+          name: repository
+          path: |
+            ${{ github.workspace }}/infra
+            ${{ github.workspace }}/.dockerignore
 
   test:
     name: test
@@ -247,7 +249,7 @@ jobs:
       - name: Download repository
         uses: actions/download-artifact@v2
         with:
-          name: chart
+          name: repository
       - name: Create kube config
         run: |
           mkdir -p $HOME/.kube/
