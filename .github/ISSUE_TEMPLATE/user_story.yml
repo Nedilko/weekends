@@ -29,6 +29,6 @@ body:
     attributes:
       label: Acceptance criteria
       description: Describe acceptance criteria
-      value: "1. Functionality #1 must work as expected"
+      value: "1. Functionality must work as expected"
     validations:
       required: true
