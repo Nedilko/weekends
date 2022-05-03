@@ -210,7 +210,8 @@ jobs:
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ needs.setup.outputs.repo }}:${{ needs.setup.outputs.tag }}
+          # tags: ${{ needs.setup.outputs.repo }}:${{ needs.setup.outputs.tag }}
+          tags: weekends:${{ needs.setup.outputs.tag }}
           # cache-from: type=registry,ref=ghcr.io/nedilko/weekends:buildcache
           # cache-to: type=registry,ref=ghcr.io/nedilko/weekends:buildcache,mode=max
 
