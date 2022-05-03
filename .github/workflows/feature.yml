@@ -22,7 +22,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: chart
-          path: chart
+          path: ${{ github.workspace }}/infra
 
   test:
     name: test
