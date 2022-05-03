@@ -33,4 +33,4 @@ body:
       placeholder: Label has text and is visible
       value: "List of acceptance criterias"
     validations:
-      required: false
+      required: true
