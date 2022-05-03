@@ -39,6 +39,12 @@ jobs:
 
       - name: run tests
         run: npm test
+
+      - name: tag name
+        run: |
+          echo "{{ env.GITHUB_REF }}"
+          echo "{{ env.GITHUB_SHA }}"
+          echo "{{ env.GITHUB_REPOSITORY }}"
   
   coverage:
     name: coverage
