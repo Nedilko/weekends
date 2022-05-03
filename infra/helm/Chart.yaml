@@ -1,5 +1,5 @@
 apiVersion: v2
-name: chart
+name: weekends
 description: Weekends countdown application
 type: application
 version: 0.1.0
