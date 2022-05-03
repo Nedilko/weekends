@@ -12,7 +12,7 @@ body:
     attributes:
       label: Story description
       description: Describe the user story
-      placeholder: Example: As a user, I want to do something...
+      placeholder: As a user, I want to do something...
       value: "As a user, I want to"
     validations:
       required: true
@@ -21,7 +21,7 @@ body:
     attributes:
       label: Story pre-conditions
       description: Describe pre-conditions
-      placeholder: Example: Local storage is empty
+      placeholder: Local storage is empty
       value: "Clear local storage"
     validations:
       required: false
@@ -30,7 +30,7 @@ body:
     attributes:
       label: Acceptance criteria
       description: Describe acceptance criteria
-      placeholder: Example: Label has text "Hello World" and is visible
+      placeholder: Label has text and is visible
       value: ""
     validations:
       required: false
