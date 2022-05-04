@@ -1,0 +1,47 @@
+name: Epic User Story
+description: Epic for other User stories
+title: "[Epic Story]: "
+labels: ["User Story", "Epic"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill in all available fields!
+  - type: textarea
+    id: story-description
+    attributes:
+      label: Description
+      description: Describe the user story
+      placeholder: example. As a user, I want to do something...
+      value: "As a user, I want to"
+    validations:
+      required: true
+  - type: textarea
+    id: pre-conditions
+    attributes:
+      label: Pre-conditions
+      description: Describe pre-conditions
+      placeholder: example. Local storage is empty
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: Describe acceptance criteria
+      value: "1. Functionality must work as expected"
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: "How do you trigger this bug? Please walk us through it step by step."
+      value: |
+        1.
+        2.
+        3.
+        ...
+      render: bash
+    validations:
+      required: true
