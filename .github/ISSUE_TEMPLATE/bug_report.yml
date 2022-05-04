@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Please fill in all available fields!
-        All additional contect si not required and you can put it in last field.
+        All additional contect is not required and you can put it in last field.
   - type: textarea
     id: bug-description
     attributes:
@@ -19,7 +19,7 @@ body:
   - type: textarea
     id: str
     attributes:
-      label: Steps to reproduce
+      label: Reproduction steps
       description: Steps to reproduce the behavior
       placeholder: example. Click on ...
     validations:
