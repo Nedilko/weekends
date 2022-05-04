@@ -1,5 +1,5 @@
-name: Feature request
-description: Feature request description template
+name:  Epic Feature request
+description: Epic for other Feature requests
 title: "[Epic Feature]: "
 labels: ["Feature", "Epic"]
 body:
