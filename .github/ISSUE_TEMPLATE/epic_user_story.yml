@@ -22,9 +22,9 @@ body:
       label: Related stories
       description: List all related stories. After you can create issues from list items.
       value: |
-        1. Some feature related to this story
-        2. Additional related story
-        3.
+        - [ ] Some feature related to this story
+        - [ ] Additional related story
+        - [ ] ...
         ...
     validations:
       required: true
