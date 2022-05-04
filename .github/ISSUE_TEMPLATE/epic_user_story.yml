@@ -1,7 +1,7 @@
-name: User Story
-description: User story description template
-title: "[Story]: "
-labels: ["User Story"]
+name: Epic User Story
+description: Epic for other User stories
+title: "[Epic Story]: "
+labels: ["User Story", "Epic"]
 body:
   - type: markdown
     attributes:
@@ -30,5 +30,18 @@ body:
       label: Acceptance criteria
       description: Describe acceptance criteria
       value: "1. Functionality must work as expected"
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      description: "How do you trigger this bug? Please walk us through it step by step."
+      value: |
+        1.
+        2.
+        3.
+        ...
+      render: bash
     validations:
       required: true
