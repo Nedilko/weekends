@@ -11,7 +11,7 @@ body:
     id: story-description
     attributes:
       label: General description
-      description: Descripbe the general story
+      description: Describe the general information realted to story
       placeholder: example. As a user, I want to do something...
       value: "As a user, I want to"
     validations:
@@ -28,10 +28,3 @@ body:
         ...
     validations:
       required: true
-  - type: textarea
-    id: additional
-    attributes:
-      label: Additional context
-      description: Describe additional context
-    validations:
-      required: false
