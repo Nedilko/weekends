@@ -19,7 +19,7 @@ body:
   - type: textarea
     id: str
     attributes:
-      label: Steps to reproduce
+      label: Reproduction steps
       description: Steps to reproduce the behavior
       placeholder: example. Click on ...
     validations:
