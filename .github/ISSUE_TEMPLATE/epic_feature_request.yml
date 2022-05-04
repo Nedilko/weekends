@@ -21,16 +21,9 @@ body:
       label: Features
       description: List all related features. After you can create feature requests from list items.
       value: |
-        - [ ] Some coolr feature
+        - [ ] Some cool feature
         - [ ] Additional cool feature
         - [ ] ...
         ...
     validations:
       required: true
-  - type: textarea
-    id: additional
-    attributes:
-      label: Additional context
-      description: Describe additional context
-    validations:
-      required: false
