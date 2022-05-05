@@ -21,7 +21,10 @@ body:
     attributes:
       label: Pre-conditions
       description: Describe pre-conditions
-      placeholder: example. Local storage is empty
+      placeholder: example. 1. Local storage is empty
+      value: |
+        - Local storage is empty
+        - Browser window width is more than 500px 
     validations:
       required: false
   - type: textarea
@@ -29,6 +32,9 @@ body:
     attributes:
       label: Acceptance criteria
       description: Describe acceptance criteria
-      value: "1. Functionality must work as expected"
+      value: |
+        #### Scenario 1
+        1. Header is shown on application load
+        2. Logo is shown in top left corner
     validations:
       required: true
