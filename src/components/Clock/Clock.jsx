@@ -12,7 +12,7 @@ Clock.propTypes = {
 
 function Clock({ time }) {
   return (
-    <div className="flex flex-row justify-around items-center text-center mb-5 mt-5 mx-10 max-w-xs">
+    <div className="flex flex-row mt-10 justify-around w-96">
       {time.days !== 0 && (
         <Digitblock label="days" digit={time.days} separator=":" />
       )}

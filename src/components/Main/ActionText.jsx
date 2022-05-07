@@ -1,8 +1,8 @@
 function Actiontext() {
   return (
-    <div className="font-thin uppercase text-center text-slate-600 dark:text-gray-400 text-3xl mb-5 mt-5">
+    <h2 className="font-thin uppercase text-center text-3xl">
       Time left to weekends
-    </div>
+    </h2>
   )
 }
 
