@@ -6,9 +6,9 @@ SettingsIcon.propTypes = {
 
 function SettingsIcon({ onClick }) {
   return (
-    <div className="flex w-12 h-12 items-center justify-center flex-shrink-0 p-2 rounded-full duration-300 ease-in-out hover:rotate-45">
+    <div className="flex justify-center items-center">
       <svg
-        className="flex w-8 h-8 absolute rounded-full text-slate-500 dark:text-gray-600"
+        className="flex w-8 h-8 rounded-full transition-transform	duration-300 ease-in-out hover:rotate-45 text-slate-500 dark:text-gray-600"
         onClick={onClick}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
