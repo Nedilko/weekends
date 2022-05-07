@@ -5,7 +5,11 @@ Digit.propTypes = {
 }
 
 function Digit({ digit }) {
-  return <div className="text-5xl">{digit}</div>
+  return (
+    <div className="flex h-20 font-thin justify-center items-center text-5xl">
+      {digit}
+    </div>
+  )
 }
 
 export default Digit
