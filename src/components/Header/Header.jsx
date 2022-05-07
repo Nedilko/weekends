@@ -3,7 +3,7 @@ import Settings from './Settings'
 
 function Header() {
   return (
-    <header className="flex justify-between bg-white dark:bg-zinc-900 p-2">
+    <header className="flex flex-row h-12 justify-between my-2 mx-4">
       <Settings />
       <DarkModeSwitcher />
     </header>
