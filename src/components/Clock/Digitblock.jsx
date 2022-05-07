@@ -11,7 +11,7 @@ Digitblock.propTypes = {
 function Digitblock({ label, digit, separator }) {
   return (
     <>
-      <div className="flex flex-col">
+      <div className="flex flex-col w-24">
         <div className="flex h-8 justify-center items-center text-lg font-thin uppercase">
           {label}
         </div>
