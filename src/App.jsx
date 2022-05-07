@@ -1,5 +1,4 @@
 import './index.css'
-
 import { useState } from 'react'
 import Description from '@components/Main/Description'
 import Greetings from '@components/Main/Greetings'
