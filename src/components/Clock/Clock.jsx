@@ -12,10 +12,16 @@ Clock.propTypes = {
 
 function Clock({ time }) {
   return (
-    <div className="flex flex-row justify-around items-center text-center mb-5 mt-5 mx-10">
-      <Digitblock label="days" digit={time.days} separator=":" />
-      <Digitblock label="hours" digit={time.hours} separator=":" />
-      <Digitblock label="minutes" digit={time.minutes} separator=":" />
+    <div className="flex flex-row justify-around items-center text-center mb-5 mt-5 mx-10 max-w-xs">
+      {time.days !== 0 && (
+        <Digitblock label="days" digit={time.days} separator=":" />
+      )}
+      {time.hours !== 0 && (
+        <Digitblock label="hours" digit={time.hours} separator=":" />
+      )}
+      {time.minutes !== 0 && (
+        <Digitblock label="minutes" digit={time.minutes} separator=":" />
+      )}
       <Digitblock label="seconds" digit={time.seconds} />
     </div>
   )

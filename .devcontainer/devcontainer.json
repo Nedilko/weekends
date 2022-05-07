@@ -17,7 +17,7 @@
     "3000": {    
       "label": "localhost debug",
       "onAutoForward": "notify"
-    },
+    }
   },
   "remoteUser": "node"
 }
