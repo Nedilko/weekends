@@ -6,6 +6,7 @@ import SettingsModalRow from './SettingsModalRow'
 import TextInput from '../Inputs/TextInput'
 import NumberInput from '../Inputs/NumberInput'
 import Toggle from '../Toggles/Toggle'
+import Dropdown from '../Inputs/Dropdown'
 
 SettingsModal.propTypes = {
   onApply: PropTypes.func.isRequired,
@@ -33,13 +34,21 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
       }
       onCancel={onCancel}
     >
-      <section className="flex flex-col font-thin text-xl text-slate-600 dark:text-gray-400">
+      <section className="flex flex-col text-xl font-thin text-slate-600 dark:text-gray-400">
         <SettingsModalRow>
           <div className="flex w-1/2">Greetings text</div>
           <TextInput
             placeholder="Have a beer"
             value={greetingsText}
             onChange={setGeetingsText}
+          />
+        </SettingsModalRow>
+        <SettingsModalRow>
+          <Dropdown
+            value="Wednesday"
+            onChange={(value) => {
+              console.log(value)
+            }}
           />
         </SettingsModalRow>
         <SettingsModalRow>
