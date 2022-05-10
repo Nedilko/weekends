@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 import PropTypes from 'prop-types'
 
@@ -8,6 +8,8 @@ Dropdown.propTypes = {
 }
 
 function Dropdown({ value, onChange }) {
+  const dropdownMenu = useRef(null)
+  const dropdownButton = useRef(null)
   const items = [
     'Monday',
     'Tuesday',
@@ -58,6 +60,23 @@ function Dropdown({ value, onChange }) {
     onChange(selectedValue)
   }, [selectedValue])
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        dropdownMenu.current &&
+        !dropdownMenu.current.contains(event.target) &&
+        dropdownButton.current &&
+        !dropdownButton.current.contains(event.target)
+      ) {
+        setIsActive(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside, true)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside, true)
+    }
+  }, [dropdownMenu])
+
   const drowpDown = items.map((item, index) => (
     <option
       onClick={handleSelectItem}
@@ -72,6 +91,7 @@ function Dropdown({ value, onChange }) {
   return (
     <div>
       <button
+        ref={dropdownButton}
         type="button"
         className="flex h-6 w-28 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none"
         onClick={handleClick}
@@ -80,7 +100,10 @@ function Dropdown({ value, onChange }) {
         {isActive ? openIcon : closedIcon}
       </button>
       {isActive && (
-        <div className="absolute mt-1 max-h-28 w-28 cursor-pointer overflow-auto rounded-md border border-gray-200 bg-white shadow-md">
+        <div
+          ref={dropdownMenu}
+          className="absolute mt-1 max-h-28 w-28 cursor-pointer overflow-auto rounded-md border border-gray-200 bg-white shadow-md"
+        >
           {drowpDown}
         </div>
       )}
