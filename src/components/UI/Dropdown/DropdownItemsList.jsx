@@ -16,7 +16,7 @@ function DropdownItemsList({ items, selectedValue, handleSelect, className }) {
           onClick={(e) => handleSelect(e.target.value)}
           key={index}
           value={item}
-          className={`px-2 py-1 text-sm hover:bg-slate-200 ${
+          className={`px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 ${
             selectedValue === item ? 'font-regular' : 'font-thin'
           }`}
         >

@@ -56,10 +56,10 @@ function Dropdown({ label, items, value, onChange }) {
   return (
     <div className="flex flex-row items-center">
       <div className="mr-2 flex items-center justify-center">{label}</div>
-      <div className="block" ref={dropdownMenu}>
+      <div className="z-10 block" ref={dropdownMenu}>
         <button
           type="button"
-          className="flex h-6 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none"
+          className="flex h-6 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none dark:border-gray-700"
           onClick={() => setIsOpen((oldState) => !oldState)}
         >
           {selectedValue}
@@ -67,7 +67,7 @@ function Dropdown({ label, items, value, onChange }) {
         </button>
         {isOpen && (
           <DropdownItemsList
-            className="mt-1 max-h-28 w-28 cursor-pointer border border-gray-200"
+            className="mt-1 max-h-28 w-28 cursor-pointer border border-gray-200 dark:border-gray-700"
             items={items}
             selectedValue={selectedValue}
             handleSelect={handleSelectItem}

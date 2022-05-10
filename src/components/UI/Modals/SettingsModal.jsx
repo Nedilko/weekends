@@ -4,9 +4,9 @@ import { useState } from 'react'
 import Modal from './Modal'
 import SettingsModalRow from './SettingsModalRow'
 import TextInput from '../Inputs/TextInput'
-import NumberInput from '../Inputs/NumberInput'
 import Toggle from '../Toggles/Toggle'
 import Dropdown from '../Dropdown/Dropdown'
+import { getDay, getHour, DAYS, HOURS } from '@utils/convertTime'
 
 SettingsModal.propTypes = {
   onApply: PropTypes.func.isRequired,
@@ -20,17 +20,6 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
   const [day, setDay] = useState(settings.day)
   const [hour, setHour] = useState(settings.hour)
   const [useSystemTheme, setuUseSystemTheme] = useState(settings.useSystemTheme)
-
-  const items = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday',
-  ]
-  const [selectedItem, setSelecteditem] = useState(items[4])
 
   return (
     <Modal
@@ -56,32 +45,16 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
         </SettingsModalRow>
         <SettingsModalRow>
           <Dropdown
-            value={selectedItem}
-            items={items}
+            value={DAYS[day - 1]}
+            items={DAYS}
             label="Day"
-            onChange={(value) => {
-              setSelecteditem(value)
-            }}
+            onChange={(value) => setDay(getDay(value))}
           />
-        </SettingsModalRow>
-        <SettingsModalRow>
-          <div className="flex w-1/2">Day</div>
-          <NumberInput
-            placeholder="5"
-            value={Number(day)}
-            min={1}
-            max={6}
-            onChange={setDay}
-          />
-        </SettingsModalRow>
-        <SettingsModalRow>
-          <div className="flex w-1/2">Hour</div>
-          <NumberInput
-            placeholder="18"
-            value={Number(hour)}
-            min={0}
-            max={23}
-            onChange={setHour}
+          <Dropdown
+            value={HOURS[+hour]}
+            items={HOURS}
+            label="Hour"
+            onChange={(value) => setHour(getHour(value))}
           />
         </SettingsModalRow>
         <SettingsModalRow>
