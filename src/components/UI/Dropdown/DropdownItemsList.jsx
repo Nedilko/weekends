@@ -1,15 +1,16 @@
 import GeneralPanel from '@components/UI/GeneralPanel'
 import PropTypes from 'prop-types'
 
-ItemsList.propTypes = {
+DropdownItemsList.propTypes = {
   selectedValue: PropTypes.string,
+  className: PropTypes.string,
   items: PropTypes.array,
   handleSelect: PropTypes.func,
 }
 
-function ItemsList({ items, selectedValue, handleSelect }) {
+function DropdownItemsList({ items, selectedValue, handleSelect, className }) {
   return (
-    <GeneralPanel className="mt-1 max-h-28 w-28 cursor-pointer border border-gray-200">
+    <GeneralPanel className={className}>
       {items.map((item, index) => (
         <option
           onClick={(e) => handleSelect(e.target.value)}
@@ -26,4 +27,4 @@ function ItemsList({ items, selectedValue, handleSelect }) {
   )
 }
 
-export default ItemsList
+export default DropdownItemsList

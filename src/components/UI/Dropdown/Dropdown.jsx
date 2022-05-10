@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import PropTypes from 'prop-types'
-import ItemsList from './ItemsList'
+import DropdownItemsList from './DropdownItemsList'
 
 Dropdown.propTypes = {
   value: PropTypes.string,
@@ -59,14 +59,15 @@ function Dropdown({ label, items, value, onChange }) {
       <div className="block" ref={dropdownMenu}>
         <button
           type="button"
-          className="flex h-6 w-28 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none"
+          className="flex h-6 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none"
           onClick={() => setIsOpen((oldState) => !oldState)}
         >
           {selectedValue}
           {openClosedIcon(isOpen)}
         </button>
         {isOpen && (
-          <ItemsList
+          <DropdownItemsList
+            className="mt-1 max-h-28 w-28 cursor-pointer border border-gray-200"
             items={items}
             selectedValue={selectedValue}
             handleSelect={handleSelectItem}
