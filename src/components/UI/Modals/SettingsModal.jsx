@@ -21,6 +21,17 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
   const [hour, setHour] = useState(settings.hour)
   const [useSystemTheme, setuUseSystemTheme] = useState(settings.useSystemTheme)
 
+  const items = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ]
+  const [selectedItem, setSelecteditem] = useState(items[4])
+
   return (
     <Modal
       title={title}
@@ -45,9 +56,11 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
         </SettingsModalRow>
         <SettingsModalRow>
           <Dropdown
-            value="Wednesday"
+            value={selectedItem}
+            items={items}
+            label="Day"
             onChange={(value) => {
-              console.log(value)
+              setSelecteditem(value)
             }}
           />
         </SettingsModalRow>
