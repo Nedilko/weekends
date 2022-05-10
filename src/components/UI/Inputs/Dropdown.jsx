@@ -62,7 +62,9 @@ function Dropdown({ label, value, items, onChange }) {
       onClick={handleSelectItem}
       key={index}
       value={item}
-      className="px-2 py-1 text-sm font-thin hover:bg-slate-200"
+      className={`px-2 py-1 text-sm hover:bg-slate-200 ${
+        selectedValue === item ? 'font-regular' : 'font-thin'
+      }`}
     >
       {item}
     </option>
