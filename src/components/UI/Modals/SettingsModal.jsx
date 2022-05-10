@@ -6,7 +6,7 @@ import SettingsModalRow from './SettingsModalRow'
 import TextInput from '../Inputs/TextInput'
 import NumberInput from '../Inputs/NumberInput'
 import Toggle from '../Toggles/Toggle'
-import Dropdown from '../Inputs/Dropdown'
+import Dropdown from '../Dropdown/Dropdown'
 
 SettingsModal.propTypes = {
   onApply: PropTypes.func.isRequired,
