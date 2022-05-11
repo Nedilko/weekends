@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer className="font-thin text-base text-center mb-2">
+    <footer className="mb-2 text-center text-base font-thin">
       <a target="_blank" rel="noreferrer" href="https://nac.in.ua">
         nac.in.ua
       </a>

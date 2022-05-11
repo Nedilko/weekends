@@ -3,7 +3,7 @@ import Settings from './Settings'
 
 function Header() {
   return (
-    <header className="flex flex-row h-12 justify-between my-2 mx-4">
+    <header className="my-2 mx-4 flex h-12 flex-row justify-between">
       <Settings />
       <DarkModeSwitcher />
     </header>
