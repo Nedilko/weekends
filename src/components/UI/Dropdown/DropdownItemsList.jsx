@@ -1,5 +1,6 @@
 import GeneralPanel from '@components/UI/GeneralPanel'
 import PropTypes from 'prop-types'
+import DropdownItem from '@components/UI/Dropdown/DropdownItem'
 
 DropdownItemsList.propTypes = {
   selectedValue: PropTypes.string,
@@ -12,16 +13,12 @@ function DropdownItemsList({ items, selectedValue, handleSelect, className }) {
   return (
     <GeneralPanel className={className}>
       {items.map((item, index) => (
-        <option
-          onClick={(e) => handleSelect(e.target.value)}
+        <DropdownItem
           key={index}
           value={item}
-          className={`px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 ${
-            selectedValue === item ? 'font-regular' : 'font-thin'
-          }`}
-        >
-          {item}
-        </option>
+          handleSelect={handleSelect}
+          isSelected={selectedValue === item}
+        />
       ))}
     </GeneralPanel>
   )
