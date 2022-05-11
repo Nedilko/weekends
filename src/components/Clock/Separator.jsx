@@ -6,7 +6,7 @@ Separator.propTypes = {
 
 function Separator({ symbol }) {
   return (
-    <div className="flex items-center justify-center text-5xl mt-8 pb-2">
+    <div className="mt-8 flex items-center justify-center pb-2 text-5xl">
       {symbol}
     </div>
   )

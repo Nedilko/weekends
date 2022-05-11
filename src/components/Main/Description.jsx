@@ -1,6 +1,6 @@
 function Description() {
   return (
-    <h1 className="font-thin uppercase text-center text-5xl mt-20">
+    <h1 className="mt-20 text-center text-5xl font-thin uppercase">
       weekends countdown
     </h1>
   )
