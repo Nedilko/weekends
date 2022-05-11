@@ -4,8 +4,9 @@ import { useState } from 'react'
 import Modal from './Modal'
 import SettingsModalRow from './SettingsModalRow'
 import TextInput from '../Inputs/TextInput'
-import NumberInput from '../Inputs/NumberInput'
 import Toggle from '../Toggles/Toggle'
+import Dropdown from '../Dropdown/Dropdown'
+import { getDay, getHour, DAYS, HOURS } from '@utils/convertTime'
 
 SettingsModal.propTypes = {
   onApply: PropTypes.func.isRequired,
@@ -33,7 +34,7 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
       }
       onCancel={onCancel}
     >
-      <section className="flex flex-col font-thin text-xl text-slate-600 dark:text-gray-400">
+      <section className="flex flex-col text-xl font-thin text-slate-600 dark:text-gray-400">
         <SettingsModalRow>
           <div className="flex w-1/2">Greetings text</div>
           <TextInput
@@ -43,23 +44,17 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
           />
         </SettingsModalRow>
         <SettingsModalRow>
-          <div className="flex w-1/2">Day</div>
-          <NumberInput
-            placeholder="5"
-            value={Number(day)}
-            min={1}
-            max={6}
-            onChange={setDay}
+          <Dropdown
+            value={DAYS[day - 1]}
+            items={DAYS}
+            label="Day"
+            onChange={(value) => setDay(getDay(value))}
           />
-        </SettingsModalRow>
-        <SettingsModalRow>
-          <div className="flex w-1/2">Hour</div>
-          <NumberInput
-            placeholder="18"
-            value={Number(hour)}
-            min={0}
-            max={23}
-            onChange={setHour}
+          <Dropdown
+            value={HOURS[+hour]}
+            items={HOURS}
+            label="Hour"
+            onChange={(value) => setHour(getHour(value))}
           />
         </SettingsModalRow>
         <SettingsModalRow>

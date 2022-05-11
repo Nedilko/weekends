@@ -8,7 +8,7 @@ Panel.propTypes = {
 function Panel({ children, size = 'sm' }) {
   return (
     <div
-      className={`max-w-${size} mx-auto bg-white p-4 dark:bg-zinc-900 rounded-xl shadow-md`}
+      className={`max-w-${size} mx-auto rounded-xl bg-white p-4 shadow-md dark:bg-zinc-900`}
       onClick={(e) => e.stopPropagation()}
     >
       {children}

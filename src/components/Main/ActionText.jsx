@@ -1,6 +1,6 @@
 function Actiontext() {
   return (
-    <h2 className="font-thin uppercase text-center text-3xl">
+    <h2 className="text-center text-3xl font-thin uppercase">
       Time left to weekends
     </h2>
   )

@@ -6,7 +6,7 @@ SettingsModalRow.propTypes = {
 
 function SettingsModalRow({ children }) {
   return (
-    <div className="flex justify-between items-center my-1">{children}</div>
+    <div className="my-1 flex items-center justify-start gap-5">{children}</div>
   )
 }
 

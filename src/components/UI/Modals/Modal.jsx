@@ -14,15 +14,15 @@ function Modal({ children, title, onApply, onCancel }) {
   return ReactDOM.createPortal(
     <div className="relative z-10">
       <div
-        className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black/30"
+        className="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm"
         onClick={onCancel}
       >
         <Panel size="xl">
-          <div className="font-thin text-3xl mb-2 pb-2 border-b dark:border-b-zinc-600 text-slate-600 dark:text-gray-400">
+          <div className="mb-2 border-b pb-2 text-3xl font-thin text-slate-600 dark:border-b-zinc-600 dark:text-gray-400">
             {title}
           </div>
           {children}
-          <div className="flex justify-end mt-2 border-t dark:border-t-zinc-600">
+          <div className="mt-2 flex justify-end border-t dark:border-t-zinc-600">
             <Button onClick={onApply} title="Apply" />
             <Button onClick={onCancel} title="Cancel" />
           </div>

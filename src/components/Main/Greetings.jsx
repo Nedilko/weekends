@@ -4,7 +4,7 @@ import { useContext } from 'react'
 function Greetings() {
   const settings = useContext(SettingsContext)
   return (
-    <div className="font-thin uppercase text-center text-7xl mt-32">
+    <div className="mt-32 text-center text-7xl font-thin uppercase">
       {settings.data.greetingsText}
     </div>
   )

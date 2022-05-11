@@ -20,7 +20,7 @@ function NumberInput({ placeholder, value, min, max, onChange }) {
       onChange={(e) => {
         onChange(e.target.value)
       }}
-      className="flex focus:ring-slate-500 focus:border-slate-500 border-gray-300 dark:border-gray-700 border rounded-md mx-2 px-2 font-thin text-xl text-slate-600 dark:text-gray-400 dark:bg-zinc-900"
+      className="mx-2 flex rounded-md border border-gray-300 px-2 text-xl font-thin text-slate-600 focus:border-slate-500 focus:ring-slate-500 dark:border-gray-700 dark:bg-zinc-900 dark:text-gray-400"
     />
   )
 }

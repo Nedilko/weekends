@@ -6,7 +6,7 @@ Digit.propTypes = {
 
 function Digit({ digit }) {
   return (
-    <div className="flex h-20 font-thin justify-center items-center text-5xl">
+    <div className="flex h-20 items-center justify-center text-5xl font-thin">
       {digit}
     </div>
   )

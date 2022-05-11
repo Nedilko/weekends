@@ -23,7 +23,7 @@ function Timer({ onFinish }) {
   }, [time])
 
   return (
-    <div className="flex flex-col mt-20 items-center">
+    <div className="mt-20 flex flex-col items-center">
       <Actiontext />
       <Clock time={time} />
     </div>
