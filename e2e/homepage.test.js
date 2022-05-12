@@ -7,6 +7,6 @@ test.beforeEach(async ({ page }) => {
 test.describe('main text', () => {
   test('heading has text', async ({ page }) => {
     const title = page.locator('h1')
-    await expect(title).toHaveText('weekends countdown')
+    await expect(title).toHaveText('Hello Vite!')
   })
 })

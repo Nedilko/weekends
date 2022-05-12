@@ -1,12 +1,7 @@
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,jsx}'],
+  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
-    extend: {
-      fontFamily: {
-        roboto: ['Roboto', 'sans-serif'],
-      },
-    },
+    extend: {},
   },
   plugins: [],
-  darkMode: 'class',
 }

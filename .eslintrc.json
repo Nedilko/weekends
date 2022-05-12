@@ -10,7 +10,6 @@
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
         "plugin:security/recommended",
-        "plugin:import/recommended",
         "prettier"
     ],
     "parserOptions": {
@@ -24,29 +23,11 @@
         "react",
         "prettier",
         "jest",
+        "no-unsafe-innerhtml",
         "security"
     ],
     "rules": {
-        "prettier/prettier": "error",
-        "security/detect-non-literal-fs-filename": 2,
-        "security/detect-non-literal-regexp": 2,
-        "security/detect-unsafe-regex": 2,
-        "security/detect-buffer-noassert": 2,
-        "security/detect-child-process": 2,
-        "security/detect-disable-mustache-escape": 2,
-        "security/detect-eval-with-expression": 2,
-        "security/detect-no-csrf-before-method-override": 2,
-        "security/detect-non-literal-require": 2,
-        "security/detect-object-injection": 2,
-        "security/detect-possible-timing-attacks": 1,
-        "security/detect-pseudoRandomBytes": 2,
-        "react/react-in-jsx-scope": "off",
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-        "jest/no-disabled-tests": "warn",
-        "jest/no-focused-tests": "error",
-        "jest/no-identical-title": "error",
-        "jest/prefer-to-have-length": "warn",
-        "jest/valid-expect": "error"
+        "prettier/prettier": "error"
     },
     "settings": {
         "react": {
@@ -83,21 +64,6 @@
           // Components used as alternatives to <a> for linking, eg. <Link to={ url } />
           "Hyperlink",
           {"name": "Link", "linkAttribute": "to"}
-        ],
-        "import/resolver": {
-            "node": {
-              "extensions": [".js",".jsx"]
-             },
-             "alias": {
-                "map": [
-                  ["@", "./src"],
-                  ["@components", "./src/components"],
-                  ["@hooks", "./src/hooks"],
-                  ["@store", "./src/store"],
-                  ["@utils", "./src/utils"]
-                ],
-                "extensions": [".js", ".jsx", ".json"]
-              }
-          }
+        ]
     }
 }
