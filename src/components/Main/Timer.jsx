@@ -1,24 +1,29 @@
 import PropTypes from 'prop-types'
-import { useContext, useEffect } from 'react'
-import { getTimerData } from '@utils/settings'
+import { useContext, useEffect, useState } from 'react'
 import Clock from '@components/Clock/Clock'
 import SettingsContext from '@store/Settings'
-import useCountdown from '@hooks/useCountdown'
-import { isFinished } from '@utils/getTimeLeft'
+import { getTimerData } from '@utils/settings'
+import { getTimeLeft, isFinished } from '@utils/getTimeLeft'
 import Actiontext from '@components/Main/ActionText'
 
 Timer.propTypes = {
-  onFinish: PropTypes.func.isRequired,
+  onFinish: PropTypes.func,
 }
 
 function Timer({ onFinish }) {
   const settings = useContext(SettingsContext)
-
-  const time = useCountdown(getTimerData(settings.data))
+  const [time, setTime] = useState(getTimeLeft(getTimerData(settings.data)))
 
   useEffect(() => {
     if (isFinished(time)) {
       onFinish(true)
+    }
+    const interval = setInterval(() => {
+      setTime(getTimeLeft(getTimerData(settings.data)))
+    }, 1000)
+
+    return () => {
+      clearInterval(interval)
     }
   }, [time])
 

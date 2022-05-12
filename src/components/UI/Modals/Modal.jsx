@@ -7,10 +7,19 @@ Modal.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
   onApply: PropTypes.func.isRequired,
-  onCancel: PropTypes.func.isRequired,
+  onCancel: PropTypes.func,
+  isButtonsCentered: PropTypes.bool,
+  isHeadingCentered: PropTypes.bool,
 }
 
-function Modal({ children, title, onApply, onCancel }) {
+function Modal({
+  children,
+  title,
+  onApply,
+  onCancel,
+  isButtonsCentered,
+  isHeadingCentered,
+}) {
   return ReactDOM.createPortal(
     <div className="relative z-10">
       <div
@@ -18,13 +27,21 @@ function Modal({ children, title, onApply, onCancel }) {
         onClick={onCancel}
       >
         <Panel size="xl">
-          <div className="mb-2 border-b pb-2 text-3xl font-thin text-slate-600 dark:border-b-zinc-600 dark:text-gray-400">
+          <div
+            className={`mb-2 text-3xl font-thin text-slate-600 dark:border-b-zinc-600 dark:text-gray-400 ${
+              isHeadingCentered ? 'text-center' : ''
+            }`}
+          >
             {title}
           </div>
           {children}
-          <div className="mt-2 flex justify-end border-t dark:border-t-zinc-600">
+          <div
+            className={`flex dark:border-t-zinc-600 ${
+              isButtonsCentered ? 'justify-center' : 'justify-end'
+            }`}
+          >
             <Button onClick={onApply} title="Apply" />
-            <Button onClick={onCancel} title="Cancel" />
+            {onCancel && <Button onClick={onCancel} title="Cancel" />}
           </div>
         </Panel>
       </div>

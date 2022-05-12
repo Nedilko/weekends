@@ -1,8 +1,8 @@
 const DEAFULT_FRIDAY = {
   day: 5,
-  hour: 17,
-  minute: 59,
-  second: 59,
+  hour: 18,
+  minute: 0,
+  second: 0,
 }
 
 const DEFAULT_THEME = 'light'
@@ -13,6 +13,7 @@ const getDefaultSettings = () => ({
   hour: DEAFULT_FRIDAY.hour,
   theme: DEFAULT_THEME,
   useSystemTheme: false,
+  isFirstLoad: true,
 })
 
 const getTimerData = (friday) => ({
