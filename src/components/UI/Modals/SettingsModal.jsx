@@ -21,19 +21,19 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
   const [hour, setHour] = useState(settings.hour)
   const [useSystemTheme, setuUseSystemTheme] = useState(settings.useSystemTheme)
 
+  const handleApply = () => {
+    if (greetingsText.length > 0) {
+      onApply({
+        greetingsText,
+        day,
+        hour,
+        useSystemTheme,
+      })
+    }
+  }
+
   return (
-    <Modal
-      title={title}
-      onApply={() =>
-        onApply({
-          greetingsText,
-          day,
-          hour,
-          useSystemTheme,
-        })
-      }
-      onCancel={onCancel}
-    >
+    <Modal title={title} onApply={handleApply} onCancel={onCancel}>
       <section className="flex flex-col border-y py-2 text-xl font-thin text-slate-600 dark:text-gray-400">
         <ModalRow>
           <div className="flex w-1/2">Greetings text</div>
