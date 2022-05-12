@@ -1,0 +1,29 @@
+name:  Epic Feature request
+description: Epic for other Feature requests
+title: "[Epic Feature]: "
+labels: ["Feature", "Epic"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please put as much description as you can. This will help to understand what feature you want to implement.
+  - type: textarea
+    id: Overview
+    attributes:
+      label: Overview
+      description: Descripbe all feature details here
+      placeholder: example. Button should be of color blue and border should be 1px solid darkgray.
+    validations:
+      required: true
+  - type: textarea
+    id: related-features
+    attributes:
+      label: Features
+      description: List all related features. After you can create feature requests from list items.
+      value: |
+        - [ ] Some cool feature
+        - [ ] Additional cool feature
+        - [ ] ...
+        ...
+    validations:
+      required: true
