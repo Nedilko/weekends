@@ -1,9 +1,8 @@
-name: Deploy Development
+name: Deploy Staging
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    branches: [ release ]
 
 jobs:
   setup:
@@ -172,7 +171,7 @@ jobs:
         run: npm ci
 
       - name: build app
-        run: npm run build:development
+        run: npm run build:staging
       
       - name: upload build artifacts
         uses: actions/upload-artifact@v3
@@ -244,8 +243,8 @@ jobs:
     needs: [setup, pack]
     runs-on: ubuntu-latest
     environment:
-      name: development
-      url: https://dev.weekends.nac.in.ua
+      name: staging
+      url: https://staging.weekends.nac.in.ua
     steps:
       - name: Download repository
         uses: actions/download-artifact@v2
@@ -266,7 +265,7 @@ jobs:
       #   run: helm lint ./infra/helm/
       - name: Deploy
         run: |
-          helm upgrade -f ./infra/helm/dev-values.yaml dev-weekends ./infra/helm/ \
+          helm upgrade -f ./infra/helm/staging-values.yaml staging-weekends ./infra/helm/ \
             --install \
-            --namespace develop --create-namespace \
+            --namespace staging --create-namespace \
             --set image.tag=${{ needs.setup.outputs.tag }}
