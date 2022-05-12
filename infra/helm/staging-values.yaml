@@ -29,10 +29,10 @@ ingress:
   className: "nginx"
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-prod"
-  host: "dev.weekends.nac.in.ua"
+  host: "staging.weekends.nac.in.ua"
   tls:
-    secretName: "dev-weekends"
-    hosts: "dev.weekends.nac.in.ua"
+    secretName: "staging-weekends"
+    hosts: "staging.weekends.nac.in.ua"
 
 resources:
   limits:
@@ -44,8 +44,8 @@ resources:
 
 autoscaling:
   enabled: false
-  minReplicas: 1
-  maxReplicas: 1
+  minReplicas: 3
+  maxReplicas: 6
   targetCPUUtilizationPercentage: 80
   targetMemoryUtilizationPercentage: 80
 
