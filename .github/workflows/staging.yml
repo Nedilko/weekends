@@ -243,7 +243,7 @@ jobs:
     needs: [setup, pack]
     runs-on: ubuntu-latest
     environment:
-      name: development
+      name: staging
       url: https://staging.weekends.nac.in.ua
     steps:
       - name: Download repository
