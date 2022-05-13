@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import PropTypes from 'prop-types'
-import DropdownItemsList from './DropdownItemsList'
+import DropdownItemsList from '@UI/Dropdown/DropdownItemsList'
 
 Dropdown.propTypes = {
   value: PropTypes.string,

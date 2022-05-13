@@ -1,5 +1,5 @@
-import DarkModeSwitcher from './DarkModeSwitcher'
-import Settings from './Settings'
+import DarkModeSwitcher from '@components/Header/DarkModeSwitcher'
+import Settings from '@components/Header/Settings'
 
 function Header() {
   return (

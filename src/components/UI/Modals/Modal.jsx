@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
-import Button from '../Buttons/Button'
-import Panel from '../Panel'
+import Button from '@UI/Buttons/Button'
+import Panel from '@UI/Panel'
 
 Modal.propTypes = {
   children: PropTypes.node.isRequired,

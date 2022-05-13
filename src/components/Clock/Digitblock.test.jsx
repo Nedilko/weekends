@@ -1,5 +1,5 @@
-import Digitblock from './Digitblock'
-import { render, screen } from '../../utils/test-utils'
+import Digitblock from '@components/Clock/Digitblock'
+import { render, screen } from '@utils/test-utils'
 
 describe('label and digit are in the document', () => {
   beforeEach(() => {

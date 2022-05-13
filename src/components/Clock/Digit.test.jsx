@@ -1,5 +1,5 @@
-import Digit from './Digit'
-import { render, screen } from '../../utils/test-utils'
+import Digit from '@components/Clock/Digit'
+import { render, screen } from '@utils/test-utils'
 
 describe('text in the document', () => {
   it('digit is visible', () => {

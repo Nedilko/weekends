@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
-import SettingsIcon from './SettingsIcon'
-import SettingsModal from '../UI/Modals/SettingsModal'
+import SettingsIcon from '@components/Header/SettingsIcon'
+import SettingsModal from '@UI/Modals/SettingsModal'
 import SettingsContext from '@store/Settings'
 
 function Settings() {
