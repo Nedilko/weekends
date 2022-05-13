@@ -92,6 +92,7 @@
                 "map": [
                   ["@", "./src"],
                   ["@components", "./src/components"],
+                  ["@UI", "./src/components/UI"],
                   ["@hooks", "./src/hooks"],
                   ["@store", "./src/store"],
                   ["@utils", "./src/utils"]

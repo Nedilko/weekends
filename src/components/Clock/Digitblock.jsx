@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
-import Digit from './Digit'
-import Separator from './Separator'
+import Digit from '@components/Clock/Digit'
+import Separator from '@components/Clock/Separator'
 
 Digitblock.propTypes = {
   label: PropTypes.string.isRequired,

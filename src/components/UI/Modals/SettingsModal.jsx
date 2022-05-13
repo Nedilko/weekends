@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 
-import Modal from './Modal'
-import ModalRow from './ModalRow'
-import TextInput from '../Inputs/TextInput'
-import Toggle from '../Toggles/Toggle'
-import DayDropdown from '../Dropdown/DayDropdown'
-import HourDropdown from '../Dropdown/HourDropdown'
+import Modal from '@UI/Modals/Modal'
+import ModalRow from '@UI/Modals/ModalRow'
+import TextInput from '@UI/Inputs/TextInput'
+import Toggle from '@UI/Toggles/Toggle'
+import DayDropdown from '@UI/Dropdown/DayDropdown'
+import HourDropdown from '@UI/Dropdown/HourDropdown'
 
 SettingsModal.propTypes = {
   onApply: PropTypes.func.isRequired,

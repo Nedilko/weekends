@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import Modal from './Modal'
-import DayDropdown from '../Dropdown/DayDropdown'
-import HourDropdown from '../Dropdown/HourDropdown'
+import Modal from '@UI/Modals/Modal'
+import DayDropdown from '@UI/Dropdown/DayDropdown'
+import HourDropdown from '@UI/Dropdown/HourDropdown'
 import { useState } from 'react'
 
 StartupModal.propTypes = {

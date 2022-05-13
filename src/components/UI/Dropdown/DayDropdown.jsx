@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { getDay, DAYS } from '@utils/convertTime'
-import Dropdown from '../Dropdown/Dropdown'
+import Dropdown from '@UI/Dropdown/Dropdown'
 
 DayDropdown.propTypes = {
   selectedValue: PropTypes.number.isRequired,

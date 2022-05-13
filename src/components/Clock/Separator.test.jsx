@@ -1,5 +1,5 @@
-import Separator from './Separator'
-import { render, screen } from '../../utils/test-utils'
+import Separator from '@components/Clock/Separator'
+import { render, screen } from '@utils/test-utils'
 
 describe('text in the document', () => {
   it('separator is visible', () => {

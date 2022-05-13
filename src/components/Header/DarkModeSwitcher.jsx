@@ -1,5 +1,5 @@
-import ToggleTheme from '../UI/Toggles/ToggleTheme'
 import { useEffect, useState, useContext } from 'react'
+import ToggleTheme from '@UI/Toggles/ToggleTheme'
 import SettingsContext from '@store/Settings'
 import { getSystemTheme } from '@utils/settings'
 
