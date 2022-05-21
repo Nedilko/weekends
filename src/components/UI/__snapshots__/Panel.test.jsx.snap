@@ -9,13 +9,3 @@ exports[`panel > renders text 1`] = `
   </div>
 </div>
 `;
-
-exports[`settings icon is > in the document 1`] = `
-<div>
-  <div
-    class="max-w-sm mx-auto rounded-xl bg-white p-4 shadow-md dark:bg-zinc-900"
-  >
-    some text
-  </div>
-</div>
-`;
