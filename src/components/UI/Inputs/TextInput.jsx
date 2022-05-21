@@ -1,32 +1,36 @@
 import PropTypes from 'prop-types'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 TextInput.propTypes = {
   placeholder: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 
 function TextInput({ placeholder, value, onChange }) {
   const ref = useRef(null)
   const [isValid, setIsValid] = useState(true)
+  const [textValue, setTextValue] = useState(value)
   const handleChange = (e) => {
-    if (onChange) {
-      onChange(e.target.value)
-    }
+    setTextValue(e.target.value)
+  }
+
+  useEffect(() => {
+    onChange(textValue)
     if (ref.current.value === '') {
       setIsValid(false)
     } else {
       setIsValid(true)
     }
-  }
+  }, [textValue, onChange])
   return (
     <input
       ref={ref}
       type="text"
+      data-testid="greetings-text-input"
       placeholder={placeholder}
       maxLength="20"
-      value={value}
+      value={textValue}
       onChange={handleChange}
       className={`${
         !isValid ? 'border-red-500' : 'border-slate-100 focus:border-slate-300'
