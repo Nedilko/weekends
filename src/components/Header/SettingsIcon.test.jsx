@@ -1,5 +1,5 @@
 import SettingsIcon from '@components/Header/SettingsIcon'
-import { render, screen } from '../../utils/test-utils'
+import { render, screen } from '@utils/test-utils'
 
 describe('settings icon is', () => {
   it('in the document', () => {
