@@ -5,7 +5,7 @@ import { describe, expect, it, vi } from 'vitest'
 describe('toggle is', () => {
   const clickHandler = vi.fn()
   beforeEach(() => {
-    render(<Toggle title="sample" onClick={clickHandler} />)
+    render(<Toggle isChecked={true} onClick={clickHandler} />)
   })
   it('in the document', () => {
     const toggle = screen.getByRole('checkbox')
@@ -17,5 +17,6 @@ describe('toggle is', () => {
     const toggle = screen.getByRole('checkbox')
     await user.click(toggle)
     expect(clickHandler).toHaveBeenCalledTimes(1)
+    expect(toggle).toMatchSnapshot()
   })
 })

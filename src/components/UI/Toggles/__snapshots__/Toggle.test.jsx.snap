@@ -1,12 +1,23 @@
 // Vitest Snapshot v1
 
-exports[`toggle is > in the document 1`] = `
+exports[`toggle is > clicked once 1`] = `
 <span
-  class="ml-4 flex h-6 w-12 flex-shrink-0 items-center justify-between rounded-full px-1 duration-300 ease-in-out bg-gray-200 dark:bg-slate-700"
+  class="ml-4 flex h-6 w-12 flex-shrink-0 items-center justify-between rounded-full px-1 duration-300 ease-in-out bg-green-400 dark:bg-green-600"
   role="checkbox"
 >
   <span
-    class="absolute flex h-5 w-5 rounded-full bg-white text-yellow-500 shadow-md duration-300 ease-in-out dark:bg-slate-900 "
+    class="absolute flex h-5 w-5 rounded-full bg-white text-yellow-500 shadow-md duration-300 ease-in-out dark:bg-slate-900 translate-x-5"
+  />
+</span>
+`;
+
+exports[`toggle is > in the document 1`] = `
+<span
+  class="ml-4 flex h-6 w-12 flex-shrink-0 items-center justify-between rounded-full px-1 duration-300 ease-in-out bg-green-400 dark:bg-green-600"
+  role="checkbox"
+>
+  <span
+    class="absolute flex h-5 w-5 rounded-full bg-white text-yellow-500 shadow-md duration-300 ease-in-out dark:bg-slate-900 translate-x-5"
   />
 </span>
 `;
