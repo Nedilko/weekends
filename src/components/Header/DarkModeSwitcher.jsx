@@ -30,7 +30,7 @@ function DarkModeSwitcher() {
   return (
     <>
       {!useSystemTheme && (
-        <ToggleTheme checked={isDarkMode} onClick={handleToggleTheme} />
+        <ToggleTheme isChecked={isDarkMode} onClick={handleToggleTheme} />
       )}
     </>
   )
