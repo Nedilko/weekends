@@ -4,8 +4,10 @@ import { describe, expect, it, vi } from 'vitest'
 
 describe('button is', () => {
   const clickHandler = vi.fn()
-  it('in the document', () => {
+  beforeEach(() => {
     render(<Button title="sample" onClick={clickHandler} />)
+  })
+  it('in the document', () => {
     const button = screen.getByRole('button')
     expect(button).toBeInTheDocument()
     expect(button).toHaveTextContent('sample')
@@ -13,7 +15,6 @@ describe('button is', () => {
   })
   it('clicked once', async () => {
     const user = userEvent.setup()
-    render(<Button title="sample" onClick={clickHandler} />)
     const button = screen.getByRole('button')
     await user.click(button)
     expect(clickHandler).toHaveBeenCalledTimes(1)

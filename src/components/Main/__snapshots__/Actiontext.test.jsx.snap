@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`text in the document > action text is visible 1`] = `
+exports[`action text > is visible 1`] = `
 <h2
   class="text-center text-3xl font-thin uppercase"
 >

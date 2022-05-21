@@ -1,8 +1,8 @@
 import GeneralPanel from '@UI/GeneralPanel'
 import { render } from '@utils/test-utils'
 
-describe('settings icon is', () => {
-  it('in the document', () => {
+describe('panel', () => {
+  it('renders text', () => {
     const { container, getByText } = render(
       <GeneralPanel>some text</GeneralPanel>
     )
