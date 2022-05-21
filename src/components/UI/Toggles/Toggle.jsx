@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 Toggle.propTypes = {
   label: PropTypes.string,
   isChecked: PropTypes.bool.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 }
 
-function Toggle({ label, isChecked, onChange }) {
+function Toggle({ label, isChecked, onClick }) {
   return (
     <label className="flex items-center px-1 text-xl font-thin text-slate-600 dark:text-gray-400">
       {label}
       <span
-        onClick={onChange}
+        role="checkbox"
+        onClick={onClick}
         className={`ml-4 flex h-6 w-12 flex-shrink-0 items-center justify-between rounded-full px-1 duration-300 ease-in-out ${
           isChecked
             ? 'bg-green-400 dark:bg-green-600'
