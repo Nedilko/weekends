@@ -49,7 +49,7 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
         </ModalRow>
         <ModalRow>
           <div className="flex w-1/2">Use system theme</div>
-          <Toggle checked={useSystemTheme} onChange={setuUseSystemTheme} />
+          <Toggle isChecked={useSystemTheme} onChange={setuUseSystemTheme} />
         </ModalRow>
       </section>
     </Modal>
