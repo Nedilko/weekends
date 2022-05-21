@@ -1,0 +1,11 @@
+// Vitest Snapshot v1
+
+exports[`footer link > is visible 1`] = `
+<a
+  href="https://nac.in.ua"
+  rel="noreferrer"
+  target="_blank"
+>
+  nac.in.ua
+</a>
+`;
