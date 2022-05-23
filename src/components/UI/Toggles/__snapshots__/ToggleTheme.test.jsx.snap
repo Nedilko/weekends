@@ -2,7 +2,8 @@
 
 exports[`theme toggle is > in the document 1`] = `
 <span
-  class="flex h-8 w-16 flex-shrink-0 items-center justify-between rounded-full bg-slate-700"
+  aria-checked="true"
+  class="flex h-8 w-16 flex-shrink-0 cursor-pointer items-center justify-between rounded-full bg-slate-700"
   role="checkbox"
 >
   <svg

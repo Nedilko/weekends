@@ -11,8 +11,9 @@ function ToggleTheme({ isChecked, onClick }) {
     <div className="flex items-center justify-center">
       <span
         role="checkbox"
+        aria-checked={isChecked}
         onClick={onClick}
-        className={`flex h-8 w-16 flex-shrink-0 items-center justify-between rounded-full ${
+        className={`flex h-8 w-16 flex-shrink-0 cursor-pointer items-center justify-between rounded-full ${
           isChecked ? 'bg-slate-700' : 'bg-gray-200'
         }`}
       >
