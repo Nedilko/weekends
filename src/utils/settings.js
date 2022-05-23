@@ -28,4 +28,19 @@ const getSystemTheme = () =>
     ? 'dark'
     : 'light'
 
-export { DEAFULT_FRIDAY, getTimerData, getDefaultSettings, getSystemTheme }
+const applyTheme = (theme) => {
+  const root = document.documentElement
+  if (theme === 'dark') {
+    root.classList.add('dark')
+  } else {
+    root.classList.remove('dark')
+  }
+}
+
+export {
+  DEAFULT_FRIDAY,
+  getTimerData,
+  getDefaultSettings,
+  getSystemTheme,
+  applyTheme,
+}
