@@ -13,6 +13,7 @@ function Toggle({ label, isChecked, onClick }) {
       <span
         role="checkbox"
         onClick={onClick}
+        aria-checked={isChecked}
         className={`ml-4 flex h-6 w-12 flex-shrink-0 items-center justify-between rounded-full px-1 duration-300 ease-in-out ${
           isChecked
             ? 'bg-green-400 dark:bg-green-600'
