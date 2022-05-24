@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`settings icon is > in the document 1`] = `
+exports[`settings > should render 1`] = `
 <svg
   class="flex h-8 w-8 rounded-full text-slate-500	transition-transform duration-300 ease-in-out hover:rotate-45 dark:text-gray-600"
   fill="none"
