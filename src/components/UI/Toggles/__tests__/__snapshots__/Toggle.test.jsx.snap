@@ -2,6 +2,7 @@
 
 exports[`toggle is > clicked once 1`] = `
 <span
+  aria-checked="true"
   class="ml-4 flex h-6 w-12 flex-shrink-0 items-center justify-between rounded-full px-1 duration-300 ease-in-out bg-green-400 dark:bg-green-600"
   role="checkbox"
 >
@@ -13,6 +14,7 @@ exports[`toggle is > clicked once 1`] = `
 
 exports[`toggle is > in the document 1`] = `
 <span
+  aria-checked="true"
   class="ml-4 flex h-6 w-12 flex-shrink-0 items-center justify-between rounded-full px-1 duration-300 ease-in-out bg-green-400 dark:bg-green-600"
   role="checkbox"
 >
