@@ -12,6 +12,7 @@
         "plugin:react/jsx-runtime",
         "plugin:security/recommended",
         "plugin:import/recommended",
+        "plugin:jest-dom/recommended",
         "prettier"
     ],
     "parserOptions": {
@@ -25,7 +26,15 @@
         "react",
         "prettier",
         "jest",
-        "security"
+        "security",
+        "testing-library",
+        "jest-dom"
+    ],
+    "overrides": [
+        {
+          "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+          "extends": ["plugin:testing-library/react"]
+        }
     ],
     "rules": {
         "prettier/prettier": "error",

@@ -14,7 +14,7 @@ function DropdownItem({ handleSelect, value, isSelected }) {
     if (isSelected && ref.current) {
       ref.current.scrollIntoView()
     }
-  }, [])
+  }, [isSelected])
 
   return (
     <option
