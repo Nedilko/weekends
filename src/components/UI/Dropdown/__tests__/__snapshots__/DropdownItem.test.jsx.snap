@@ -1,0 +1,19 @@
+// Vitest Snapshot v1
+
+exports[`button > should render not selected 1`] = `
+<option
+  class="px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 font-thin"
+  value="sample"
+>
+  sample
+</option>
+`;
+
+exports[`button > should render selected 1`] = `
+<option
+  class="px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 font-regular"
+  value="sample"
+>
+  sample
+</option>
+`;
