@@ -1,0 +1,27 @@
+// Vitest Snapshot v1
+
+exports[`button > should render 3 dropdown items 1`] = `
+[
+  <option
+    class="px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 font-thin"
+    data-testid="dropdown-item"
+    value="first"
+  >
+    first
+  </option>,
+  <option
+    class="px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 font-regular"
+    data-testid="dropdown-item"
+    value="second"
+  >
+    second
+  </option>,
+  <option
+    class="px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 font-thin"
+    data-testid="dropdown-item"
+    value="third"
+  >
+    third
+  </option>,
+]
+`;
