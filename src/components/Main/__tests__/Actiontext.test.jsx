@@ -1,5 +1,5 @@
-import Actiontext from './ActionText'
-import { render, screen } from '../../utils/test-utils'
+import Actiontext from '../ActionText'
+import { render, screen } from '../../../utils/test-utils'
 
 describe('action text', () => {
   it('is visible', () => {

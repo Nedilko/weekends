@@ -1,4 +1,4 @@
-import GeneralPanel from '@UI/GeneralPanel'
+import GeneralPanel from '@UI/Panels/GeneralPanel'
 import PropTypes from 'prop-types'
 import DropdownItem from '@UI/Dropdown/DropdownItem'
 
