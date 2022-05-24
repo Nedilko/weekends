@@ -63,4 +63,19 @@ describe('button', () => {
     await user.click(dropdownItem)
     expect(handleSelect).toHaveBeenCalledTimes(1)
   })
+
+  it('should pass value on click', async () => {
+    const handleSelect = vi.fn()
+    render(
+      <DropdownItem
+        value="sample"
+        handleSelect={handleSelect}
+        isSelected={true}
+      />
+    )
+    const user = userEvent.setup()
+    const dropdownItem = screen.getByTestId('dropdown-item')
+    await user.click(dropdownItem)
+    expect(handleSelect).toHaveBeenCalledWith('sample')
+  })
 })
