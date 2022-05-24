@@ -19,7 +19,7 @@ describe('button', () => {
         isSelected={true}
       />
     )
-    const dropdownItem = screen.getByText('sample')
+    const dropdownItem = screen.getByTestId('dropdown-item')
     expect(dropdownItem).toBeInTheDocument()
   })
 
@@ -32,7 +32,7 @@ describe('button', () => {
         isSelected={true}
       />
     )
-    const dropdownItem = screen.getByText('sample')
+    const dropdownItem = screen.getByTestId('dropdown-item')
     expect(dropdownItem).toMatchSnapshot()
   })
 
@@ -45,7 +45,7 @@ describe('button', () => {
         isSelected={false}
       />
     )
-    const dropdownItem = screen.getByText('sample')
+    const dropdownItem = screen.getByTestId('dropdown-item')
     expect(dropdownItem).toMatchSnapshot()
   })
 
@@ -59,7 +59,7 @@ describe('button', () => {
       />
     )
     const user = userEvent.setup()
-    const dropdownItem = screen.getByText('sample')
+    const dropdownItem = screen.getByTestId('dropdown-item')
     await user.click(dropdownItem)
     expect(handleSelect).toHaveBeenCalledTimes(1)
   })

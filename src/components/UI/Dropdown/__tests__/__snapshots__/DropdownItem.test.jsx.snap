@@ -3,6 +3,7 @@
 exports[`button > should render not selected 1`] = `
 <option
   class="px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 font-thin"
+  data-testid="dropdown-item"
   value="sample"
 >
   sample
@@ -12,6 +13,7 @@ exports[`button > should render not selected 1`] = `
 exports[`button > should render selected 1`] = `
 <option
   class="px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 font-regular"
+  data-testid="dropdown-item"
   value="sample"
 >
   sample
