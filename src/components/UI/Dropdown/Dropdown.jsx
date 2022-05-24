@@ -14,6 +14,7 @@ function Dropdown({ label, items, value, onChange }) {
 
   const openClosedIcon = (isOpen) => (
     <svg
+      role="img"
       xmlns="http://www.w3.org/2000/svg"
       className={`mr-1 h-4 w-4 text-gray-500 ${isOpen ? 'rotate-180' : ''}`}
       fill="none"
