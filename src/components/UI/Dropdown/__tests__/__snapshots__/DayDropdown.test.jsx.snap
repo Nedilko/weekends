@@ -1,5 +1,6 @@
 // Vitest Snapshot v1
 
+<<<<<<< HEAD
 exports[`DayDropdown > should render closed 1`] = `
 <div>
   <div
@@ -39,6 +40,8 @@ exports[`DayDropdown > should render closed 1`] = `
 </div>
 `;
 
+=======
+>>>>>>> f351a827f0715061b02a7ef1c8f91dd2e2502cb7
 exports[`button > should render closed 1`] = `
 <div>
   <div
