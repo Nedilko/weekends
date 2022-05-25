@@ -28,14 +28,15 @@ describe('DayDropdown', () => {
     expect(label).toBeInTheDocument()
   })
 
-  it('should trigger on change handler', async () => {
+  it('should trigger on change handler when select dropdown list item', async () => {
     const handleChage = vi.fn()
     const selectedValue = 3
     const user = userEvent.setup()
     render(<DayDropdown onChange={handleChage} selectedValue={selectedValue} />)
     const dropdownElement = screen.getByRole('button')
     await user.click(dropdownElement)
+    await user.click(screen.getByText('Tuesday'))
     expect(handleChage).toBeCalledTimes(1)
-    expect(handleChage).toBeCalledWith(3)
+    expect(handleChage).toBeCalledWith(2)
   })
 })

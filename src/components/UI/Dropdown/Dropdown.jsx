@@ -31,12 +31,13 @@ function Dropdown({ label, items, value, onChange }) {
 
   const handleSelectItem = (value) => {
     setSelectedValue(value)
+    onChange(value)
     setIsOpen(false)
   }
 
-  useEffect(() => {
-    onChange(selectedValue)
-  }, [selectedValue])
+  // useEffect(() => {
+  //   onChange(selectedValue)
+  // }, [selectedValue])
 
   useEffect(() => {
     function handleIsClickOutside(event) {

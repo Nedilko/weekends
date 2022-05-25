@@ -94,7 +94,7 @@ describe('dropdown', () => {
     await user.click(dropdownElement)
     const dropdownItem = screen.getByText('third')
     await user.click(dropdownItem)
-    expect(handleChage).toHaveBeenCalledTimes(2)
+    expect(handleChage).toHaveBeenCalledTimes(1)
     expect(handleChage).toHaveBeenCalledWith('third')
   })
 
