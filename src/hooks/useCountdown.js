@@ -12,7 +12,7 @@ const useCountdown = (targetTime) => {
     return () => {
       clearInterval(interval)
     }
-  }, [time])
+  }, [time, targetTime])
 
   return time
 }
