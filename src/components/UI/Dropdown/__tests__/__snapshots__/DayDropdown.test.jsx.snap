@@ -1,0 +1,79 @@
+// Vitest Snapshot v1
+
+exports[`DayDropdown > should render closed 1`] = `
+<div>
+  <div
+    class="flex flex-row items-center"
+  >
+    <div
+      class="mr-2 flex items-center justify-center"
+    >
+      Day
+    </div>
+    <div
+      class="z-10 block"
+    >
+      <button
+        class="flex h-6 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none dark:border-gray-700 dark:focus:border-gray-500"
+        type="button"
+      >
+        Wednesday
+        <svg
+          class="mr-1 h-4 w-4 text-gray-500 "
+          fill="none"
+          role="img"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 9l-7 7-7-7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`button > should render closed 1`] = `
+<div>
+  <div
+    class="flex flex-row items-center"
+  >
+    <div
+      class="mr-2 flex items-center justify-center"
+    >
+      Day
+    </div>
+    <div
+      class="z-10 block"
+    >
+      <button
+        class="flex h-6 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none dark:border-gray-700 dark:focus:border-gray-500"
+        type="button"
+      >
+        Wednesday
+        <svg
+          class="mr-1 h-4 w-4 text-gray-500 "
+          fill="none"
+          role="img"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 9l-7 7-7-7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
