@@ -2,11 +2,7 @@ import DayDropdown from '@UI/Dropdown/DayDropdown'
 import { render, vi, userEvent } from '@utils/test-utils'
 import { screen } from '@testing-library/react'
 
-<<<<<<< HEAD
 describe('DayDropdown', () => {
-=======
-describe('button', () => {
->>>>>>> f351a827f0715061b02a7ef1c8f91dd2e2502cb7
   beforeAll(() => {
     window.HTMLElement.prototype.scrollIntoView = vi.fn()
   })
