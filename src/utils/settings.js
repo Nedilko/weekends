@@ -1,4 +1,4 @@
-const DEAFULT_FRIDAY = {
+const DEFAULT_FRIDAY = {
   day: 5,
   hour: 18,
   minute: 0,
@@ -9,8 +9,8 @@ const DEFAULT_THEME = 'light'
 
 const getDefaultSettings = () => ({
   greetingsText: 'Have a beer!',
-  day: DEAFULT_FRIDAY.day,
-  hour: DEAFULT_FRIDAY.hour,
+  day: DEFAULT_FRIDAY.day,
+  hour: DEFAULT_FRIDAY.hour,
   theme: DEFAULT_THEME,
   useSystemTheme: false,
   isFirstLoad: true,
@@ -19,8 +19,8 @@ const getDefaultSettings = () => ({
 const getTimerData = (friday) => ({
   days: friday.day,
   hours: friday.hour,
-  minutes: DEAFULT_FRIDAY.minute,
-  seconds: DEAFULT_FRIDAY.second,
+  minutes: DEFAULT_FRIDAY.minute,
+  seconds: DEFAULT_FRIDAY.second,
 })
 
 const getSystemTheme = () =>
@@ -37,10 +37,4 @@ const applyTheme = (theme) => {
   }
 }
 
-export {
-  DEAFULT_FRIDAY,
-  getTimerData,
-  getDefaultSettings,
-  getSystemTheme,
-  applyTheme,
-}
+export { getTimerData, getDefaultSettings, getSystemTheme, applyTheme }
