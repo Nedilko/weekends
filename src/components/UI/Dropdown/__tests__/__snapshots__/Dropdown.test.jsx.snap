@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`button > should render closed 1`] = `
+exports[`dropdown > should render closed 1`] = `
 <div
   class="mr-2 flex items-center justify-center"
 >
@@ -8,7 +8,7 @@ exports[`button > should render closed 1`] = `
 </div>
 `;
 
-exports[`button > should render closed on click outside 1`] = `
+exports[`dropdown > should render closed on click outside 1`] = `
 <div>
   <div
     class="flex flex-row items-center"
@@ -47,7 +47,7 @@ exports[`button > should render closed on click outside 1`] = `
 </div>
 `;
 
-exports[`button > should render opened 1`] = `
+exports[`dropdown > should render opened 1`] = `
 <div>
   <div
     class="flex flex-row items-center"
@@ -111,7 +111,7 @@ exports[`button > should render opened 1`] = `
 </div>
 `;
 
-exports[`button > should rotate arrow when opened 1`] = `
+exports[`dropdown > should rotate arrow when opened 1`] = `
 <svg
   class="mr-1 h-4 w-4 text-gray-500 "
   fill="none"
@@ -129,7 +129,7 @@ exports[`button > should rotate arrow when opened 1`] = `
 </svg>
 `;
 
-exports[`button > should rotate arrow when opened 2`] = `
+exports[`dropdown > should rotate arrow when opened 2`] = `
 <svg
   class="mr-1 h-4 w-4 text-gray-500 rotate-180"
   fill="none"

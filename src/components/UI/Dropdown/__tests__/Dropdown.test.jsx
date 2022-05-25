@@ -1,7 +1,7 @@
 import Dropdown from '@UI/Dropdown/Dropdown'
 import { render, screen, vi, userEvent } from '@utils/test-utils'
 
-describe('button', () => {
+describe('dropdown', () => {
   const items = ['first', 'second', 'third']
   beforeAll(() => {
     window.HTMLElement.prototype.scrollIntoView = vi.fn()
