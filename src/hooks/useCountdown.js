@@ -5,7 +5,7 @@ const useCountdown = (targetTime) => {
   const [time, setTime] = useState(getTimeLeft(targetTime))
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const interval = setTimeout(() => {
       setTime(getTimeLeft(targetTime))
     }, 1000)
 
