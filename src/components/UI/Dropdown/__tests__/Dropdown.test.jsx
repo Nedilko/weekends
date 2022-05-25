@@ -78,6 +78,26 @@ describe('dropdown', () => {
     expect(dropdownElement).toHaveTextContent('third')
   })
 
+  it('should trigget onChange handler with appropriate value', async () => {
+    const handleChage = vi.fn()
+    const value = 'second'
+    const user = userEvent.setup()
+    render(
+      <Dropdown
+        label="sample label"
+        items={items}
+        onChange={handleChage}
+        value={value}
+      />
+    )
+    const dropdownElement = screen.getByRole('button')
+    await user.click(dropdownElement)
+    const dropdownItem = screen.getByText('third')
+    await user.click(dropdownItem)
+    expect(handleChage).toHaveBeenCalledTimes(2)
+    expect(handleChage).toHaveBeenCalledWith('third')
+  })
+
   it('should close dropdown on value select', async () => {
     const handleChage = vi.fn()
     const value = 'second'
