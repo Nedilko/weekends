@@ -35,10 +35,6 @@ function Dropdown({ label, items, value, onChange }) {
     setIsOpen(false)
   }
 
-  // useEffect(() => {
-  //   onChange(selectedValue)
-  // }, [selectedValue])
-
   useEffect(() => {
     function handleIsClickOutside(event) {
       if (

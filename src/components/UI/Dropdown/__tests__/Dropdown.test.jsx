@@ -55,6 +55,8 @@ describe('dropdown', () => {
         value={value}
       />
     )
+    const dropdownElement = screen.getByRole('button')
+    await user.click(dropdownElement)
     await user.click(document.body)
     expect(container).toMatchSnapshot()
   })
