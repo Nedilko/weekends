@@ -8,20 +8,13 @@ function Settings() {
   const settings = useContext(SettingsContext)
 
   const handleOpen = () => {
-    openModal()
+    seIsModalOpened(true)
   }
   const handleClose = () => {
-    closeModal()
+    seIsModalOpened(false)
   }
   const handleApply = (data) => {
     settings.handleApply(data)
-    closeModal()
-  }
-
-  const openModal = () => {
-    seIsModalOpened(true)
-  }
-  const closeModal = () => {
     seIsModalOpened(false)
   }
 
