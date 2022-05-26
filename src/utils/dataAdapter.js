@@ -1,7 +1,11 @@
 import { getDefaultSettings } from '@utils/settings'
+import {
+  writeToLocalstorage,
+  readFromLocalstorage,
+} from '@utils/localstorageAdapter'
 
 const loadSettings = () => {
-  const localStorData = localStorage.getItem('settings')
+  const localStorData = readFromLocalstorage('settings')
   if (!localStorData) {
     writeSettings(getDefaultSettings())
     return getDefaultSettings()
@@ -10,7 +14,7 @@ const loadSettings = () => {
 }
 
 const writeSettings = (settings) => {
-  return localStorage.setItem('settings', btoa(JSON.stringify(settings)))
+  writeToLocalstorage('settings', btoa(JSON.stringify(settings)))
 }
 
 export { loadSettings, writeSettings }
