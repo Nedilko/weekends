@@ -1,13 +1,17 @@
-/* eslint-disable security/detect-object-injection */
 import {
   writeToLocalstorage,
   readFromLocalstorage,
 } from '@utils/localstorageAdapter'
 
 describe('localstorage adapter', () => {
-  let currentLocalStorage
   beforeAll(() => {
-    currentLocalStorage = window.localStorage
+    Object.defineProperty(window, 'localStorage', {
+      writable: true,
+      value: {
+        setItem: vi.fn(),
+        getItem: vi.fn(() => 'sample'),
+      },
+    })
     vi.spyOn(console, 'error').mockImplementation(() => {})
   })
 
@@ -16,21 +20,13 @@ describe('localstorage adapter', () => {
   })
 
   afterEach(() => {
-    Object.defineProperty(window, 'localStorage', {
-      writable: true,
-      value: currentLocalStorage,
-    })
+    window.localStorage.setItem.mockClear()
+    window.localStorage.getItem.mockClear()
     console.error.mockClear()
   })
 
   it('should read settings from local storage', () => {
-    const getItem = vi.fn().mockImplementation(() => 'sample')
-    Object.defineProperty(window, 'localStorage', {
-      writable: true,
-      value: {
-        getItem,
-      },
-    })
+    const getItem = window.localStorage.getItem
     const data = readFromLocalstorage('settings')
     expect(getItem).toHaveBeenCalled()
     expect(getItem).toHaveBeenCalledWith('settings')
@@ -38,28 +34,16 @@ describe('localstorage adapter', () => {
   })
 
   it('should write settings to local storage', () => {
-    const setItem = vi.fn()
+    const setItem = window.localStorage.setItem
     const data = { day: 2, hour: 3 }
-    Object.defineProperty(window, 'localStorage', {
-      writable: true,
-      value: {
-        setItem,
-      },
-    })
     writeToLocalstorage('settings', data)
     expect(setItem).toHaveBeenCalled()
     expect(setItem).toHaveBeenCalledWith('settings', { day: 2, hour: 3 })
   })
 
   it('should throw error reading from localstorage', () => {
-    const getItem = vi.fn().mockImplementation(() => {
+    const getItem = window.localStorage.getItem.mockImplementation(() => {
       throw 'error message'
-    })
-    Object.defineProperty(window, 'localStorage', {
-      writable: true,
-      value: {
-        getItem,
-      },
     })
     const data = readFromLocalstorage('settings')
     expect(getItem).toHaveBeenCalled()
@@ -69,16 +53,10 @@ describe('localstorage adapter', () => {
   })
 
   it('should throw error writing to localstorage', () => {
-    const setItem = vi.fn().mockImplementation(() => {
+    const setItem = window.localStorage.setItem.mockImplementation(() => {
       throw 'error message'
     })
     const data = { day: 2, hour: 3 }
-    Object.defineProperty(window, 'localStorage', {
-      writable: true,
-      value: {
-        setItem,
-      },
-    })
     writeToLocalstorage('settings', data)
     expect(setItem).toHaveBeenCalled()
     expect(setItem).toHaveBeenCalledWith('settings', { day: 2, hour: 3 })
