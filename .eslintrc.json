@@ -30,6 +30,9 @@
         "testing-library",
         "jest-dom"
     ],
+    "globals": {
+      "vi": "readonly",
+    },
     "overrides": [
         {
           "files": ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
