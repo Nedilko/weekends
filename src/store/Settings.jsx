@@ -4,8 +4,8 @@ import { getDefaultSettings } from '@utils/settings'
 import { loadSettings, writeSettings } from '@utils/dataAdapter'
 
 const SettingsContext = React.createContext({
-  settings: getDefaultSettings(),
-  setSettings: () => {},
+  data: getDefaultSettings(),
+  handleApply: () => {},
 })
 
 export const SettingsContextProvider = ({ children }) => {
