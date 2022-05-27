@@ -1,5 +1,4 @@
 import { getTimerData, getSystemTheme, applyTheme } from '@utils/settings'
-import { vi } from 'vitest'
 
 describe('settings', () => {
   it('should return timer data', () => {

@@ -1,5 +1,5 @@
 import Button from '@UI/Buttons/Button'
-import { render, screen, userEvent, vi } from '@utils/test-utils'
+import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('button is', () => {
   const clickHandler = vi.fn()

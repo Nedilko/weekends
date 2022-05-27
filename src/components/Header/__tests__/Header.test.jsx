@@ -1,6 +1,6 @@
 import Header from '@components/Header/Header'
 import SettingsContext from '@store/Settings'
-import { render, vi } from '@utils/test-utils'
+import { render } from '@utils/test-utils'
 
 describe('DarkModeSwitcher', () => {
   const handleApply = vi.fn()

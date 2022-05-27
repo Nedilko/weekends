@@ -3,7 +3,6 @@ import {
   writeToLocalstorage,
   readFromLocalstorage,
 } from '@utils/localstorageAdapter'
-import { vi } from 'vitest'
 
 describe('localstorage adapter', () => {
   let currentLocalStorage

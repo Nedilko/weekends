@@ -4,7 +4,6 @@ import {
   writeToLocalstorage,
   readFromLocalstorage,
 } from '@utils/localstorageAdapter'
-import { vi } from 'vitest'
 
 vi.mock('@utils/localstorageAdapter', () => ({
   ...vi.importActual('@utils/localstorageAdapter'),

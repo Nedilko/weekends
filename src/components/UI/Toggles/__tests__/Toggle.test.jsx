@@ -1,5 +1,5 @@
 import Toggle from '@UI/Toggles/Toggle'
-import { render, screen, userEvent, vi } from '@utils/test-utils'
+import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('toggle is', () => {
   const clickHandler = vi.fn()

@@ -1,5 +1,5 @@
 import ToggleTheme from '@UI/Toggles/ToggleTheme'
-import { render, screen, userEvent, vi } from '@utils/test-utils'
+import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('theme toggle is', () => {
   const clickHandler = vi.fn()
