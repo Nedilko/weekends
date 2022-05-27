@@ -1,6 +1,6 @@
 import Settings from '@components/Header/Settings'
 import SettingsContext from '@store/Settings'
-import { render, vi, screen, userEvent } from '@utils/test-utils'
+import { render, screen, userEvent } from '@utils/test-utils'
 import ReactDOM from 'react-dom'
 
 describe('Settings component', () => {

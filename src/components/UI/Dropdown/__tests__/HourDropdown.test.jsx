@@ -1,5 +1,5 @@
 import HourDropdown from '@UI/Dropdown/HourDropdown'
-import { render, vi, userEvent } from '@utils/test-utils'
+import { render, userEvent } from '@utils/test-utils'
 import { screen } from '@testing-library/react'
 
 describe('HourDropdown', () => {

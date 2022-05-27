@@ -1,5 +1,5 @@
 import SettingsModal from '@UI/Modals/SettingsModal'
-import { render, vi, screen, userEvent } from '@utils/test-utils'
+import { render, screen, userEvent } from '@utils/test-utils'
 import ReactDOM from 'react-dom'
 
 describe('SettingsModal', () => {

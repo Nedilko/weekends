@@ -1,5 +1,5 @@
 import Dropdown from '@UI/Dropdown/Dropdown'
-import { render, screen, vi, userEvent } from '@utils/test-utils'
+import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('dropdown', () => {
   const items = ['first', 'second', 'third']

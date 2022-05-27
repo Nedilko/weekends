@@ -1,5 +1,5 @@
 import DayDropdown from '@UI/Dropdown/DayDropdown'
-import { render, vi, userEvent } from '@utils/test-utils'
+import { render, userEvent } from '@utils/test-utils'
 import { screen } from '@testing-library/react'
 
 describe('DayDropdown', () => {

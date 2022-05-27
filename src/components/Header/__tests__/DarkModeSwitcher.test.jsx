@@ -1,6 +1,6 @@
 import DarkModeSwitcher from '@components/Header/DarkModeSwitcher'
 import SettingsContext from '@store/Settings'
-import { render, screen, vi, userEvent } from '@utils/test-utils'
+import { render, screen, userEvent } from '@utils/test-utils'
 import { useState } from 'react'
 
 describe('DarkModeSwitcher', () => {

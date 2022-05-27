@@ -1,5 +1,5 @@
 import TextInput from '@UI/Inputs/TextInput'
-import { render, screen, vi, fireEvent } from '@utils/test-utils'
+import { render, screen, fireEvent } from '@utils/test-utils'
 
 describe('text input is', () => {
   const changeHandler = vi.fn()

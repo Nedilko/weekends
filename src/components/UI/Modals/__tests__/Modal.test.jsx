@@ -1,5 +1,5 @@
 import Modal from '@UI/Modals/Modal'
-import { render, screen, vi, fireEvent } from '@utils/test-utils'
+import { render, screen, fireEvent } from '@utils/test-utils'
 import ReactDOM from 'react-dom'
 
 describe('modal', () => {

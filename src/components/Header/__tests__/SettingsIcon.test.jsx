@@ -1,5 +1,5 @@
 import SettingsIcon from '@components/Header/SettingsIcon'
-import { render, screen, vi, userEvent } from '@utils/test-utils'
+import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('settings', () => {
   it('should render', () => {
