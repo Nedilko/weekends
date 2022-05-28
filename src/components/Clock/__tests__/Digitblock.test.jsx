@@ -1,23 +1,39 @@
 import Digitblock from '@components/Clock/Digitblock'
 import { render, screen } from '@utils/test-utils'
 
-describe('clock digit block renders', () => {
-  it('with label', () => {
-    render(<Digitblock label="my label" digit={12} separator=":" />)
+vi.mock('@components/Clock/Digit', () => {
+  return {
+    default: () => {
+      return <div data-testid="digit"></div>
+    },
+  }
+})
+
+vi.mock('@components/Clock/Separator', () => {
+  return {
+    default: () => {
+      return <div data-testid="separator"></div>
+    },
+  }
+})
+
+describe('Digitblock', () => {
+  it('should render with digit, label and separator', () => {
+    const { container } = render(
+      <Digitblock label="my label" digit={12} separator=":" />
+    )
     const label = screen.getByText(/my label/i)
+    const digit = screen.getByTestId('digit')
+    const separator = screen.getByTestId('separator')
     expect(label).toBeInTheDocument()
-    expect(label).toMatchSnapshot()
-  })
-  it('with digit', () => {
-    render(<Digitblock label="my label" digit={12} separator=":" />)
-    const digit = screen.getByText(/12/i)
     expect(digit).toBeInTheDocument()
-    expect(digit).toMatchSnapshot()
-  })
-  it('with separator', () => {
-    render(<Digitblock label="my label" digit={12} separator=":" />)
-    const separator = screen.getByText(/:/i)
     expect(separator).toBeInTheDocument()
-    expect(separator).toMatchSnapshot()
+    expect(container).toMatchSnapshot()
+  })
+  it('should render without separator', () => {
+    const { container } = render(<Digitblock label="my label" digit={12} />)
+    const separator = screen.queryByTestId('separator')
+    expect(separator).not.toBeInTheDocument()
+    expect(container).toMatchSnapshot()
   })
 })

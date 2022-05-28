@@ -1,25 +1,38 @@
 // Vitest Snapshot v1
 
-exports[`clock digit block renders > with digit 1`] = `
-<div
-  class="flex h-20 items-center justify-center text-5xl font-thin"
->
-  12
+exports[`Digitblock > should render with digit, label and separator 1`] = `
+<div>
+  <div
+    class="flex w-24 flex-col"
+  >
+    <div
+      class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+    >
+      my label
+    </div>
+    <div
+      data-testid="digit"
+    />
+  </div>
+  <div
+    data-testid="separator"
+  />
 </div>
 `;
 
-exports[`clock digit block renders > with label 1`] = `
-<div
-  class="flex h-8 items-center justify-center text-lg font-thin uppercase"
->
-  my label
-</div>
-`;
-
-exports[`clock digit block renders > with separator 1`] = `
-<div
-  class="mt-8 flex items-center justify-center pb-2 text-5xl"
->
-  :
+exports[`Digitblock > should render without separator 1`] = `
+<div>
+  <div
+    class="flex w-24 flex-col"
+  >
+    <div
+      class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+    >
+      my label
+    </div>
+    <div
+      data-testid="digit"
+    />
+  </div>
 </div>
 `;
