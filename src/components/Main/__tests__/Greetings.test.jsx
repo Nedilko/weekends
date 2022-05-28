@@ -2,8 +2,8 @@ import Greetings from '@components/Main/Greetings'
 import SettingsContext from '@store/Settings'
 import { render, screen } from '@utils/test-utils'
 
-describe('greetings text', () => {
-  it('is visible', () => {
+describe('Greetings', () => {
+  it('should render', () => {
     render(
       <SettingsContext.Provider value={{ data: { greetingsText: 'sample' } }}>
         <Greetings />
