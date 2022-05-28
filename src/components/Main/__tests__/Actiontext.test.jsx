@@ -1,8 +1,8 @@
 import Actiontext from '../ActionText'
-import { render, screen } from '../../../utils/test-utils'
+import { render, screen } from '@utils/test-utils'
 
-describe('action text', () => {
-  it('is visible', () => {
+describe('Actiontext', () => {
+  it('should render', () => {
     render(<Actiontext />)
     const title = screen.getByRole('heading')
     expect(title).toBeInTheDocument()
