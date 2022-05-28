@@ -1,0 +1,207 @@
+// Vitest Snapshot v1
+
+exports[`Clock > should render 1`] = `
+<div>
+  <div
+    class="mt-10 flex flex-row justify-around"
+  >
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        days
+      </div>
+      <div
+        class="flex h-20 items-center justify-center text-5xl font-thin"
+      >
+        1
+      </div>
+    </div>
+    <div
+      class="mt-8 flex items-center justify-center pb-2 text-5xl"
+    >
+      :
+    </div>
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        hours
+      </div>
+      <div
+        class="flex h-20 items-center justify-center text-5xl font-thin"
+      >
+        1
+      </div>
+    </div>
+    <div
+      class="mt-8 flex items-center justify-center pb-2 text-5xl"
+    >
+      :
+    </div>
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        minutes
+      </div>
+      <div
+        class="flex h-20 items-center justify-center text-5xl font-thin"
+      >
+        1
+      </div>
+    </div>
+    <div
+      class="mt-8 flex items-center justify-center pb-2 text-5xl"
+    >
+      :
+    </div>
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        seconds
+      </div>
+      <div
+        class="flex h-20 items-center justify-center text-5xl font-thin"
+      >
+        1
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Clock > should render without days 1`] = `
+<div>
+  <div
+    class="mt-10 flex flex-row justify-around"
+  >
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        hours
+      </div>
+      <div
+        class="flex h-20 items-center justify-center text-5xl font-thin"
+      >
+        1
+      </div>
+    </div>
+    <div
+      class="mt-8 flex items-center justify-center pb-2 text-5xl"
+    >
+      :
+    </div>
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        minutes
+      </div>
+      <div
+        class="flex h-20 items-center justify-center text-5xl font-thin"
+      >
+        1
+      </div>
+    </div>
+    <div
+      class="mt-8 flex items-center justify-center pb-2 text-5xl"
+    >
+      :
+    </div>
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        seconds
+      </div>
+      <div
+        class="flex h-20 items-center justify-center text-5xl font-thin"
+      >
+        1
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Clock > should render without days and hours 1`] = `
+<div>
+  <div
+    class="mt-10 flex flex-row justify-around"
+  >
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        minutes
+      </div>
+      <div
+        class="flex h-20 items-center justify-center text-5xl font-thin"
+      >
+        1
+      </div>
+    </div>
+    <div
+      class="mt-8 flex items-center justify-center pb-2 text-5xl"
+    >
+      :
+    </div>
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        seconds
+      </div>
+      <div
+        class="flex h-20 items-center justify-center text-5xl font-thin"
+      >
+        1
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Clock > should render without days, hours and minutes 1`] = `
+<div>
+  <div
+    class="mt-10 flex flex-row justify-around"
+  >
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        seconds
+      </div>
+      <div
+        class="flex h-20 items-center justify-center text-5xl font-thin"
+      >
+        1
+      </div>
+    </div>
+  </div>
+</div>
+`;
