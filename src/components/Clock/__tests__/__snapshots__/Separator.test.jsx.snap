@@ -1,5 +1,13 @@
 // Vitest Snapshot v1
 
+exports[`Separator > should render with custom symbol 1`] = `
+<div
+  class="mt-8 flex items-center justify-center pb-2 text-5xl"
+>
+  ::
+</div>
+`;
+
 exports[`separator > renders with custom text 1`] = `
 <div
   class="mt-8 flex items-center justify-center pb-2 text-5xl"
