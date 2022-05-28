@@ -1,18 +1,25 @@
 import Header from '@components/Header/Header'
-import SettingsContext from '@store/Settings'
-import { render } from '@utils/test-utils'
+import { render, screen } from '@utils/test-utils'
 
 describe('DarkModeSwitcher', () => {
-  const handleApply = vi.fn()
+  vi.mock('@components/Header/Settings', () => {
+    return {
+      default: () => {
+        return <div></div>
+      },
+    }
+  })
+
+  vi.mock('@components/Header/DarkModeSwitcher', () => {
+    return {
+      default: () => {
+        return <div></div>
+      },
+    }
+  })
 
   it('should be in the document', () => {
-    const { container } = render(
-      <SettingsContext.Provider
-        value={{ data: { useSystemTheme: false, theme: 'light' }, handleApply }}
-      >
-        <Header />
-      </SettingsContext.Provider>
-    )
-    expect(container).toMatchSnapshot()
+    render(<Header />)
+    expect(screen.getByTestId('header')).toMatchSnapshot()
   })
 })
