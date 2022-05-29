@@ -5,7 +5,7 @@ describe('DarkModeSwitcher', () => {
   vi.mock('@components/Header/Settings', () => {
     return {
       default: () => {
-        return <div></div>
+        return <div>Settings</div>
       },
     }
   })
@@ -13,7 +13,7 @@ describe('DarkModeSwitcher', () => {
   vi.mock('@components/Header/DarkModeSwitcher', () => {
     return {
       default: () => {
-        return <div></div>
+        return <div>Switcher</div>
       },
     }
   })

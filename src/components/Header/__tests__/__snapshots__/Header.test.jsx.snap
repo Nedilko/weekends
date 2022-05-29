@@ -5,7 +5,11 @@ exports[`DarkModeSwitcher > should be in the document 1`] = `
   class="my-2 mx-4 flex h-12 flex-row justify-between"
   data-testid="header"
 >
-  <div />
-  <div />
+  <div>
+    Settings
+  </div>
+  <div>
+    Switcher
+  </div>
 </header>
 `;
