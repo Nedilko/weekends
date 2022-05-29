@@ -1,4 +1,4 @@
-import { getTimeLeft } from '@utils/getTimeLeft'
+import { getTimeLeft, isFinished } from '@utils/getTimeLeft'
 
 describe('getTimeLeft', () => {
   beforeEach(() => {
@@ -45,5 +45,27 @@ describe('getTimeLeft', () => {
       minutes: 0,
       seconds: 0,
     })
+  })
+})
+
+describe('isFinished', () => {
+  it('should return true if no time left', () => {
+    const timeLeft = {
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    }
+    expect(isFinished(timeLeft)).toBe(true)
+  })
+
+  it('should return false if time left', () => {
+    const timeLeft = {
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 1,
+    }
+    expect(isFinished(timeLeft)).toBe(false)
   })
 })
