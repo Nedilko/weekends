@@ -1,0 +1,19 @@
+// Vitest Snapshot v1
+
+exports[`Settings provider consistance data > should render all data 1`] = `
+<div>
+  <div>
+    {
+	"day": 6,
+	"hour": 18,
+	"greetingsText": "Hello",
+	"theme": "light",
+	"useSystemTheme": false,
+	"isFirstLoad": true
+}
+  </div>
+  <button>
+    Apply
+  </button>
+</div>
+`;
