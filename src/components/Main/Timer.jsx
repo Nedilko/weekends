@@ -19,7 +19,7 @@ function Timer({ onFinish }) {
     if (isFinished(time)) {
       onFinish(true)
     }
-  }, [time])
+  }, [time, onFinish])
 
   return (
     <div className="mt-20 flex flex-col items-center">
