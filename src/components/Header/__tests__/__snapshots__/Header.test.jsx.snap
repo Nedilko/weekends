@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`DarkModeSwitcher > should be in the document 1`] = `
+exports[`DarkModeSwitcher > should render header component 1`] = `
 <header
   class="my-2 mx-4 flex h-12 flex-row justify-between"
   data-testid="header"

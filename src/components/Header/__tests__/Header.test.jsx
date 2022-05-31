@@ -18,7 +18,13 @@ describe('DarkModeSwitcher', () => {
     }
   })
 
-  it('should be in the document', () => {
+  it('should render setting icon and theme switcher', () => {
+    render(<Header />)
+    expect(screen.getByText(/settings/i)).toBeInTheDocument()
+    expect(screen.getByText(/switcher/i)).toBeInTheDocument()
+  })
+
+  it('should render header component', () => {
     render(<Header />)
     expect(screen.getByTestId('header')).toMatchSnapshot()
   })
