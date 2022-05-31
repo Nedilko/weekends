@@ -9,7 +9,7 @@ describe('useCountdown', () => {
   afterEach(() => {
     vi.useRealTimers()
   })
-  it('should decrement 1 second', () => {
+  it('should decrement 1 second on tick', () => {
     const date = new Date(2022, 4, 23, 11, 12, 11, 0)
     vi.setSystemTime(date)
     act(() => {
