@@ -1,5 +1,25 @@
 // Vitest Snapshot v1
 
+exports[`Panel > should render content 1`] = `
+<div>
+  <div
+    class="max-w-sm mx-auto rounded-xl bg-white p-4 shadow-md dark:bg-zinc-900"
+  >
+    some content
+  </div>
+</div>
+`;
+
+exports[`Panel > should render with size 1`] = `
+<div>
+  <div
+    class="max-w-md mx-auto rounded-xl bg-white p-4 shadow-md dark:bg-zinc-900"
+  >
+    some content
+  </div>
+</div>
+`;
+
 exports[`panel > renders text 1`] = `
 <div>
   <div
