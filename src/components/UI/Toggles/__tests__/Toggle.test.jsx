@@ -1,20 +1,34 @@
 import Toggle from '@UI/Toggles/Toggle'
 import { render, screen, userEvent } from '@utils/test-utils'
 
-describe('toggle is', () => {
+describe('Toggle', () => {
   const clickHandler = vi.fn()
-  it('in the document', () => {
-    render(<Toggle isChecked={true} onClick={clickHandler} />)
-    const toggle = screen.getByRole('checkbox')
-    expect(toggle).toBeInTheDocument()
-    expect(toggle).toMatchSnapshot()
+
+  beforeEach(() => {
+    clickHandler.mockClear()
   })
-  it('clicked once', async () => {
+
+  it('should render component with label', () => {
+    const { container } = render(
+      <Toggle label="sample label" isChecked={false} onClick={clickHandler} />
+    )
+    expect(container).toMatchSnapshot()
+  })
+
+  it('should render checked', () => {
     render(<Toggle isChecked={true} onClick={clickHandler} />)
+    expect(screen.getByRole('checkbox')).toMatchSnapshot()
+  })
+
+  it('should render unchecked', () => {
+    render(<Toggle isChecked={false} onClick={clickHandler} />)
+    expect(screen.getByRole('checkbox')).toMatchSnapshot()
+  })
+
+  it('should handle click', async () => {
     const user = userEvent.setup()
-    const toggle = screen.getByRole('checkbox')
-    await user.click(toggle)
-    expect(clickHandler).toHaveBeenCalledTimes(1)
-    expect(toggle).toMatchSnapshot()
+    render(<Toggle isChecked={true} onClick={clickHandler} />)
+    await user.click(screen.getByRole('checkbox'))
+    expect(clickHandler).toHaveBeenCalledOnce()
   })
 })
