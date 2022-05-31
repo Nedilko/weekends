@@ -19,26 +19,20 @@ describe('SettingsModal', () => {
     ReactDOM.createPortal = vi.fn((element) => {
       return element
     })
+    window.HTMLElement.prototype.scrollIntoView = vi.fn()
   })
 
   afterEach(() => {
     ReactDOM.createPortal.mockClear()
+    window.HTMLElement.prototype.scrollIntoView.mockClear()
+  })
+
+  afterAll(() => {
+    ReactDOM.createPortal.mockRestore()
+    window.HTMLElement.prototype.scrollIntoView.mockRestore()
   })
 
   it('should be in the document', async () => {
-    const { container } = render(
-      <SettingsModal
-        settings={settings}
-        title="sample title"
-        onApply={handleApply}
-        onCancel={handleCancel}
-      />
-    )
-    expect(container).toMatchSnapshot()
-  })
-
-  it('should handle click on Apply button', async () => {
-    const user = userEvent.setup()
     render(
       <SettingsModal
         settings={settings}
@@ -47,24 +41,7 @@ describe('SettingsModal', () => {
         onCancel={handleCancel}
       />
     )
-    const applyButton = screen.getByRole('button', { name: /apply/i })
-    await user.click(applyButton)
-    expect(handleApply).toBeCalledTimes(1)
-  })
-
-  it('should handle click on Cancel button', async () => {
-    const user = userEvent.setup()
-    render(
-      <SettingsModal
-        settings={settings}
-        title="sample title"
-        onApply={handleApply}
-        onCancel={handleCancel}
-      />
-    )
-    const cancelButton = screen.getByRole('button', { name: /cancel/i })
-    await user.click(cancelButton)
-    expect(handleCancel).toBeCalledTimes(1)
+    expect(screen.getByTestId('settings-modal')).toMatchSnapshot()
   })
 
   it('should toggle switcher', async () => {
@@ -80,5 +57,33 @@ describe('SettingsModal', () => {
     const toggle = screen.getByRole('checkbox')
     await user.click(toggle)
     expect(toggle).toBeChecked()
+  })
+
+  it('should handle Apply with new settings', async () => {
+    const user = userEvent.setup()
+    render(
+      <SettingsModal
+        settings={settings}
+        title="sample title"
+        onApply={handleApply}
+        onCancel={handleCancel}
+      />
+    )
+
+    const greetingsTextInput = screen.getByPlaceholderText('Have a beer')
+    await user.clear(greetingsTextInput)
+    await user.type(greetingsTextInput, 'new greeting')
+    await user.click(screen.getByText('Friday'))
+    await user.click(screen.getByText('Saturday'))
+    await user.click(screen.getByText('18:00'))
+    await user.click(screen.getByText('17:00'))
+    await user.click(screen.getByRole('checkbox'))
+    await user.click(screen.getByRole('button', { name: 'Apply' }))
+    expect(handleApply).toHaveBeenCalledWith({
+      greetingsText: 'new greeting',
+      day: 6,
+      hour: 17,
+      useSystemTheme: true,
+    })
   })
 })
