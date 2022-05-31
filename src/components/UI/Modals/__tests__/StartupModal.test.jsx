@@ -18,24 +18,31 @@ describe('StartupModal', () => {
     ReactDOM.createPortal = vi.fn((element) => {
       return element
     })
+    window.HTMLElement.prototype.scrollIntoView = vi.fn()
   })
 
   afterEach(() => {
     ReactDOM.createPortal.mockClear()
+    window.HTMLElement.prototype.scrollIntoView.mockClear()
+  })
+
+  afterAll(() => {
+    ReactDOM.createPortal.mockRestore()
+    window.HTMLElement.prototype.scrollIntoView.mockRestore()
   })
 
   it('should be in the document', async () => {
-    const { container } = render(
+    render(
       <StartupModal
         settings={settings}
         title="sample title"
         onApply={handleApply}
       />
     )
-    expect(container).toMatchSnapshot()
+    expect(screen.getByTestId('startup-modal')).toMatchSnapshot()
   })
 
-  it('should handle click on Apply button', async () => {
+  it('should handle Apply with new settings', async () => {
     const user = userEvent.setup()
     render(
       <StartupModal
@@ -44,8 +51,15 @@ describe('StartupModal', () => {
         onApply={handleApply}
       />
     )
-    const applyButton = screen.getByRole('button', { name: /apply/i })
-    await user.click(applyButton)
-    expect(handleApply).toBeCalledTimes(1)
+
+    await user.click(screen.getByText('Friday'))
+    await user.click(screen.getByText('Saturday'))
+    await user.click(screen.getByText('18:00'))
+    await user.click(screen.getByText('17:00'))
+    await user.click(screen.getByRole('button', { name: 'Apply' }))
+    expect(handleApply).toHaveBeenCalledWith({
+      day: 6,
+      hour: 17,
+    })
   })
 })

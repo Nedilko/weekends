@@ -1,117 +1,90 @@
 // Vitest Snapshot v1
 
 exports[`StartupModal > should be in the document 1`] = `
-<div>
+<section
+  class="flex flex-col font-thin"
+  data-testid="startup-modal"
+>
   <div
-    class="relative z-10"
+    class="flex justify-center"
+  >
+    <h2
+      class="mb-2 text-xl"
+    >
+      Day and Hour you finish your work
+    </h2>
+  </div>
+  <div
+    class="flex items-center justify-around"
   >
     <div
-      class="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm"
+      class="flex flex-row items-center"
     >
       <div
-        class="max-w-xl mx-auto rounded-xl bg-white p-4 shadow-md dark:bg-zinc-900"
+        class="mr-2 flex items-center justify-center"
       >
-        <div
-          class="mb-2 text-3xl font-thin text-slate-600 dark:border-b-zinc-600 dark:text-gray-400 text-center"
+        Day
+      </div>
+      <div
+        class="z-10 block"
+      >
+        <button
+          class="flex h-6 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none dark:border-gray-700 dark:focus:border-gray-500"
+          type="button"
         >
-          sample title
-        </div>
-        <div
-          class="flex flex-col font-thin"
+          Friday
+          <svg
+            class="mr-1 h-4 w-4 text-gray-500 "
+            fill="none"
+            role="img"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 9l-7 7-7-7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="flex flex-row items-center"
+    >
+      <div
+        class="mr-2 flex items-center justify-center"
+      >
+        Hour
+      </div>
+      <div
+        class="z-10 block"
+      >
+        <button
+          class="flex h-6 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none dark:border-gray-700 dark:focus:border-gray-500"
+          type="button"
         >
-          <div
-            class="flex justify-center"
+          18:00
+          <svg
+            class="mr-1 h-4 w-4 text-gray-500 "
+            fill="none"
+            role="img"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <h2
-              class="mb-2 text-xl"
-            >
-              Day and Hour you finish your work
-            </h2>
-          </div>
-          <div
-            class="flex items-center justify-around"
-          >
-            <div
-              class="flex flex-row items-center"
-            >
-              <div
-                class="mr-2 flex items-center justify-center"
-              >
-                Day
-              </div>
-              <div
-                class="z-10 block"
-              >
-                <button
-                  class="flex h-6 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none dark:border-gray-700 dark:focus:border-gray-500"
-                  type="button"
-                >
-                  Friday
-                  <svg
-                    class="mr-1 h-4 w-4 text-gray-500 "
-                    fill="none"
-                    role="img"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 9l-7 7-7-7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div
-              class="flex flex-row items-center"
-            >
-              <div
-                class="mr-2 flex items-center justify-center"
-              >
-                Hour
-              </div>
-              <div
-                class="z-10 block"
-              >
-                <button
-                  class="flex h-6 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none dark:border-gray-700 dark:focus:border-gray-500"
-                  type="button"
-                >
-                  18:00
-                  <svg
-                    class="mr-1 h-4 w-4 text-gray-500 "
-                    fill="none"
-                    role="img"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19 9l-7 7-7-7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="flex dark:border-t-zinc-600 justify-center"
-        >
-          <button
-            class="mx-4 w-16 py-2 text-xl font-thin text-slate-600 duration-200 ease-in-out hover:scale-110 focus:scale-110 focus:outline-none dark:text-gray-400"
-          >
-            Apply
-          </button>
-        </div>
+            <path
+              d="M19 9l-7 7-7-7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
-</div>
+</section>
 `;
