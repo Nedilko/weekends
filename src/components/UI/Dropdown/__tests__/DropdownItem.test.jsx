@@ -2,16 +2,25 @@ import DropdownItem from '@UI/Dropdown/DropdownItem'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('button', () => {
+  const handleSelect = vi.fn()
+
   beforeAll(() => {
     window.HTMLElement.prototype.scrollIntoView = vi.fn()
+  })
+
+  beforeEach(() => {
+    handleSelect.mockClear()
   })
 
   afterEach(() => {
     window.HTMLElement.prototype.scrollIntoView.mockClear()
   })
 
-  it('should render', () => {
-    const handleSelect = vi.fn()
+  afterAll(() => {
+    window.HTMLElement.prototype.scrollIntoView.mockRestore()
+  })
+
+  it('should render dropdown item', () => {
     render(
       <DropdownItem
         value="sample"
@@ -19,12 +28,10 @@ describe('button', () => {
         isSelected={true}
       />
     )
-    const dropdownItem = screen.getByTestId('dropdown-item')
-    expect(dropdownItem).toBeInTheDocument()
+    expect(screen.getByTestId('dropdown-item')).toBeInTheDocument()
   })
 
   it('should render selected', () => {
-    const handleSelect = vi.fn()
     render(
       <DropdownItem
         value="sample"
@@ -32,12 +39,10 @@ describe('button', () => {
         isSelected={true}
       />
     )
-    const dropdownItem = screen.getByTestId('dropdown-item')
-    expect(dropdownItem).toMatchSnapshot()
+    expect(screen.getByTestId('dropdown-item')).toMatchSnapshot()
   })
 
   it('should render not selected', () => {
-    const handleSelect = vi.fn()
     render(
       <DropdownItem
         value="sample"
@@ -45,12 +50,11 @@ describe('button', () => {
         isSelected={false}
       />
     )
-    const dropdownItem = screen.getByTestId('dropdown-item')
-    expect(dropdownItem).toMatchSnapshot()
+    expect(screen.getByTestId('dropdown-item')).toMatchSnapshot()
   })
 
   it('should handle click', async () => {
-    const handleSelect = vi.fn()
+    const user = userEvent.setup()
     render(
       <DropdownItem
         value="sample"
@@ -58,14 +62,12 @@ describe('button', () => {
         isSelected={true}
       />
     )
-    const user = userEvent.setup()
-    const dropdownItem = screen.getByTestId('dropdown-item')
-    await user.click(dropdownItem)
-    expect(handleSelect).toHaveBeenCalledTimes(1)
+    await user.click(screen.getByTestId('dropdown-item'))
+    expect(handleSelect).toHaveBeenCalledOnce()
   })
 
   it('should pass value on click', async () => {
-    const handleSelect = vi.fn()
+    const user = userEvent.setup()
     render(
       <DropdownItem
         value="sample"
@@ -73,9 +75,18 @@ describe('button', () => {
         isSelected={true}
       />
     )
-    const user = userEvent.setup()
-    const dropdownItem = screen.getByTestId('dropdown-item')
-    await user.click(dropdownItem)
+    await user.click(screen.getByTestId('dropdown-item'))
     expect(handleSelect).toHaveBeenCalledWith('sample')
+  })
+
+  it('should scroll into view on item render', () => {
+    render(
+      <DropdownItem
+        value="sample"
+        handleSelect={handleSelect}
+        isSelected={true}
+      />
+    )
+    expect(window.HTMLElement.prototype.scrollIntoView).toHaveBeenCalled()
   })
 })
