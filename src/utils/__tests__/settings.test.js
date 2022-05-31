@@ -1,4 +1,9 @@
-import { getTimerData, getSystemTheme, applyTheme } from '@utils/settings'
+import {
+  getTimerData,
+  getSystemTheme,
+  applyTheme,
+  getDefaultSettings,
+} from '@utils/settings'
 
 describe('settings', () => {
   it('should return timer data', () => {
@@ -53,5 +58,16 @@ describe('settings', () => {
     document.documentElement.classList.add('dark')
     applyTheme('light')
     expect(document.documentElement).not.toHaveClass('dark')
+  })
+
+  it('should get default settings', () => {
+    expect(getDefaultSettings()).toEqual({
+      greetingsText: 'Have a beer!',
+      day: 5,
+      hour: 18,
+      theme: 'light',
+      useSystemTheme: false,
+      isFirstLoad: true,
+    })
   })
 })
