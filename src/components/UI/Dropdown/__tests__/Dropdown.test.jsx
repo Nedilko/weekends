@@ -1,25 +1,32 @@
 import Dropdown from '@UI/Dropdown/Dropdown'
 import { render, screen, userEvent } from '@utils/test-utils'
 
-describe('dropdown', () => {
-  const items = ['first', 'second', 'third']
+describe('Dropdown', () => {
+  const handleChage = vi.fn()
+
   beforeAll(() => {
     window.HTMLElement.prototype.scrollIntoView = vi.fn()
+  })
+
+  beforeEach(() => {
+    handleChage.mockClear()
   })
 
   afterEach(() => {
     window.HTMLElement.prototype.scrollIntoView.mockClear()
   })
 
+  afterAll(() => {
+    window.HTMLElement.prototype.scrollIntoView.mockRestore()
+  })
+
   it('should render closed', () => {
-    const handleChage = vi.fn()
-    const value = 'second'
     render(
       <Dropdown
         label="sample label"
-        items={items}
+        items={['first', 'second', 'third']}
         onChange={handleChage}
-        value={value}
+        value={'second'}
       />
     )
     const dropdown = screen.getByText('sample label')
@@ -27,107 +34,91 @@ describe('dropdown', () => {
   })
 
   it('should render opened', async () => {
-    const handleChage = vi.fn()
-    const value = 'second'
     const user = userEvent.setup()
     const { container } = render(
       <Dropdown
         label="sample label"
-        items={items}
+        items={['first', 'second', 'third']}
         onChange={handleChage}
-        value={value}
+        value={'second'}
       />
     )
-    const dropdownElement = screen.getByRole('button')
-    await user.click(dropdownElement)
+    await user.click(screen.getByRole('button'))
     expect(container).toMatchSnapshot()
   })
 
   it('should render closed on click outside', async () => {
-    const handleChage = vi.fn()
-    const value = 'second'
     const user = userEvent.setup()
     const { container } = render(
       <Dropdown
         label="sample label"
-        items={items}
+        items={['first', 'second', 'third']}
         onChange={handleChage}
-        value={value}
+        value={'second'}
       />
     )
-    const dropdownElement = screen.getByRole('button')
-    await user.click(dropdownElement)
+    await user.click(screen.getByRole('button'))
     await user.click(document.body)
     expect(container).toMatchSnapshot()
   })
 
   it('should change selected value', async () => {
-    const handleChage = vi.fn()
-    const value = 'second'
     const user = userEvent.setup()
     render(
       <Dropdown
         label="sample label"
-        items={items}
+        items={['first', 'second', 'third']}
         onChange={handleChage}
-        value={value}
+        value={'second'}
       />
     )
     const dropdownElement = screen.getByRole('button')
     await user.click(dropdownElement)
-    const dropdownItem = screen.getByText('third')
-    await user.click(dropdownItem)
+    await user.click(screen.getByText('third'))
     expect(dropdownElement).toHaveTextContent('third')
   })
 
   it('should trigget onChange handler with appropriate value', async () => {
-    const handleChage = vi.fn()
-    const value = 'second'
     const user = userEvent.setup()
     render(
       <Dropdown
         label="sample label"
-        items={items}
+        items={['first', 'second', 'third']}
         onChange={handleChage}
-        value={value}
+        value={'second'}
       />
     )
-    const dropdownElement = screen.getByRole('button')
-    await user.click(dropdownElement)
-    const dropdownItem = screen.getByText('third')
-    await user.click(dropdownItem)
-    expect(handleChage).toHaveBeenCalledTimes(1)
+    await user.click(screen.getByRole('button'))
+    await user.click(screen.getByText('third'))
+    expect(handleChage).toHaveBeenCalledOnce()
     expect(handleChage).toHaveBeenCalledWith('third')
   })
 
   it('should close dropdown on value select', async () => {
-    const handleChage = vi.fn()
-    const value = 'second'
     const user = userEvent.setup()
     render(
       <Dropdown
         label="sample label"
-        items={items}
+        items={['first', 'second', 'third']}
         onChange={handleChage}
-        value={value}
+        value={'second'}
       />
     )
     await user.click(screen.getByRole('button'))
-    const dropdownItemsList = screen.queryAllByTestId('dropdown-item')
     await user.click(screen.getByText('third'))
-    dropdownItemsList.forEach((item) => expect(item).not.toBeInTheDocument())
+    screen
+      .queryAllByTestId('dropdown-item')
+      .forEach((item) => expect(item).not.toBeInTheDocument())
   })
 
   it('should rotate arrow when opened', async () => {
-    const handleChage = vi.fn()
-    const value = 'second'
     const user = userEvent.setup()
     render(
       <Dropdown
         label="sample label"
-        items={items}
+        items={['first', 'second', 'third']}
         onChange={handleChage}
-        value={value}
+        value={'second'}
       />
     )
     const arrow = screen.getByRole('img')

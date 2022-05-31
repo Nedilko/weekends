@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import DropdownItemsList from '@UI/Dropdown/DropdownItemsList'
 
 Dropdown.propTypes = {
-  value: PropTypes.string,
-  items: PropTypes.array,
-  label: PropTypes.string,
-  onChange: PropTypes.func,
+  value: PropTypes.string.isRequired,
+  items: PropTypes.array.isRequired,
+  label: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 
 function Dropdown({ label, items, value, onChange }) {
