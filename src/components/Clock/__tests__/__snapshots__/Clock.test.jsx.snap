@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`Clock > should render 1`] = `
+exports[`Clock > should render with all clock numbers and separators 1`] = `
 <div>
   <div
     class="mt-10 flex flex-row justify-around"
@@ -14,16 +14,12 @@ exports[`Clock > should render 1`] = `
         days
       </div>
       <div
-        class="flex h-20 items-center justify-center text-5xl font-thin"
-      >
-        1
-      </div>
+        data-testid="digit"
+      />
     </div>
     <div
-      class="mt-8 flex items-center justify-center pb-2 text-5xl"
-    >
-      :
-    </div>
+      data-testid="separator"
+    />
     <div
       class="flex w-24 flex-col"
     >
@@ -33,16 +29,12 @@ exports[`Clock > should render 1`] = `
         hours
       </div>
       <div
-        class="flex h-20 items-center justify-center text-5xl font-thin"
-      >
-        1
-      </div>
+        data-testid="digit"
+      />
     </div>
     <div
-      class="mt-8 flex items-center justify-center pb-2 text-5xl"
-    >
-      :
-    </div>
+      data-testid="separator"
+    />
     <div
       class="flex w-24 flex-col"
     >
@@ -52,16 +44,12 @@ exports[`Clock > should render 1`] = `
         minutes
       </div>
       <div
-        class="flex h-20 items-center justify-center text-5xl font-thin"
-      >
-        1
-      </div>
+        data-testid="digit"
+      />
     </div>
     <div
-      class="mt-8 flex items-center justify-center pb-2 text-5xl"
-    >
-      :
-    </div>
+      data-testid="separator"
+    />
     <div
       class="flex w-24 flex-col"
     >
@@ -71,10 +59,8 @@ exports[`Clock > should render 1`] = `
         seconds
       </div>
       <div
-        class="flex h-20 items-center justify-center text-5xl font-thin"
-      >
-        1
-      </div>
+        data-testid="digit"
+      />
     </div>
   </div>
 </div>
@@ -94,16 +80,12 @@ exports[`Clock > should render without days 1`] = `
         hours
       </div>
       <div
-        class="flex h-20 items-center justify-center text-5xl font-thin"
-      >
-        1
-      </div>
+        data-testid="digit"
+      />
     </div>
     <div
-      class="mt-8 flex items-center justify-center pb-2 text-5xl"
-    >
-      :
-    </div>
+      data-testid="separator"
+    />
     <div
       class="flex w-24 flex-col"
     >
@@ -113,16 +95,12 @@ exports[`Clock > should render without days 1`] = `
         minutes
       </div>
       <div
-        class="flex h-20 items-center justify-center text-5xl font-thin"
-      >
-        1
-      </div>
+        data-testid="digit"
+      />
     </div>
     <div
-      class="mt-8 flex items-center justify-center pb-2 text-5xl"
-    >
-      :
-    </div>
+      data-testid="separator"
+    />
     <div
       class="flex w-24 flex-col"
     >
@@ -132,10 +110,8 @@ exports[`Clock > should render without days 1`] = `
         seconds
       </div>
       <div
-        class="flex h-20 items-center justify-center text-5xl font-thin"
-      >
-        1
-      </div>
+        data-testid="digit"
+      />
     </div>
   </div>
 </div>
@@ -155,16 +131,12 @@ exports[`Clock > should render without days and hours 1`] = `
         minutes
       </div>
       <div
-        class="flex h-20 items-center justify-center text-5xl font-thin"
-      >
-        1
-      </div>
+        data-testid="digit"
+      />
     </div>
     <div
-      class="mt-8 flex items-center justify-center pb-2 text-5xl"
-    >
-      :
-    </div>
+      data-testid="separator"
+    />
     <div
       class="flex w-24 flex-col"
     >
@@ -174,10 +146,8 @@ exports[`Clock > should render without days and hours 1`] = `
         seconds
       </div>
       <div
-        class="flex h-20 items-center justify-center text-5xl font-thin"
-      >
-        1
-      </div>
+        data-testid="digit"
+      />
     </div>
   </div>
 </div>
@@ -197,10 +167,8 @@ exports[`Clock > should render without days, hours and minutes 1`] = `
         seconds
       </div>
       <div
-        class="flex h-20 items-center justify-center text-5xl font-thin"
-      >
-        1
-      </div>
+        data-testid="digit"
+      />
     </div>
   </div>
 </div>

@@ -2,14 +2,20 @@ import Clock from '@components/Clock/Clock'
 import { render } from '@utils/test-utils'
 import { vi } from 'vitest'
 
-vi.mock('@components/Clock/DigitBlock', () => {
+vi.mock('@components/Clock/Digit', () => {
   return {
-    default: () => <div></div>,
+    default: () => <div data-testid="digit"></div>,
+  }
+})
+
+vi.mock('@components/Clock/Separator', () => {
+  return {
+    default: () => <div data-testid="separator"></div>,
   }
 })
 
 describe('Clock', () => {
-  it('should render', () => {
+  it('should render with all clock numbers and separators', () => {
     const { container } = render(
       <Clock time={{ days: 1, hours: 1, minutes: 1, seconds: 1 }} />
     )
