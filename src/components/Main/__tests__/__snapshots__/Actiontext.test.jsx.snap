@@ -1,14 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`Actiontext > should render 1`] = `
-<h2
-  class="text-center text-3xl font-thin uppercase"
->
-  Time left to weekends
-</h2>
-`;
-
-exports[`action text > is visible 1`] = `
+exports[`Actiontext > should render heading 1`] = `
 <h2
   class="text-center text-3xl font-thin uppercase"
 >
