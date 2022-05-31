@@ -1,20 +1,22 @@
 import Button from '@UI/Buttons/Button'
 import { render, screen, userEvent } from '@utils/test-utils'
 
-describe('button is', () => {
+describe('Button', () => {
   const clickHandler = vi.fn()
-  it('in the document', () => {
-    render(<Button title="sample" onClick={clickHandler} />)
-    const button = screen.getByRole('button')
-    expect(button).toBeInTheDocument()
-    expect(button).toHaveTextContent('sample')
-    expect(button).toMatchSnapshot()
+
+  beforeEach(() => {
+    clickHandler.mockClear()
   })
-  it('clicked once', async () => {
+
+  it('should be in the document', () => {
+    render(<Button title="sample" onClick={clickHandler} />)
+    expect(screen.getByRole('button')).toMatchSnapshot()
+  })
+
+  it('should handle click', async () => {
     render(<Button title="sample" onClick={clickHandler} />)
     const user = userEvent.setup()
-    const button = screen.getByRole('button')
-    await user.click(button)
-    expect(clickHandler).toHaveBeenCalledTimes(1)
+    await user.click(screen.getByRole('button'))
+    expect(clickHandler).toHaveBeenCalledOnce()
   })
 })
