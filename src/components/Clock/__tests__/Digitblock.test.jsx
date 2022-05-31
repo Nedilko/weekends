@@ -3,17 +3,13 @@ import { render, screen } from '@utils/test-utils'
 
 vi.mock('@components/Clock/Digit', () => {
   return {
-    default: () => {
-      return <div data-testid="digit"></div>
-    },
+    default: () => <div data-testid="digit"></div>,
   }
 })
 
 vi.mock('@components/Clock/Separator', () => {
   return {
-    default: () => {
-      return <div data-testid="separator"></div>
-    },
+    default: () => <div data-testid="separator"></div>,
   }
 })
 

@@ -4,9 +4,7 @@ import { vi } from 'vitest'
 
 vi.mock('@components/Clock/DigitBlock', () => {
   return {
-    default: () => {
-      return <div></div>
-    },
+    default: () => <div></div>,
   }
 })
 
