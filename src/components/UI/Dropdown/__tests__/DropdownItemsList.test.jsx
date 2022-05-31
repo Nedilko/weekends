@@ -1,18 +1,18 @@
 import DropdownItemsList from '@UI/Dropdown/DropdownItemsList'
 import { render, screen, userEvent } from '@utils/test-utils'
 
+vi.mock('@UI/Dropdown/DropdownItem', () => {
+  return {
+    default: ({ value, handleSelect }) => (
+      <div data-testid="dropdown-item" onClick={() => handleSelect(value)}>
+        {value}
+      </div>
+    ),
+  }
+})
+
 describe('DropdownItemsList', () => {
   const selectHandler = vi.fn()
-
-  vi.mock('@UI/Dropdown/DropdownItem', () => {
-    return {
-      default: ({ value, handleSelect }) => (
-        <div data-testid="dropdown-item" onClick={() => handleSelect(value)}>
-          {value}
-        </div>
-      ),
-    }
-  })
 
   beforeEach(() => {
     selectHandler.mockClear()
