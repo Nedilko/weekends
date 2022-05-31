@@ -1,46 +1,40 @@
 import HourDropdown from '@UI/Dropdown/HourDropdown'
-import { render, userEvent } from '@utils/test-utils'
+import { render } from '@utils/test-utils'
 import { screen } from '@testing-library/react'
 
+vi.mock('@UI/Dropdown/Dropdown', () => {
+  return {
+    default: ({ value, items, label }) => (
+      <div data-testid="dropdown">
+        <div>{label}</div>
+        <div data-testid="dropdown-selected-value">{value}</div>
+        <div>{items.join(', ')}</div>
+      </div>
+    ),
+  }
+})
+
 describe('HourDropdown', () => {
-  beforeAll(() => {
-    window.HTMLElement.prototype.scrollIntoView = vi.fn()
+  const handleChage = vi.fn()
+
+  beforeEach(() => {
+    handleChage.mockClear()
   })
 
-  afterEach(() => {
-    window.HTMLElement.prototype.scrollIntoView.mockClear()
+  it('should render with Hours', () => {
+    render(<HourDropdown onChange={handleChage} selectedValue={3} />)
+    expect(screen.getByTestId('dropdown')).toMatchSnapshot()
   })
 
-  it('should render closed', () => {
-    const handleChage = vi.fn()
-    const selectedValue = 3
-    const { container } = render(
-      <HourDropdown onChange={handleChage} selectedValue={selectedValue} />
+  it('should render with label Hour', () => {
+    render(<HourDropdown onChange={handleChage} selectedValue={3} />)
+    expect(screen.getByText('Hour')).toBeInTheDocument()
+  })
+
+  it('should render selected day value', () => {
+    render(<HourDropdown onChange={handleChage} selectedValue={3} />)
+    expect(screen.getByTestId('dropdown-selected-value')).toHaveTextContent(
+      /03:00/i
     )
-    expect(container).toMatchSnapshot()
-  })
-
-  it('should render with label Day', () => {
-    const handleChage = vi.fn()
-    const selectedValue = 3
-    render(
-      <HourDropdown onChange={handleChage} selectedValue={selectedValue} />
-    )
-    const label = screen.getByText('Hour')
-    expect(label).toBeInTheDocument()
-  })
-
-  it('should trigger on change handler', async () => {
-    const handleChage = vi.fn()
-    const selectedValue = 3
-    const user = userEvent.setup()
-    render(
-      <HourDropdown onChange={handleChage} selectedValue={selectedValue} />
-    )
-    const dropdownElement = screen.getByRole('button')
-    await user.click(dropdownElement)
-    await user.click(screen.getByText('18:00'))
-    expect(handleChage).toBeCalledTimes(1)
-    expect(handleChage).toBeCalledWith(18)
   })
 })
