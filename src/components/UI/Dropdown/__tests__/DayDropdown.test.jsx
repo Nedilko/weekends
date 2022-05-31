@@ -1,42 +1,40 @@
 import DayDropdown from '@UI/Dropdown/DayDropdown'
-import { render, userEvent } from '@utils/test-utils'
+import { render } from '@utils/test-utils'
 import { screen } from '@testing-library/react'
 
+vi.mock('@UI/Dropdown/Dropdown', () => {
+  return {
+    default: ({ value, items, label }) => (
+      <div data-testid="dropdown">
+        <div>{label}</div>
+        <div data-testid="dropdown-selected-value">{value}</div>
+        <div>{items.join(', ')}</div>
+      </div>
+    ),
+  }
+})
+
 describe('DayDropdown', () => {
-  beforeAll(() => {
-    window.HTMLElement.prototype.scrollIntoView = vi.fn()
+  const handleChage = vi.fn()
+
+  beforeEach(() => {
+    handleChage.mockClear()
   })
 
-  afterEach(() => {
-    window.HTMLElement.prototype.scrollIntoView.mockClear()
-  })
-
-  it('should render closed', () => {
-    const handleChage = vi.fn()
-    const selectedValue = 3
-    const { container } = render(
-      <DayDropdown onChange={handleChage} selectedValue={selectedValue} />
-    )
-    expect(container).toMatchSnapshot()
+  it('should render with Days', () => {
+    render(<DayDropdown onChange={handleChage} selectedValue={3} />)
+    expect(screen.getByTestId('dropdown')).toMatchSnapshot()
   })
 
   it('should render with label Day', () => {
-    const handleChage = vi.fn()
-    const selectedValue = 3
-    render(<DayDropdown onChange={handleChage} selectedValue={selectedValue} />)
-    const label = screen.getByText('Day')
-    expect(label).toBeInTheDocument()
+    render(<DayDropdown onChange={handleChage} selectedValue={3} />)
+    expect(screen.getByText('Day')).toBeInTheDocument()
   })
 
-  it('should trigger on change handler when select dropdown list item', async () => {
-    const handleChage = vi.fn()
-    const selectedValue = 3
-    const user = userEvent.setup()
-    render(<DayDropdown onChange={handleChage} selectedValue={selectedValue} />)
-    const dropdownElement = screen.getByRole('button')
-    await user.click(dropdownElement)
-    await user.click(screen.getByText('Tuesday'))
-    expect(handleChage).toBeCalledTimes(1)
-    expect(handleChage).toBeCalledWith(2)
+  it('should render selected day value', () => {
+    render(<DayDropdown onChange={handleChage} selectedValue={3} />)
+    expect(screen.getByTestId('dropdown-selected-value')).toHaveTextContent(
+      /wednesday/i
+    )
   })
 })
