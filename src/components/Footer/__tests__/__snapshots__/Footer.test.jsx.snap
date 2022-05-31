@@ -10,6 +10,16 @@ exports[`Footer > should render 1`] = `
 </a>
 `;
 
+exports[`Footer > should render link with text 1`] = `
+<a
+  href="https://nac.in.ua"
+  rel="noreferrer"
+  target="_blank"
+>
+  nac.in.ua
+</a>
+`;
+
 exports[`footer link > is visible 1`] = `
 <a
   href="https://nac.in.ua"
