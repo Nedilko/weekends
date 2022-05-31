@@ -1,21 +1,14 @@
 import TextInput from '@UI/Inputs/TextInput'
-import { render, screen, fireEvent } from '@utils/test-utils'
+import { render, screen, userEvent } from '@utils/test-utils'
 
-describe('text input is', () => {
+describe('TextInput', () => {
   const changeHandler = vi.fn()
-  it('in the document', () => {
-    render(
-      <TextInput
-        placeholder="sample placeholder"
-        value="sample"
-        onChange={changeHandler}
-      />
-    )
-    const textInput = screen.getByTestId('greetings-text-input')
-    expect(textInput).toBeInTheDocument()
-    expect(textInput).toMatchSnapshot()
+
+  beforeEach(() => {
+    changeHandler.mockClear()
   })
-  it('clicked once', async () => {
+
+  it('should render valid', () => {
     render(
       <TextInput
         placeholder="sample placeholder"
@@ -23,21 +16,34 @@ describe('text input is', () => {
         onChange={changeHandler}
       />
     )
-    const textInput = screen.getByTestId('greetings-text-input')
-    fireEvent.change(textInput, { target: { value: 'have a beer' } })
+    expect(screen.getByTestId('greetings-text-input')).toMatchSnapshot()
+  })
+
+  it('should render invalid', async () => {
+    const user = userEvent.setup()
+    render(
+      <TextInput
+        placeholder="sample placeholder"
+        value="sample"
+        onChange={changeHandler}
+      />
+    )
+    await user.clear(screen.getByTestId('greetings-text-input'))
+    expect(screen.getByTestId('greetings-text-input')).toMatchSnapshot()
+  })
+
+  it('should call change handler with typed value', async () => {
+    const user = userEvent.setup()
+    render(
+      <TextInput
+        placeholder="sample placeholder"
+        value="sample"
+        onChange={changeHandler}
+      />
+    )
+    const input = screen.getByTestId('greetings-text-input')
+    await user.clear(input)
+    await user.type(input, 'have a beer')
     expect(changeHandler).toHaveBeenCalledWith('have a beer')
-    expect(textInput).toHaveValue('have a beer')
-  })
-  it('empty', async () => {
-    render(
-      <TextInput
-        placeholder="sample placeholder"
-        value="sample"
-        onChange={changeHandler}
-      />
-    )
-    const textInput = screen.getByTestId('greetings-text-input')
-    fireEvent.change(textInput, { target: { value: '' } })
-    expect(textInput).toMatchSnapshot()
   })
 })
