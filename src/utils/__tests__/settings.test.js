@@ -6,7 +6,7 @@ import {
 } from '@utils/settings'
 
 describe('settings', () => {
-  it('should return timer data', () => {
+  it('should return getTimerData given a day and hour', () => {
     const friday = {
       day: 5,
       hour: 18,
@@ -19,7 +19,7 @@ describe('settings', () => {
     })
   })
 
-  it('should return light theme is system is dark', () => {
+  it('should return dark theme if system theme is dark', () => {
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: vi.fn().mockImplementation((query) => ({
@@ -34,7 +34,7 @@ describe('settings', () => {
     expect(getSystemTheme()).toEqual('dark')
   })
 
-  it('should return light theme is system is light', () => {
+  it('should return light theme if system theme is light', () => {
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
       value: vi.fn().mockImplementation((query) => ({

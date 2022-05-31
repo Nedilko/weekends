@@ -7,8 +7,8 @@ describe('localstorage adapter', () => {
   let setItemSpy, getItemSpy
   beforeAll(() => {
     setItemSpy = vi.spyOn(global.Storage.prototype, 'setItem')
-    vi.spyOn(console, 'error').mockImplementation(() => {})
     getItemSpy = vi.spyOn(global.Storage.prototype, 'getItem')
+    vi.spyOn(console, 'error').mockImplementation(() => {})
   })
 
   beforeEach(() => {
@@ -17,9 +17,9 @@ describe('localstorage adapter', () => {
   })
 
   afterAll(() => {
-    console.error.mockRestore()
     getItemSpy.mockRestore()
     setItemSpy.mockRestore()
+    console.error.mockRestore()
   })
 
   afterEach(() => {
@@ -42,7 +42,7 @@ describe('localstorage adapter', () => {
     expect(setItemSpy).toHaveBeenCalledWith('settings', { day: 2, hour: 3 })
   })
 
-  it('should throw error reading from localstorage', () => {
+  it('should show console error on reading from localstorage', () => {
     getItemSpy.mockImplementation(() => {
       throw 'error message'
     })
@@ -53,7 +53,7 @@ describe('localstorage adapter', () => {
     expect(console.error).toHaveBeenCalledOnce()
   })
 
-  it('should throw error writing to localstorage', () => {
+  it('should show console error on writing to localstorage', () => {
     setItemSpy.mockImplementation(() => {
       throw 'error message'
     })

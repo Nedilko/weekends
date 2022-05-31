@@ -28,7 +28,7 @@ describe('getTimeLeft', () => {
     })
   })
 
-  it('should return time difference if no time left', () => {
+  it('should return zeros for time difference if no time left', () => {
     const date = new Date(2022, 4, 27, 18, 12, 11, 0)
     vi.setSystemTime(date)
 

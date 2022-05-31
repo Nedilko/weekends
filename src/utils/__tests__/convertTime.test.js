@@ -1,7 +1,7 @@
 import { getDay, getHour } from '@utils/convertTime'
 
-describe('convertTime utils', () => {
-  it('should return the correct day', () => {
+describe('convertTime', () => {
+  it('getHour should returnvalue on given day parameter', () => {
     expect(getDay('Monday')).toBe(1)
     expect(getDay('Tuesday')).toBe(2)
     expect(getDay('Wednesday')).toBe(3)
@@ -11,7 +11,7 @@ describe('convertTime utils', () => {
     expect(getDay('Sunday')).toBe(7)
   })
 
-  it('should return the correct hour', () => {
+  it('getDay should returnvalue on given hour parameter', () => {
     expect(getHour('00:00')).toBe(0)
     expect(getHour('01:00')).toBe(1)
     expect(getHour('02:00')).toBe(2)

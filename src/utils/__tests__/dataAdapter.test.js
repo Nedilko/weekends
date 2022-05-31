@@ -19,7 +19,7 @@ vi.mock('@utils/settings', () => ({
 const mockedWriteToLocalstorage = vi.mocked(writeToLocalstorage)
 const mockedReadFromLocalstorage = vi.mocked(readFromLocalstorage)
 
-describe('data adapter', () => {
+describe('dataAdapter', () => {
   beforeEach(() => {
     mockedWriteToLocalstorage.mockClear()
     mockedReadFromLocalstorage.mockClear()
