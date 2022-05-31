@@ -1,40 +1,51 @@
 import Settings from '@components/Header/Settings'
 import SettingsContext from '@store/Settings'
 import { render, screen, userEvent } from '@utils/test-utils'
-import ReactDOM from 'react-dom'
+
+vi.mock('@components/Header/SettingsIcon', () => {
+  return {
+    default: ({ onClick }) => {
+      return (
+        <button onClick={onClick} data-testid="settings-icon">
+          settings
+        </button>
+      )
+    },
+  }
+})
+
+vi.mock('@UI/Modals/SettingsModal', () => {
+  return {
+    default: ({ onApply, onCancel }) => (
+      <div data-testid="settings-modal">
+        <button onClick={onApply}>Apply</button>
+        <button onClick={onCancel}>Cancel</button>
+      </div>
+    ),
+  }
+})
 
 describe('Settings component', () => {
   const handleApply = vi.fn()
 
-  beforeAll(() => {
-    ReactDOM.createPortal = vi.fn((element) => {
-      return element
-    })
+  beforeEach(() => {
+    handleApply.mockClear()
   })
 
-  afterEach(() => {
-    ReactDOM.createPortal.mockClear()
-  })
-
-  it('should be in the document', async () => {
-    const { container } = render(
+  it('should render settigns icon', async () => {
+    render(
       <SettingsContext.Provider
         value={{
-          data: {
-            useSystemTheme: false,
-            theme: 'light',
-            greetingsText: 'sample greeting',
-            day: 5,
-            hour: 18,
-            isFirstLoad: false,
-          },
+          data: {},
           handleApply,
         }}
       >
         <Settings />
       </SettingsContext.Provider>
     )
-    expect(container).toMatchSnapshot()
+    expect(
+      screen.getByRole('button', { name: /settings/i })
+    ).toBeInTheDocument()
   })
 
   it('should open settings modal', async () => {
@@ -42,101 +53,92 @@ describe('Settings component', () => {
     render(
       <SettingsContext.Provider
         value={{
-          data: {
-            useSystemTheme: false,
-            theme: 'light',
-            greetingsText: 'sample greeting',
-            day: 5,
-            hour: 18,
-            isFirstLoad: false,
-          },
+          data: {},
           handleApply,
         }}
       >
         <Settings />
       </SettingsContext.Provider>
     )
-    const settingsIcon = screen.getByRole('img')
+    const settingsIcon = screen.getByRole('button', { name: /settings/i })
     await user.click(settingsIcon)
     const settingsModal = screen.getByTestId('settings-modal')
     expect(settingsModal).toBeInTheDocument()
   })
 
-  it('should handle apply on Apply button click', async () => {
+  it('should close Settings Modal on Apply button click', async () => {
     const user = userEvent.setup()
     render(
       <SettingsContext.Provider
         value={{
-          data: {
-            useSystemTheme: false,
-            theme: 'light',
-            greetingsText: 'sample greeting',
-            day: 5,
-            hour: 18,
-            isFirstLoad: false,
-          },
+          data: {},
           handleApply,
         }}
       >
         <Settings />
       </SettingsContext.Provider>
     )
-    const settingsIcon = screen.getByRole('img')
+    const settingsIcon = screen.getByRole('button', { name: /settings/i })
     await user.click(settingsIcon)
     const applyButton = screen.getByRole('button', { name: /apply/i })
     await user.click(applyButton)
-    expect(handleApply).toBeCalledTimes(1)
+    expect(screen.queryByTestId('settings-modal')).not.toBeInTheDocument()
   })
 
-  it('should close modal on Cancel button click', async () => {
-    const user = userEvent.setup()
-    const { container } = render(
-      <SettingsContext.Provider
-        value={{
-          data: {
-            useSystemTheme: false,
-            theme: 'light',
-            greetingsText: 'sample greeting',
-            day: 5,
-            hour: 18,
-            isFirstLoad: false,
-          },
-          handleApply,
-        }}
-      >
-        <Settings />
-      </SettingsContext.Provider>
-    )
-    const settingsIcon = screen.getByRole('img')
-    await user.click(settingsIcon)
-    const cancelButton = screen.getByRole('button', { name: /cancel/i })
-    await user.click(cancelButton)
-    expect(container).toMatchSnapshot()
-  })
-
-  it('should toggle switcher', async () => {
+  it('should call apply handler for settings provider on Apply button click', async () => {
     const user = userEvent.setup()
     render(
       <SettingsContext.Provider
         value={{
-          data: {
-            useSystemTheme: false,
-            theme: 'light',
-            greetingsText: 'sample greeting',
-            day: 5,
-            hour: 18,
-            isFirstLoad: false,
-          },
+          data: {},
           handleApply,
         }}
       >
         <Settings />
       </SettingsContext.Provider>
     )
-    const settingsIcon = screen.getByRole('img')
+    const settingsIcon = screen.getByRole('button', { name: /settings/i })
     await user.click(settingsIcon)
-    const toggle = screen.getByRole('checkbox')
-    await user.click(toggle)
-    expect(toggle).toBeChecked()
+    const applyButton = screen.getByRole('button', { name: /apply/i })
+    await user.click(applyButton)
+    expect(handleApply).toHaveBeenCalledOnce()
+  })
+
+  it('should close Settings Modal on Cancel button click', async () => {
+    const user = userEvent.setup()
+    render(
+      <SettingsContext.Provider
+        value={{
+          data: {},
+          handleApply,
+        }}
+      >
+        <Settings />
+      </SettingsContext.Provider>
+    )
+    const settingsIcon = screen.getByRole('button', { name: /settings/i })
+    await user.click(settingsIcon)
+    const cancelButton = screen.getByRole('button', { name: /cancel/i })
+    await user.click(cancelButton)
+    expect(screen.queryByTestId('settings-modal')).not.toBeInTheDocument()
+  })
+
+  it('should NOT call apply handler for settings provider on Cancel button click', async () => {
+    const user = userEvent.setup()
+    render(
+      <SettingsContext.Provider
+        value={{
+          data: {},
+          handleApply,
+        }}
+      >
+        <Settings />
+      </SettingsContext.Provider>
+    )
+    const settingsIcon = screen.getByRole('button', { name: /settings/i })
+    await user.click(settingsIcon)
+    const cancelButton = screen.getByRole('button', { name: /cancel/i })
+    await user.click(cancelButton)
+    expect(handleApply).not.toHaveBeenCalled()
   })
 })

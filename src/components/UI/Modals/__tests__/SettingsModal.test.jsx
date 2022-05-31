@@ -52,7 +52,7 @@ describe('SettingsModal', () => {
     expect(handleApply).toBeCalledTimes(1)
   })
 
-  it('should handle click on Cancle button', async () => {
+  it('should handle click on Cancel button', async () => {
     const user = userEvent.setup()
     render(
       <SettingsModal
@@ -65,5 +65,20 @@ describe('SettingsModal', () => {
     const cancelButton = screen.getByRole('button', { name: /cancel/i })
     await user.click(cancelButton)
     expect(handleCancel).toBeCalledTimes(1)
+  })
+
+  it('should toggle switcher', async () => {
+    const user = userEvent.setup()
+    render(
+      <SettingsModal
+        settings={settings}
+        title="sample title"
+        onApply={handleApply}
+        onCancel={handleCancel}
+      />
+    )
+    const toggle = screen.getByRole('checkbox')
+    await user.click(toggle)
+    expect(toggle).toBeChecked()
   })
 })
