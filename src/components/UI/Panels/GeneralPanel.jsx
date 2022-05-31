@@ -5,7 +5,11 @@ GeneralPanel.propTypes = {
   className: PropTypes.string,
 }
 
-function GeneralPanel({ children, className = '' }) {
+GeneralPanel.defaultProps = {
+  className: '',
+}
+
+function GeneralPanel({ children, className }) {
   return (
     <div
       className={`absolute overflow-auto rounded-md bg-white shadow-md dark:bg-zinc-900 ${className}`}

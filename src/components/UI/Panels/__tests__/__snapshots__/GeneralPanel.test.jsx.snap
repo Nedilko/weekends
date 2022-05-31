@@ -1,5 +1,15 @@
 // Vitest Snapshot v1
 
+exports[`GeneralPanel > should render content 1`] = `
+<div>
+  <div
+    class="absolute overflow-auto rounded-md bg-white shadow-md dark:bg-zinc-900 "
+  >
+    some content
+  </div>
+</div>
+`;
+
 exports[`panel > renders text 1`] = `
 <div>
   <div
