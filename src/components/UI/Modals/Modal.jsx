@@ -12,6 +12,11 @@ Modal.propTypes = {
   isHeadingCentered: PropTypes.bool,
 }
 
+Modal.defaultProps = {
+  isButtonsCentered: false,
+  isHeadingCentered: false,
+}
+
 function Modal({
   children,
   title,

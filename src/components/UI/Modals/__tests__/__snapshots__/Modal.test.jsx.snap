@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`modal > buttons centered 1`] = `
+exports[`Modal > should center buttons 1`] = `
 <div>
   <div
     class="relative z-10"
@@ -34,7 +34,7 @@ exports[`modal > buttons centered 1`] = `
 </div>
 `;
 
-exports[`modal > heading centered 1`] = `
+exports[`Modal > should center heading 1`] = `
 <div>
   <div
     class="relative z-10"
@@ -68,7 +68,7 @@ exports[`modal > heading centered 1`] = `
 </div>
 `;
 
-exports[`modal in portal is > renders in the portal 1`] = `
+exports[`Modal in portal > should render in the portal 1`] = `
 <body>
   <div
     id="modal-root"
@@ -89,7 +89,7 @@ exports[`modal in portal is > renders in the portal 1`] = `
             sample title
           </div>
           <div>
-            123
+            content text
           </div>
           <div
             class="flex dark:border-t-zinc-600 justify-end"

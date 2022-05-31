@@ -1,8 +1,8 @@
 import Modal from '@UI/Modals/Modal'
-import { render, screen, fireEvent } from '@utils/test-utils'
+import { render, screen, userEvent } from '@utils/test-utils'
 import ReactDOM from 'react-dom'
 
-describe('modal', () => {
+describe('Modal', () => {
   const applyHandler = vi.fn()
   const cancelHandler = vi.fn()
 
@@ -12,31 +12,39 @@ describe('modal', () => {
     })
   })
 
+  beforeEach(() => {
+    applyHandler.mockClear()
+    cancelHandler.mockClear()
+  })
+
   afterEach(() => {
     ReactDOM.createPortal.mockClear()
   })
 
-  it('has content', () => {
+  afterAll(() => {
+    ReactDOM.createPortal.mockRestore()
+  })
+
+  it('should render modal content', () => {
     render(
       <Modal title="sample title" onApply={applyHandler}>
         <div>sample content</div>
       </Modal>
     )
-    const modalContent = screen.getByText('sample content')
-    expect(modalContent).toBeInTheDocument()
+    expect(screen.getByText('sample content')).toBeInTheDocument()
   })
 
-  it('has title', () => {
+  it('should has title', () => {
     render(
       <Modal title="sample title" onApply={applyHandler}>
         <div>sample content</div>
       </Modal>
     )
-    const title = screen.getByText('sample title')
-    expect(title).toBeInTheDocument()
+    expect(screen.getByText('sample title')).toBeInTheDocument()
   })
 
-  it('cancel button clicked', () => {
+  it('should handle Cancel button click', async () => {
+    const user = userEvent.setup()
     render(
       <Modal
         title="sample title"
@@ -46,23 +54,22 @@ describe('modal', () => {
         <div>sample content</div>
       </Modal>
     )
-    const cancelButton = screen.getByText('Cancel')
-    fireEvent.click(cancelButton)
-    expect(cancelHandler).toHaveBeenCalledTimes(1)
+    await user.click(screen.getByRole('button', { name: 'Cancel' }))
+    expect(cancelHandler).toHaveBeenCalledOnce()
   })
 
-  it('apply button clicked', () => {
+  it('should handle Apply button click', async () => {
+    const user = userEvent.setup()
     render(
       <Modal title="sample title" onApply={applyHandler}>
         <div>sample content</div>
       </Modal>
     )
-    const applyButton = screen.getByText('Apply')
-    fireEvent.click(applyButton)
-    expect(applyHandler).toHaveBeenCalledTimes(1)
+    await user.click(screen.getByRole('button', { name: 'Apply' }))
+    expect(applyHandler).toHaveBeenCalledOnce()
   })
 
-  it('buttons centered', () => {
+  it('should center buttons', () => {
     const { container } = render(
       <Modal
         title="sample title"
@@ -75,7 +82,7 @@ describe('modal', () => {
     expect(container).toMatchSnapshot()
   })
 
-  it('heading centered', () => {
+  it('should center heading', () => {
     const { container } = render(
       <Modal
         title="sample title"
@@ -89,9 +96,9 @@ describe('modal', () => {
   })
 })
 
-describe('modal in portal is', () => {
+describe('Modal in portal', () => {
   const applyHandler = vi.fn()
-  it('renders in the portal', () => {
+  it('should render in the portal', () => {
     const root = document.createElement('div')
     root.setAttribute('id', 'modal-root')
 
@@ -100,11 +107,10 @@ describe('modal in portal is', () => {
 
     render(
       <Modal title="sample title" onApply={applyHandler}>
-        <div>123</div>
+        <div>content text</div>
       </Modal>
     )
-    const modalContent = screen.getByText('123')
-    expect(modalContent).toBeInTheDocument()
+    expect(screen.getByText('content text')).toBeInTheDocument()
     expect(body).toMatchSnapshot()
   })
 })
