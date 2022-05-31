@@ -8,4 +8,11 @@ describe('Separator', () => {
     expect(separator).toBeInTheDocument()
     expect(separator).toMatchSnapshot()
   })
+
+  it('should render with default symbol', () => {
+    render(<Separator />)
+    const separator = screen.getByText(/:/i)
+    expect(separator).toBeInTheDocument()
+    expect(separator).toMatchSnapshot()
+  })
 })
