@@ -3,14 +3,25 @@ import SettingsContext from '@store/Settings'
 import { render, screen } from '@utils/test-utils'
 
 describe('Greetings', () => {
-  it('should render', () => {
+  it('should have greetings text', () => {
     render(
-      <SettingsContext.Provider value={{ data: { greetingsText: 'sample' } }}>
+      <SettingsContext.Provider
+        value={{ data: { greetingsText: 'Sample greetings text' } }}
+      >
         <Greetings />
       </SettingsContext.Provider>
     )
-    const title = screen.getByText(/sample/i)
-    expect(title).toBeInTheDocument()
-    expect(title).toMatchSnapshot()
+    expect(screen.getByText(/sample/i)).toBeInTheDocument()
+  })
+
+  it('should render greetings component', () => {
+    render(
+      <SettingsContext.Provider
+        value={{ data: { greetingsText: 'Sample greetings text' } }}
+      >
+        <Greetings />
+      </SettingsContext.Provider>
+    )
+    expect(screen.getByText(/sample/i)).toMatchSnapshot()
   })
 })
