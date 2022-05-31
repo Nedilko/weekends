@@ -6,6 +6,10 @@ import { useState } from 'react'
 describe('DarkModeSwitcher', () => {
   const handleApply = vi.fn()
 
+  beforeEach(() => {
+    handleApply.mockClear()
+  })
+
   it('should be in the document', () => {
     render(
       <SettingsContext.Provider
@@ -54,7 +58,7 @@ describe('DarkModeSwitcher', () => {
     expect(toggle).toBeChecked()
   })
 
-  it('should apply light theme', async () => {
+  it('should apply light theme on click', async () => {
     render(
       <SettingsContext.Provider
         value={{ data: { useSystemTheme: false, theme: 'dark' }, handleApply }}
@@ -68,7 +72,7 @@ describe('DarkModeSwitcher', () => {
     expect(handleApply).toBeCalledWith({ theme: 'light' })
   })
 
-  it('should apply dark theme', async () => {
+  it('should apply dark theme on click', async () => {
     render(
       <SettingsContext.Provider
         value={{ data: { useSystemTheme: false, theme: 'light' }, handleApply }}
