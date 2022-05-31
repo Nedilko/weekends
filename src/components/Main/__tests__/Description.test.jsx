@@ -2,10 +2,14 @@ import Description from '@components/Main/Description'
 import { render, screen } from '@utils/test-utils'
 
 describe('Description', () => {
-  it('should render', () => {
+  it('should heading with text', () => {
     render(<Description />)
     const title = screen.getByRole('heading')
-    expect(title).toBeInTheDocument()
-    expect(title).toMatchSnapshot()
+    expect(title).toHaveTextContent('weekends countdown')
+  })
+
+  it('should render heading', () => {
+    render(<Description />)
+    expect(screen.getByRole('heading')).toMatchSnapshot()
   })
 })
