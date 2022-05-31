@@ -1,4 +1,3 @@
-// import Settings from '@store/Settings'
 import { render, screen, userEvent } from '@utils/test-utils'
 import SettingsContext, { SettingsContextProvider } from '@store/Settings'
 import { useContext } from 'react'
@@ -6,7 +5,7 @@ import { loadSettings, writeSettings } from '@utils/dataAdapter'
 
 vi.mock('@utils/dataAdapter')
 
-describe('Settings provider consistance data', () => {
+describe('Settings context provider', () => {
   function WrappedComponent() {
     const { data, handleApply } = useContext(SettingsContext)
     return (
@@ -38,18 +37,12 @@ describe('Settings provider consistance data', () => {
       useSystemTheme: false,
       isFirstLoad: true,
     }))
-    loadSettings.mockClear()
     writeSettings.mockImplementation(() => {})
-    writeSettings.mockClear()
   })
 
-  it('should render all data', () => {
-    const { container } = render(
-      <SettingsContextProvider>
-        <WrappedComponent />
-      </SettingsContextProvider>
-    )
-    expect(container).toMatchSnapshot()
+  afterEach(() => {
+    loadSettings.mockClear()
+    writeSettings.mockClear()
   })
 
   it('should load settings', () => {
@@ -71,7 +64,6 @@ describe('Settings provider consistance data', () => {
     )
     await user.click(screen.getByRole('button', { name: /apply/i }))
     expect(loadSettings).toHaveBeenCalledTimes(2)
-    expect(writeSettings).toHaveBeenCalledTimes(1)
     expect(writeSettings).toHaveBeenCalledWith({
       day: 6,
       hour: 19,

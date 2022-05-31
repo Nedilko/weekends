@@ -1,16 +1,11 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { getDefaultSettings } from '@utils/settings'
 import { loadSettings, writeSettings } from '@utils/dataAdapter'
 
-const SettingsContext = React.createContext({
-  data: getDefaultSettings(),
-  handleApply: () => {},
-})
+const SettingsContext = React.createContext()
 
 export const SettingsContextProvider = ({ children }) => {
   const [settings, setSettings] = useState(loadSettings())
-
   const handleApply = (newSettings) => {
     setSettings((oldSettings) => {
       const mergedSettings = { ...oldSettings, ...newSettings }
