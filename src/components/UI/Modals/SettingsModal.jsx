@@ -32,9 +32,16 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
     }
   }
 
+  const handleToggleChange = () => {
+    setuUseSystemTheme((oldValue) => !oldValue)
+  }
+
   return (
     <Modal title={title} onApply={handleApply} onCancel={onCancel}>
-      <section className="flex flex-col border-y py-2 text-xl font-thin text-slate-600 dark:text-gray-400">
+      <section
+        data-testid="settings-modal"
+        className="flex flex-col border-y py-2 text-xl font-thin text-slate-600 dark:text-gray-400"
+      >
         <ModalRow>
           <div className="flex w-1/2">Greetings text</div>
           <TextInput
@@ -49,7 +56,7 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
         </ModalRow>
         <ModalRow>
           <div className="flex w-1/2">Use system theme</div>
-          <Toggle checked={useSystemTheme} onChange={setuUseSystemTheme} />
+          <Toggle isChecked={useSystemTheme} onClick={handleToggleChange} />
         </ModalRow>
       </section>
     </Modal>

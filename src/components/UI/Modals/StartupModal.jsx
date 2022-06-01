@@ -21,7 +21,7 @@ function StartupModal({ title, settings, onApply }) {
       isButtonsCentered={true}
       isHeadingCentered={true}
     >
-      <div className="flex flex-col font-thin">
+      <section data-testid="startup-modal" className="flex flex-col font-thin">
         <div className="flex justify-center">
           <h2 className="mb-2 text-xl">Day and Hour you finish your work</h2>
         </div>
@@ -29,7 +29,7 @@ function StartupModal({ title, settings, onApply }) {
           <DayDropdown selectedValue={day} onChange={setDay} />
           <HourDropdown selectedValue={hour} onChange={setHour} />
         </div>
-      </div>
+      </section>
     </Modal>
   )
 }

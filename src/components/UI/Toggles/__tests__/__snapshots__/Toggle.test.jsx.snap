@@ -1,0 +1,44 @@
+// Vitest Snapshot v1
+
+exports[`Toggle > should render checked 1`] = `
+<span
+  aria-checked="true"
+  class="ml-4 flex h-6 w-12 flex-shrink-0 items-center justify-between rounded-full px-1 duration-300 ease-in-out bg-green-400 dark:bg-green-600"
+  role="checkbox"
+>
+  <span
+    class="absolute flex h-5 w-5 rounded-full bg-white text-yellow-500 shadow-md duration-300 ease-in-out dark:bg-slate-900 translate-x-5"
+  />
+</span>
+`;
+
+exports[`Toggle > should render component with label 1`] = `
+<div>
+  <label
+    class="flex items-center px-1 text-xl font-thin text-slate-600 dark:text-gray-400"
+  >
+    sample label
+    <span
+      aria-checked="false"
+      class="ml-4 flex h-6 w-12 flex-shrink-0 items-center justify-between rounded-full px-1 duration-300 ease-in-out bg-gray-200 dark:bg-slate-700"
+      role="checkbox"
+    >
+      <span
+        class="absolute flex h-5 w-5 rounded-full bg-white text-yellow-500 shadow-md duration-300 ease-in-out dark:bg-slate-900 "
+      />
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Toggle > should render unchecked 1`] = `
+<span
+  aria-checked="false"
+  class="ml-4 flex h-6 w-12 flex-shrink-0 items-center justify-between rounded-full px-1 duration-300 ease-in-out bg-gray-200 dark:bg-slate-700"
+  role="checkbox"
+>
+  <span
+    class="absolute flex h-5 w-5 rounded-full bg-white text-yellow-500 shadow-md duration-300 ease-in-out dark:bg-slate-900 "
+  />
+</span>
+`;

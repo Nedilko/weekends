@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 import Button from '@UI/Buttons/Button'
-import Panel from '@UI/Panel'
+import Panel from '@UI/Panels/Panel'
 
 Modal.propTypes = {
   children: PropTypes.node.isRequired,
@@ -10,6 +10,11 @@ Modal.propTypes = {
   onCancel: PropTypes.func,
   isButtonsCentered: PropTypes.bool,
   isHeadingCentered: PropTypes.bool,
+}
+
+Modal.defaultProps = {
+  isButtonsCentered: false,
+  isHeadingCentered: false,
 }
 
 function Modal({
