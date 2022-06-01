@@ -1,5 +1,9 @@
 // Vitest Snapshot v1
 
+exports[`ToggleTheme > should render checked 1`] = `undefined`;
+
+exports[`ToggleTheme > should render unchecked 1`] = `undefined`;
+
 exports[`theme toggle is > in the document 1`] = `
 <span
   aria-checked="true"

@@ -1,19 +1,33 @@
 import ToggleTheme from '@UI/Toggles/ToggleTheme'
 import { render, screen, userEvent } from '@utils/test-utils'
 
-describe('theme toggle is', () => {
+describe('ToggleTheme', () => {
   const clickHandler = vi.fn()
-  it('in the document', () => {
-    render(<ToggleTheme isChecked={true} onClick={clickHandler} />)
-    const toggle = screen.getByRole('checkbox')
-    expect(toggle).toBeInTheDocument()
-    expect(toggle).toMatchSnapshot()
+
+  beforeEach(() => {
+    clickHandler.mockClear()
   })
-  it('clicked once', async () => {
-    render(<ToggleTheme isChecked={true} onClick={clickHandler} />)
+
+  it('should render checked', () => {
+    const { conainer } = render(
+      <ToggleTheme isChecked={true} onClick={clickHandler} />
+    )
+    expect(screen.getByRole('checkbox')).toBeChecked()
+    expect(conainer).toMatchSnapshot()
+  })
+
+  it('should render unchecked', () => {
+    const { conainer } = render(
+      <ToggleTheme isChecked={false} onClick={clickHandler} />
+    )
+    expect(screen.getByRole('checkbox')).not.toBeChecked()
+    expect(conainer).toMatchSnapshot()
+  })
+
+  it('should handle click', async () => {
     const user = userEvent.setup()
-    const toggle = screen.getByRole('checkbox')
-    await user.click(toggle)
-    expect(clickHandler).toHaveBeenCalledTimes(1)
+    render(<ToggleTheme isChecked={true} onClick={clickHandler} />)
+    await user.click(screen.getByRole('checkbox'))
+    expect(clickHandler).toHaveBeenCalledOnce()
   })
 })
