@@ -1,22 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`Description > should render 1`] = `
-<h1
-  class="mt-20 text-center text-5xl font-thin uppercase"
->
-  weekends countdown
-</h1>
-`;
-
 exports[`Description > should render heading 1`] = `
-<h1
-  class="mt-20 text-center text-5xl font-thin uppercase"
->
-  weekends countdown
-</h1>
-`;
-
-exports[`description text > is visible 1`] = `
 <h1
   class="mt-20 text-center text-5xl font-thin uppercase"
 >
