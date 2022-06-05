@@ -1,0 +1,38 @@
+# version: '3'
+# services:
+#   # e2e:
+#   #   image: mcr.microsoft.com/playwright:v1.22.0-focal
+#   #   volumes:
+#   #     - .:/workspace:cached
+#     # command: /bin/sh -c "npx playwright install --with-deps"
+
+#   webapp:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#       args:
+#         VARIANT: "16"
+#     volumes:
+#       - .:/workspace:cached
+#     # links:
+#     #   - e2e
+
+version: '3'
+services:
+  container-1:
+    image: ubuntu:bionic
+    volumes:
+      # Mount the root folder that contains .git
+      - .:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    links:
+      - container-2
+    # ...
+
+  container-2:
+    image: ubuntu:bionic
+    volumes:
+      # Mount the root folder that contains .git
+      - .:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    # ...
