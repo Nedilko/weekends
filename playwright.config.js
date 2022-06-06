@@ -56,6 +56,9 @@ const config = {
     url: DEV_SERVER_URL,
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
+    waitOnScheme: {
+      delay: 1000,
+    },
   },
 }
 
