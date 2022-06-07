@@ -2,10 +2,10 @@ import Dropdown from '@UI/Dropdown/Dropdown'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('Dropdown', () => {
-  const handleChage = vi.fn()
+  const handleChage = jest.fn()
 
   beforeAll(() => {
-    window.HTMLElement.prototype.scrollIntoView = vi.fn()
+    window.HTMLElement.prototype.scrollIntoView = jest.fn()
   })
 
   beforeEach(() => {
@@ -90,7 +90,7 @@ describe('Dropdown', () => {
     )
     await user.click(screen.getByRole('button'))
     await user.click(screen.getByText('third'))
-    expect(handleChage).toHaveBeenCalledOnce()
+    expect(handleChage).toHaveBeenCalledTimes(1)
     expect(handleChage).toHaveBeenCalledWith('third')
   })
 

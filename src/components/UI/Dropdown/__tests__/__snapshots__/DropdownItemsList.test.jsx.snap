@@ -1,6 +1,6 @@
-// Vitest Snapshot v1
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DropdownItemsList > should render dropdown items list 1`] = `
+exports[`DropdownItemsList should render dropdown items list 1`] = `
 <div>
   <div
     class="absolute overflow-auto rounded-md bg-white shadow-md dark:bg-zinc-900 "

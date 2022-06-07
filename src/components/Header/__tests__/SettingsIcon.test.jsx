@@ -2,7 +2,7 @@ import SettingsIcon from '@components/Header/SettingsIcon'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('SettingsIcon', () => {
-  const handleClick = vi.fn()
+  const handleClick = jest.fn()
   beforeEach(() => {
     handleClick.mockClear()
   })
@@ -18,6 +18,6 @@ describe('SettingsIcon', () => {
     render(<SettingsIcon onClick={handleClick} />)
     const icon = screen.getByRole('img')
     await user.click(icon)
-    expect(handleClick).toHaveBeenCalledOnce()
+    expect(handleClick).toHaveBeenCalledTimes(1)
   })
 })

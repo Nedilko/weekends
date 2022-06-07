@@ -2,10 +2,10 @@ import DropdownItem from '@UI/Dropdown/DropdownItem'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('button', () => {
-  const handleSelect = vi.fn()
+  const handleSelect = jest.fn()
 
   beforeAll(() => {
-    window.HTMLElement.prototype.scrollIntoView = vi.fn()
+    window.HTMLElement.prototype.scrollIntoView = jest.fn()
   })
 
   beforeEach(() => {
@@ -63,7 +63,7 @@ describe('button', () => {
       />
     )
     await user.click(screen.getByTestId('dropdown-item'))
-    expect(handleSelect).toHaveBeenCalledOnce()
+    expect(handleSelect).toHaveBeenCalledTimes(1)
   })
 
   it('should pass value on click', async () => {

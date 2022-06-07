@@ -1,23 +1,31 @@
 import Header from '@components/Header/Header'
 import { render, screen } from '@utils/test-utils'
 
-describe('DarkModeSwitcher', () => {
-  vi.mock('@components/Header/Settings', () => {
-    return {
-      default: () => {
-        return <div>Settings</div>
-      },
-    }
-  })
+jest.mock('@components/Header/Settings', () => {
+  const originalModule = jest.requireActual('@components/Header/Settings')
+  return {
+    __esModule: true,
+    ...originalModule,
+    default: () => {
+      return <div>Settings</div>
+    },
+  }
+})
 
-  vi.mock('@components/Header/DarkModeSwitcher', () => {
-    return {
-      default: () => {
-        return <div>Switcher</div>
-      },
-    }
-  })
+jest.mock('@components/Header/DarkModeSwitcher', () => {
+  const originalModule = jest.requireActual(
+    '@components/Header/DarkModeSwitcher'
+  )
+  return {
+    __esModule: true,
+    ...originalModule,
+    default: () => {
+      return <div>Switcher</div>
+    },
+  }
+})
 
+describe('Header', () => {
   it('should render setting icon and theme switcher', () => {
     render(<Header />)
     expect(screen.getByText(/settings/i)).toBeInTheDocument()

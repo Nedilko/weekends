@@ -1,6 +1,6 @@
-// Vitest Snapshot v1
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Panel > should render content 1`] = `
+exports[`Panel should render content 1`] = `
 <div>
   <div
     class="max-w-sm mx-auto rounded-xl bg-white p-4 shadow-md dark:bg-zinc-900"
@@ -10,7 +10,7 @@ exports[`Panel > should render content 1`] = `
 </div>
 `;
 
-exports[`Panel > should render with size 1`] = `
+exports[`Panel should render with size 1`] = `
 <div>
   <div
     class="max-w-md mx-auto rounded-xl bg-white p-4 shadow-md dark:bg-zinc-900"

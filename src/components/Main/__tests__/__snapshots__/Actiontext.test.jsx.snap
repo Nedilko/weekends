@@ -1,6 +1,6 @@
-// Vitest Snapshot v1
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Actiontext > should render heading 1`] = `
+exports[`Actiontext should render heading 1`] = `
 <h2
   class="text-center text-3xl font-thin uppercase"
 >

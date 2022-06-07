@@ -1,49 +1,45 @@
 import Modal from '@UI/Modals/Modal'
 import { render, screen, userEvent } from '@utils/test-utils'
-import ReactDOM from 'react-dom'
 
 describe('Modal', () => {
-  const applyHandler = vi.fn()
-  const cancelHandler = vi.fn()
-
-  beforeAll(() => {
-    ReactDOM.createPortal = vi.fn((element) => {
-      return element
-    })
-  })
+  const applyHandler = jest.fn()
+  const cancelHandler = jest.fn()
 
   beforeEach(() => {
     applyHandler.mockClear()
     cancelHandler.mockClear()
   })
 
-  afterEach(() => {
-    ReactDOM.createPortal.mockClear()
-  })
-
-  afterAll(() => {
-    ReactDOM.createPortal.mockRestore()
-  })
-
   it('should render modal content', () => {
+    const modalRoot = document.createElement('div')
+    modalRoot.setAttribute('id', 'modal-root')
+    document.body.appendChild(modalRoot)
     render(
       <Modal title="sample title" onApply={applyHandler}>
         <div>sample content</div>
       </Modal>
     )
     expect(screen.getByText('sample content')).toBeInTheDocument()
+    document.body.removeChild(modalRoot)
   })
 
   it('should has title', () => {
+    const modalRoot = document.createElement('div')
+    modalRoot.setAttribute('id', 'modal-root')
+    document.body.appendChild(modalRoot)
     render(
       <Modal title="sample title" onApply={applyHandler}>
         <div>sample content</div>
       </Modal>
     )
     expect(screen.getByText('sample title')).toBeInTheDocument()
+    document.body.removeChild(modalRoot)
   })
 
   it('should handle Cancel button click', async () => {
+    const modalRoot = document.createElement('div')
+    modalRoot.setAttribute('id', 'modal-root')
+    document.body.appendChild(modalRoot)
     const user = userEvent.setup()
     render(
       <Modal
@@ -55,10 +51,14 @@ describe('Modal', () => {
       </Modal>
     )
     await user.click(screen.getByRole('button', { name: 'Cancel' }))
-    expect(cancelHandler).toHaveBeenCalledOnce()
+    expect(cancelHandler).toHaveBeenCalledTimes(1)
+    document.body.removeChild(modalRoot)
   })
 
   it('should handle Apply button click', async () => {
+    const modalRoot = document.createElement('div')
+    modalRoot.setAttribute('id', 'modal-root')
+    document.body.appendChild(modalRoot)
     const user = userEvent.setup()
     render(
       <Modal title="sample title" onApply={applyHandler}>
@@ -66,11 +66,15 @@ describe('Modal', () => {
       </Modal>
     )
     await user.click(screen.getByRole('button', { name: 'Apply' }))
-    expect(applyHandler).toHaveBeenCalledOnce()
+    expect(applyHandler).toHaveBeenCalledTimes(1)
+    document.body.removeChild(modalRoot)
   })
 
   it('should center buttons', () => {
-    const { container } = render(
+    const modalRoot = document.createElement('div')
+    modalRoot.setAttribute('id', 'modal-root')
+    document.body.appendChild(modalRoot)
+    render(
       <Modal
         title="sample title"
         onApply={applyHandler}
@@ -79,11 +83,15 @@ describe('Modal', () => {
         <div>sample content</div>
       </Modal>
     )
-    expect(container).toMatchSnapshot()
+    expect(modalRoot).toMatchSnapshot()
+    document.body.removeChild(modalRoot)
   })
 
   it('should center heading', () => {
-    const { container } = render(
+    const modalRoot = document.createElement('div')
+    modalRoot.setAttribute('id', 'modal-root')
+    document.body.appendChild(modalRoot)
+    render(
       <Modal
         title="sample title"
         onApply={applyHandler}
@@ -92,25 +100,7 @@ describe('Modal', () => {
         <div>sample content</div>
       </Modal>
     )
-    expect(container).toMatchSnapshot()
-  })
-})
-
-describe('Modal in portal', () => {
-  const applyHandler = vi.fn()
-  it('should render in the portal', () => {
-    const root = document.createElement('div')
-    root.setAttribute('id', 'modal-root')
-
-    const body = document.querySelector('body')
-    body.appendChild(root)
-
-    render(
-      <Modal title="sample title" onApply={applyHandler}>
-        <div>content text</div>
-      </Modal>
-    )
-    expect(screen.getByText('content text')).toBeInTheDocument()
-    expect(body).toMatchSnapshot()
+    expect(modalRoot).toMatchSnapshot()
+    document.body.removeChild(modalRoot)
   })
 })

@@ -2,7 +2,7 @@ import ToggleTheme from '@UI/Toggles/ToggleTheme'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('ToggleTheme', () => {
-  const clickHandler = vi.fn()
+  const clickHandler = jest.fn()
 
   beforeEach(() => {
     clickHandler.mockClear()
@@ -28,6 +28,6 @@ describe('ToggleTheme', () => {
     const user = userEvent.setup()
     render(<ToggleTheme isChecked={true} onClick={clickHandler} />)
     await user.click(screen.getByRole('checkbox'))
-    expect(clickHandler).toHaveBeenCalledOnce()
+    expect(clickHandler).toHaveBeenCalledTimes(1)
   })
 })

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 import Button from '@UI/Buttons/Button'
 import Panel from '@UI/Panels/Panel'
+import { useRef, useEffect } from 'react'
 
 Modal.propTypes = {
   children: PropTypes.node.isRequired,
@@ -25,6 +26,15 @@ function Modal({
   isButtonsCentered,
   isHeadingCentered,
 }) {
+  const el = useRef(document.createElement('div'))
+
+  useEffect(() => {
+    const modalRoot = document.getElementById('modal-root')
+    const currentEl = el.current
+    modalRoot.appendChild(currentEl)
+    return () => modalRoot.removeChild(currentEl)
+  }, [])
+
   return ReactDOM.createPortal(
     <div className="relative z-10">
       <div
@@ -51,7 +61,7 @@ function Modal({
         </Panel>
       </div>
     </div>,
-    document.getElementById('modal-root')
+    el.current
   )
 }
 

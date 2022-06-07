@@ -2,7 +2,7 @@ import TextInput from '@UI/Inputs/TextInput'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('TextInput', () => {
-  const changeHandler = vi.fn()
+  const changeHandler = jest.fn()
 
   beforeEach(() => {
     changeHandler.mockClear()

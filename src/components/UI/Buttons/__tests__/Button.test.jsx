@@ -2,7 +2,7 @@ import Button from '@UI/Buttons/Button'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('Button', () => {
-  const clickHandler = vi.fn()
+  const clickHandler = jest.fn()
 
   beforeEach(() => {
     clickHandler.mockClear()
@@ -17,6 +17,6 @@ describe('Button', () => {
     render(<Button title="sample" onClick={clickHandler} />)
     const user = userEvent.setup()
     await user.click(screen.getByRole('button'))
-    expect(clickHandler).toHaveBeenCalledOnce()
+    expect(clickHandler).toHaveBeenCalledTimes(1)
   })
 })

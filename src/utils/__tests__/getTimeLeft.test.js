@@ -2,16 +2,16 @@ import { getTimeLeft, isFinished } from '@utils/getTimeLeft'
 
 describe('getTimeLeft', () => {
   beforeEach(() => {
-    vi.useFakeTimers()
+    jest.useFakeTimers()
   })
 
   afterEach(() => {
-    vi.useRealTimers()
+    jest.useRealTimers()
   })
 
   it('should calculate time difference', () => {
     const date = new Date(2022, 4, 23, 11, 12, 11, 0)
-    vi.setSystemTime(date)
+    jest.setSystemTime(date)
 
     const targetTime = {
       day: 5,
@@ -30,7 +30,7 @@ describe('getTimeLeft', () => {
 
   it('should return zeros for time difference if no time left', () => {
     const date = new Date(2022, 4, 27, 18, 12, 11, 0)
-    vi.setSystemTime(date)
+    jest.setSystemTime(date)
 
     const targetTime = {
       day: 5,
