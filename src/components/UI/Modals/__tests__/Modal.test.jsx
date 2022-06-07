@@ -74,7 +74,7 @@ describe('Modal', () => {
     const modalRoot = document.createElement('div')
     modalRoot.setAttribute('id', 'modal-root')
     document.body.appendChild(modalRoot)
-    const { container } = render(
+    render(
       <Modal
         title="sample title"
         onApply={applyHandler}
@@ -83,7 +83,7 @@ describe('Modal', () => {
         <div>sample content</div>
       </Modal>
     )
-    expect(container).toMatchSnapshot()
+    expect(modalRoot).toMatchSnapshot()
     document.body.removeChild(modalRoot)
   })
 
@@ -91,7 +91,7 @@ describe('Modal', () => {
     const modalRoot = document.createElement('div')
     modalRoot.setAttribute('id', 'modal-root')
     document.body.appendChild(modalRoot)
-    const { container } = render(
+    render(
       <Modal
         title="sample title"
         onApply={applyHandler}
@@ -100,7 +100,7 @@ describe('Modal', () => {
         <div>sample content</div>
       </Modal>
     )
-    expect(container).toMatchSnapshot()
+    expect(modalRoot).toMatchSnapshot()
     document.body.removeChild(modalRoot)
   })
 })
