@@ -1,10 +1,9 @@
 import SettingsModal from '@UI/Modals/SettingsModal'
 import { render, screen, userEvent } from '@utils/test-utils'
-import ReactDOM from 'react-dom'
 
 describe('SettingsModal', () => {
-  const handleApply = vi.fn()
-  const handleCancel = vi.fn()
+  const handleApply = jest.fn()
+  const handleCancel = jest.fn()
 
   const settings = {
     useSystemTheme: false,
@@ -16,23 +15,21 @@ describe('SettingsModal', () => {
   }
 
   beforeAll(() => {
-    ReactDOM.createPortal = vi.fn((element) => {
-      return element
-    })
-    window.HTMLElement.prototype.scrollIntoView = vi.fn()
+    window.HTMLElement.prototype.scrollIntoView = jest.fn()
   })
 
   afterEach(() => {
-    ReactDOM.createPortal.mockClear()
     window.HTMLElement.prototype.scrollIntoView.mockClear()
   })
 
   afterAll(() => {
-    ReactDOM.createPortal.mockRestore()
     window.HTMLElement.prototype.scrollIntoView.mockRestore()
   })
 
   it('should be in the document', async () => {
+    const modalRoot = document.createElement('div')
+    modalRoot.setAttribute('id', 'modal-root')
+    document.body.appendChild(modalRoot)
     render(
       <SettingsModal
         settings={settings}
@@ -42,9 +39,13 @@ describe('SettingsModal', () => {
       />
     )
     expect(screen.getByTestId('settings-modal')).toMatchSnapshot()
+    document.body.removeChild(modalRoot)
   })
 
   it('should toggle switcher', async () => {
+    const modalRoot = document.createElement('div')
+    modalRoot.setAttribute('id', 'modal-root')
+    document.body.appendChild(modalRoot)
     const user = userEvent.setup()
     render(
       <SettingsModal
@@ -57,9 +58,13 @@ describe('SettingsModal', () => {
     const toggle = screen.getByRole('checkbox')
     await user.click(toggle)
     expect(toggle).toBeChecked()
+    document.body.removeChild(modalRoot)
   })
 
   it('should handle Apply with new settings', async () => {
+    const modalRoot = document.createElement('div')
+    modalRoot.setAttribute('id', 'modal-root')
+    document.body.appendChild(modalRoot)
     const user = userEvent.setup()
     render(
       <SettingsModal
@@ -85,5 +90,6 @@ describe('SettingsModal', () => {
       hour: 17,
       useSystemTheme: true,
     })
+    document.body.removeChild(modalRoot)
   })
 })

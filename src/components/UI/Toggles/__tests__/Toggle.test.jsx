@@ -2,7 +2,7 @@ import Toggle from '@UI/Toggles/Toggle'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('Toggle', () => {
-  const clickHandler = vi.fn()
+  const clickHandler = jest.fn()
 
   beforeEach(() => {
     clickHandler.mockClear()
@@ -29,6 +29,6 @@ describe('Toggle', () => {
     const user = userEvent.setup()
     render(<Toggle isChecked={true} onClick={clickHandler} />)
     await user.click(screen.getByRole('checkbox'))
-    expect(clickHandler).toHaveBeenCalledOnce()
+    expect(clickHandler).toHaveBeenCalledTimes(1)
   })
 })

@@ -1,9 +1,8 @@
 import StartupModal from '@UI/Modals/StartupModal'
 import { render, screen, userEvent } from '@utils/test-utils'
-import ReactDOM from 'react-dom'
 
 describe('StartupModal', () => {
-  const handleApply = vi.fn()
+  const handleApply = jest.fn()
 
   const settings = {
     useSystemTheme: false,
@@ -15,23 +14,21 @@ describe('StartupModal', () => {
   }
 
   beforeAll(() => {
-    ReactDOM.createPortal = vi.fn((element) => {
-      return element
-    })
-    window.HTMLElement.prototype.scrollIntoView = vi.fn()
+    window.HTMLElement.prototype.scrollIntoView = jest.fn()
   })
 
   afterEach(() => {
-    ReactDOM.createPortal.mockClear()
     window.HTMLElement.prototype.scrollIntoView.mockClear()
   })
 
   afterAll(() => {
-    ReactDOM.createPortal.mockRestore()
     window.HTMLElement.prototype.scrollIntoView.mockRestore()
   })
 
   it('should be in the document', async () => {
+    const modalRoot = document.createElement('div')
+    modalRoot.setAttribute('id', 'modal-root')
+    document.body.appendChild(modalRoot)
     render(
       <StartupModal
         settings={settings}
@@ -40,9 +37,13 @@ describe('StartupModal', () => {
       />
     )
     expect(screen.getByTestId('startup-modal')).toMatchSnapshot()
+    document.body.removeChild(modalRoot)
   })
 
   it('should handle Apply with new settings', async () => {
+    const modalRoot = document.createElement('div')
+    modalRoot.setAttribute('id', 'modal-root')
+    document.body.appendChild(modalRoot)
     const user = userEvent.setup()
     render(
       <StartupModal
@@ -61,5 +62,6 @@ describe('StartupModal', () => {
       day: 6,
       hour: 17,
     })
+    document.body.removeChild(modalRoot)
   })
 })

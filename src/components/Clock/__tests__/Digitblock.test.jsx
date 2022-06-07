@@ -1,14 +1,20 @@
 import Digitblock from '@components/Clock/Digitblock'
 import { render, screen } from '@utils/test-utils'
 
-vi.mock('@components/Clock/Digit', () => {
+jest.mock('@components/Clock/Digit', () => {
+  const originalModule = jest.requireActual('@components/Clock/Digit')
   return {
+    __esModule: true,
+    ...originalModule,
     default: () => <div data-testid="digit"></div>,
   }
 })
 
-vi.mock('@components/Clock/Separator', () => {
+jest.mock('@components/Clock/Separator', () => {
+  const originalModule = jest.requireActual('@components/Clock/Separator')
   return {
+    __esModule: true,
+    ...originalModule,
     default: () => <div data-testid="separator"></div>,
   }
 })

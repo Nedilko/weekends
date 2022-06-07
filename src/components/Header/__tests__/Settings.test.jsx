@@ -2,8 +2,11 @@ import Settings from '@components/Header/Settings'
 import SettingsContext from '@store/Settings'
 import { render, screen, userEvent } from '@utils/test-utils'
 
-vi.mock('@components/Header/SettingsIcon', () => {
+jest.mock('@components/Header/SettingsIcon', () => {
+  const originalModule = jest.requireActual('@components/Header/SettingsIcon')
   return {
+    __esModule: true,
+    ...originalModule,
     default: ({ onClick }) => {
       return (
         <button onClick={onClick} data-testid="settings-icon">
@@ -14,8 +17,11 @@ vi.mock('@components/Header/SettingsIcon', () => {
   }
 })
 
-vi.mock('@UI/Modals/SettingsModal', () => {
+jest.mock('@UI/Modals/SettingsModal', () => {
+  const originalModule = jest.requireActual('@UI/Modals/SettingsModal')
   return {
+    __esModule: true,
+    ...originalModule,
     default: ({ onApply, onCancel }) => (
       <div data-testid="settings-modal">
         <button onClick={onApply}>Apply</button>
@@ -26,7 +32,7 @@ vi.mock('@UI/Modals/SettingsModal', () => {
 })
 
 describe('Settings component', () => {
-  const handleApply = vi.fn()
+  const handleApply = jest.fn()
 
   beforeEach(() => {
     handleApply.mockClear()
@@ -101,7 +107,7 @@ describe('Settings component', () => {
     await user.click(settingsIcon)
     const applyButton = screen.getByRole('button', { name: /apply/i })
     await user.click(applyButton)
-    expect(handleApply).toHaveBeenCalledOnce()
+    expect(handleApply).toHaveBeenCalledTimes(1)
   })
 
   it('should close Settings Modal on Cancel button click', async () => {

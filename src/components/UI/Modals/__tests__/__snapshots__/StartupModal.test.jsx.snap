@@ -1,6 +1,6 @@
-// Vitest Snapshot v1
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StartupModal > should be in the document 1`] = `
+exports[`StartupModal should be in the document 1`] = `
 <section
   class="flex flex-col font-thin"
   data-testid="startup-modal"

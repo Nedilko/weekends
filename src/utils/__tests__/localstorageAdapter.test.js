@@ -6,9 +6,9 @@ import {
 describe('localstorage adapter', () => {
   let setItemSpy, getItemSpy
   beforeAll(() => {
-    setItemSpy = vi.spyOn(global.Storage.prototype, 'setItem')
-    getItemSpy = vi.spyOn(global.Storage.prototype, 'getItem')
-    vi.spyOn(console, 'error').mockImplementation(() => {})
+    setItemSpy = jest.spyOn(global.Storage.prototype, 'setItem')
+    getItemSpy = jest.spyOn(global.Storage.prototype, 'getItem')
+    jest.spyOn(console, 'error').mockImplementation(() => {})
   })
 
   beforeEach(() => {
@@ -50,7 +50,7 @@ describe('localstorage adapter', () => {
     expect(getItemSpy).toHaveBeenCalled()
     expect(getItemSpy).toHaveBeenCalledWith('settings')
     expect(data).toBeUndefined()
-    expect(console.error).toHaveBeenCalledOnce()
+    expect(console.error).toHaveBeenCalledTimes(1)
   })
 
   it('should show console error on writing to localstorage', () => {
@@ -61,6 +61,6 @@ describe('localstorage adapter', () => {
     writeToLocalstorage('settings', data)
     expect(setItemSpy).toHaveBeenCalled()
     expect(setItemSpy).toHaveBeenCalledWith('settings', { day: 2, hour: 3 })
-    expect(console.error).toHaveBeenCalledOnce()
+    expect(console.error).toHaveBeenCalledTimes(1)
   })
 })

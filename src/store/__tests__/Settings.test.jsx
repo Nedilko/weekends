@@ -3,7 +3,7 @@ import SettingsContext, { SettingsContextProvider } from '@store/Settings'
 import { useContext } from 'react'
 import { loadSettings, writeSettings } from '@utils/dataAdapter'
 
-vi.mock('@utils/dataAdapter')
+jest.mock('@utils/dataAdapter')
 
 describe('Settings context provider', () => {
   function WrappedComponent() {

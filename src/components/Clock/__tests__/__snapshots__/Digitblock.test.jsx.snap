@@ -1,6 +1,6 @@
-// Vitest Snapshot v1
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Digitblock > should render with digit, label and separator 1`] = `
+exports[`Digitblock should render with digit, label and separator 1`] = `
 <div>
   <div
     class="flex w-24 flex-col"
@@ -20,7 +20,7 @@ exports[`Digitblock > should render with digit, label and separator 1`] = `
 </div>
 `;
 
-exports[`Digitblock > should render without separator 1`] = `
+exports[`Digitblock should render without separator 1`] = `
 <div>
   <div
     class="flex w-24 flex-col"

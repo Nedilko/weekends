@@ -1,15 +1,20 @@
 import Clock from '@components/Clock/Clock'
 import { render } from '@utils/test-utils'
-import { vi } from 'vitest'
 
-vi.mock('@components/Clock/Digit', () => {
+jest.mock('@components/Clock/Digit', () => {
+  const originalModule = jest.requireActual('@components/Clock/Digit')
   return {
+    __esModule: true,
+    ...originalModule,
     default: () => <div data-testid="digit"></div>,
   }
 })
 
-vi.mock('@components/Clock/Separator', () => {
+jest.mock('@components/Clock/Separator', () => {
+  const originalModule = jest.requireActual('@components/Clock/Separator')
   return {
+    __esModule: true,
+    ...originalModule,
     default: () => <div data-testid="separator"></div>,
   }
 })

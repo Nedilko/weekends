@@ -22,13 +22,13 @@ describe('settings', () => {
   it('should return dark theme if system theme is dark', () => {
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
-      value: vi.fn().mockImplementation((query) => ({
+      value: jest.fn().mockImplementation((query) => ({
         matches: true,
         media: query,
         onchange: null,
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-        dispatchEvent: vi.fn(),
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
       })),
     })
     expect(getSystemTheme()).toEqual('dark')
@@ -37,13 +37,13 @@ describe('settings', () => {
   it('should return light theme if system theme is light', () => {
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
-      value: vi.fn().mockImplementation((query) => ({
+      value: jest.fn().mockImplementation((query) => ({
         matches: false,
         media: query,
         onchange: null,
-        addEventListener: vi.fn(),
-        removeEventListener: vi.fn(),
-        dispatchEvent: vi.fn(),
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
       })),
     })
     expect(getSystemTheme()).toEqual('light')
