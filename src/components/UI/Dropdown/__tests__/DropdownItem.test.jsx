@@ -1,7 +1,7 @@
 import DropdownItem from '@UI/Dropdown/DropdownItem'
 import { render, screen, userEvent } from '@utils/test-utils'
 
-describe('button', () => {
+describe('DropdownItem', () => {
   const handleSelect = jest.fn()
 
   beforeAll(() => {
