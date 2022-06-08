@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Digit should render digit 1`] = `
+<div
+  class="flex h-20 items-center justify-center text-5xl font-thin"
+>
+  12
+</div>
+`;

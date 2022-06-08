@@ -1,0 +1,38 @@
+name: Test case
+description: Create a test case
+title: "[Test case]: "
+labels: ["test case"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill in all available fields!
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of what test case is.
+    validations:
+      required: true
+  - type: textarea
+    id: str
+    attributes:
+      label: Steps to reproduce
+      description: Steps to reproduce the behavior
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: Describe expected results
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true

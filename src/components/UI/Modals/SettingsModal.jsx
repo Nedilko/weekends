@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 
-import Modal from './Modal'
-import ModalRow from './ModalRow'
-import TextInput from '../Inputs/TextInput'
-import Toggle from '../Toggles/Toggle'
-import DayDropdown from '../Dropdown/DayDropdown'
-import HourDropdown from '../Dropdown/HourDropdown'
+import Modal from '@UI/Modals/Modal'
+import ModalRow from '@UI/Modals/ModalRow'
+import TextInput from '@UI/Inputs/TextInput'
+import Toggle from '@UI/Toggles/Toggle'
+import DayDropdown from '@UI/Dropdown/DayDropdown'
+import HourDropdown from '@UI/Dropdown/HourDropdown'
 
 SettingsModal.propTypes = {
   onApply: PropTypes.func.isRequired,
@@ -32,9 +32,16 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
     }
   }
 
+  const handleToggleChange = () => {
+    setuUseSystemTheme((oldValue) => !oldValue)
+  }
+
   return (
     <Modal title={title} onApply={handleApply} onCancel={onCancel}>
-      <section className="flex flex-col border-y py-2 text-xl font-thin text-slate-600 dark:text-gray-400">
+      <section
+        data-testid="settings-modal"
+        className="flex flex-col border-y py-2 text-xl font-thin text-slate-600 dark:text-gray-400"
+      >
         <ModalRow>
           <div className="flex w-1/2">Greetings text</div>
           <TextInput
@@ -49,7 +56,7 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
         </ModalRow>
         <ModalRow>
           <div className="flex w-1/2">Use system theme</div>
-          <Toggle checked={useSystemTheme} onChange={setuUseSystemTheme} />
+          <Toggle isChecked={useSystemTheme} onClick={handleToggleChange} />
         </ModalRow>
       </section>
     </Modal>

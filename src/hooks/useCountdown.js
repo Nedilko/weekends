@@ -2,18 +2,17 @@ import { useState, useEffect } from 'react'
 import { getTimeLeft } from '@utils/getTimeLeft'
 
 const useCountdown = (targetTime) => {
-  const timeLeft = getTimeLeft(targetTime)
-  const [time, setTime] = useState(timeLeft)
+  const [time, setTime] = useState(getTimeLeft(targetTime))
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(timeLeft)
+    const interval = setTimeout(() => {
+      setTime(getTimeLeft(targetTime))
     }, 1000)
 
     return () => {
       clearInterval(interval)
     }
-  }, [timeLeft])
+  }, [time, targetTime])
 
   return time
 }

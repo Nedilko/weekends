@@ -8,7 +8,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: './src/tests/setupTests.js',
+    setupFiles: './src/utils/setupTests.js',
     coverage: {
       reporter: ['text', 'json', 'html'],
     },
@@ -28,9 +28,13 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@components': path.resolve(__dirname, './src/components'),
+      '@UI': path.resolve(__dirname, './src/components/UI'),
       '@hooks': path.resolve(__dirname, './src/hooks'),
       '@store': path.resolve(__dirname, './src/store'),
       '@utils': path.resolve(__dirname, './src/utils'),
     },
   },
+  // esbuild: {
+  //   jsxInject: `import React from 'react'`,
+  // },
 })

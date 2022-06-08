@@ -1,4 +1,2 @@
-FROM node:16
-# RUN apt-get update \
-#   && apt-get install git
-COPY . .
+ARG VARIANT=16-bullseye
+FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}

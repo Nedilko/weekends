@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DayDropdown should render with Days 1`] = `
+<div
+  data-testid="dropdown"
+>
+  <div>
+    Day
+  </div>
+  <div
+    data-testid="dropdown-selected-value"
+  >
+    Wednesday
+  </div>
+  <div>
+    Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+  </div>
+</div>
+`;

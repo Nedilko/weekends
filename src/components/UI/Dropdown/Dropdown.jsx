@@ -1,12 +1,12 @@
 import { useEffect, useState, useRef } from 'react'
 import PropTypes from 'prop-types'
-import DropdownItemsList from './DropdownItemsList'
+import DropdownItemsList from '@UI/Dropdown/DropdownItemsList'
 
 Dropdown.propTypes = {
-  value: PropTypes.string,
-  items: PropTypes.array,
-  label: PropTypes.string,
-  onChange: PropTypes.func,
+  value: PropTypes.string.isRequired,
+  items: PropTypes.array.isRequired,
+  label: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 
 function Dropdown({ label, items, value, onChange }) {
@@ -14,6 +14,7 @@ function Dropdown({ label, items, value, onChange }) {
 
   const openClosedIcon = (isOpen) => (
     <svg
+      role="img"
       xmlns="http://www.w3.org/2000/svg"
       className={`mr-1 h-4 w-4 text-gray-500 ${isOpen ? 'rotate-180' : ''}`}
       fill="none"
@@ -30,12 +31,9 @@ function Dropdown({ label, items, value, onChange }) {
 
   const handleSelectItem = (value) => {
     setSelectedValue(value)
+    onChange(value)
     setIsOpen(false)
   }
-
-  useEffect(() => {
-    onChange(selectedValue)
-  }, [selectedValue])
 
   useEffect(() => {
     function handleIsClickOutside(event) {

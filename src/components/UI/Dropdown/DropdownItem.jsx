@@ -14,19 +14,20 @@ function DropdownItem({ handleSelect, value, isSelected }) {
     if (isSelected && ref.current) {
       ref.current.scrollIntoView()
     }
-  }, [])
+  }, [isSelected])
 
   return (
-    <option
+    <div
       ref={ref}
-      onClick={(e) => handleSelect(e.target.value)}
+      onClick={(e) => handleSelect(e.target.getAttribute('value'))}
       value={value}
+      data-testid="dropdown-item"
       className={`px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 ${
         isSelected ? 'font-regular' : 'font-thin'
       }`}
     >
       {value}
-    </option>
+    </div>
   )
 }
 

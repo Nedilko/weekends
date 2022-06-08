@@ -1,7 +1,47 @@
 {
   "name": "weekends",
   "dockerFile": "Dockerfile",
-  "settings": {},
+  // "shutdownAction": "none",
+  // "shutdownAction": "stopCompose"
+  "settings": {
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "material-icon-theme",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.singleQuote": true,
+    "terminal.integrated.fontFamily": "Source Code Pro for Powerline",
+    "editor.tabSize": 2,
+    "editor.formatOnSaveMode": "modifications",
+    "editor.formatOnSave": true,
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.inlineSuggest.enabled": true,
+    "open-in-browser.default": "chrome"
+    // "terminal.integrated.profiles.osx": {
+    //   "zsh": {
+    //       "path": "/bin/zsh",
+    //       "icon": "star",
+    //       "env": {
+    //         "TESTING_VAR": "abc"
+    //       }
+    //   }
+    // },
+    // "terminal.integrated.defaultProfile.osx": "zsh"
+  },
   "extensions": [
     "bradlc.vscode-tailwindcss",
     "dbaeumer.vscode-eslint",
@@ -10,14 +50,15 @@
     "formulahendry.auto-close-tag",
     "formulahendry.auto-rename-tag",
     "GitHub.copilot",
-    "ms-playwright.playwright",
-    "ZixuanChen.vitest-explorer"
+    "zhuangtongfa.material-theme",
+    "PKief.material-icon-theme"
   ],
   "portsAttributes": {
-    "3000": {    
+    "3000": {
       "label": "localhost debug",
       "onAutoForward": "notify"
     }
   },
   "remoteUser": "node"
+  // "context": ".."
 }

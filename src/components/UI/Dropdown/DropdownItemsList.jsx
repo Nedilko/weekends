@@ -1,6 +1,6 @@
-import GeneralPanel from '@components/UI/GeneralPanel'
+import GeneralPanel from '@UI/Panels/GeneralPanel'
 import PropTypes from 'prop-types'
-import DropdownItem from '@components/UI/Dropdown/DropdownItem'
+import DropdownItem from '@UI/Dropdown/DropdownItem'
 
 DropdownItemsList.propTypes = {
   selectedValue: PropTypes.string,

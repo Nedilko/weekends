@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Clock should render with all clock numbers and separators 1`] = `
+<div>
+  <div
+    class="mt-10 flex flex-row justify-around"
+  >
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        days
+      </div>
+      <div
+        data-testid="digit"
+      />
+    </div>
+    <div
+      data-testid="separator"
+    />
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        hours
+      </div>
+      <div
+        data-testid="digit"
+      />
+    </div>
+    <div
+      data-testid="separator"
+    />
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        minutes
+      </div>
+      <div
+        data-testid="digit"
+      />
+    </div>
+    <div
+      data-testid="separator"
+    />
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        seconds
+      </div>
+      <div
+        data-testid="digit"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Clock should render without days 1`] = `
+<div>
+  <div
+    class="mt-10 flex flex-row justify-around"
+  >
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        hours
+      </div>
+      <div
+        data-testid="digit"
+      />
+    </div>
+    <div
+      data-testid="separator"
+    />
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        minutes
+      </div>
+      <div
+        data-testid="digit"
+      />
+    </div>
+    <div
+      data-testid="separator"
+    />
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        seconds
+      </div>
+      <div
+        data-testid="digit"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Clock should render without days and hours 1`] = `
+<div>
+  <div
+    class="mt-10 flex flex-row justify-around"
+  >
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        minutes
+      </div>
+      <div
+        data-testid="digit"
+      />
+    </div>
+    <div
+      data-testid="separator"
+    />
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        seconds
+      </div>
+      <div
+        data-testid="digit"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Clock should render without days, hours and minutes 1`] = `
+<div>
+  <div
+    class="mt-10 flex flex-row justify-around"
+  >
+    <div
+      class="flex w-24 flex-col"
+    >
+      <div
+        class="flex h-8 items-center justify-center text-lg font-thin uppercase"
+      >
+        seconds
+      </div>
+      <div
+        data-testid="digit"
+      />
+    </div>
+  </div>
+</div>
+`;

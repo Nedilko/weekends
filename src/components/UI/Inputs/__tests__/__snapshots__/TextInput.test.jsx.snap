@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextInput should render invalid 1`] = `
+<input
+  class="border-red-500 mx-2 flex rounded-md border px-2 text-xl font-thin text-slate-600 focus:outline-none dark:border-gray-700 dark:bg-zinc-900 dark:text-gray-400 dark:focus:border-gray-500"
+  data-testid="greetings-text-input"
+  maxlength="20"
+  placeholder="sample placeholder"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`TextInput should render valid 1`] = `
+<input
+  class="border-slate-100 focus:border-slate-300 mx-2 flex rounded-md border px-2 text-xl font-thin text-slate-600 focus:outline-none dark:border-gray-700 dark:bg-zinc-900 dark:text-gray-400 dark:focus:border-gray-500"
+  data-testid="greetings-text-input"
+  maxlength="20"
+  placeholder="sample placeholder"
+  type="text"
+  value="sample"
+/>
+`;

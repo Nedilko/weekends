@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timer should render 1`] = `
+<div>
+  <div
+    class="mt-20 flex flex-col items-center"
+  >
+    <div
+      data-testid="action-text"
+    >
+      Action text
+    </div>
+    <div
+      data-testid="seconds"
+    >
+      49
+    </div>
+  </div>
+</div>
+`;

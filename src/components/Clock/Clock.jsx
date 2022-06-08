@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import Digitblock from './Digitblock'
+import Digitblock from '@components/Clock/Digitblock'
 
 Clock.propTypes = {
   time: PropTypes.shape({

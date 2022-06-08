@@ -1,27 +1,19 @@
 import PropTypes from 'prop-types'
-import { useState, useEffect } from 'react'
 
 Toggle.propTypes = {
   label: PropTypes.string,
-  checked: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
+  isChecked: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
 }
 
-function Toggle({ label, checked = false, onChange }) {
-  const [isChecked, setIsChecked] = useState(checked)
-  const handleClick = () => {
-    setIsChecked((prevIsChecked) => !prevIsChecked)
-  }
-
-  useEffect(() => {
-    onChange(isChecked)
-  }, [isChecked])
-
+function Toggle({ label, isChecked, onClick }) {
   return (
     <label className="flex items-center px-1 text-xl font-thin text-slate-600 dark:text-gray-400">
       {label}
       <span
-        onClick={handleClick}
+        role="checkbox"
+        onClick={onClick}
+        aria-checked={isChecked}
         className={`ml-4 flex h-6 w-12 flex-shrink-0 items-center justify-between rounded-full px-1 duration-300 ease-in-out ${
           isChecked
             ? 'bg-green-400 dark:bg-green-600'

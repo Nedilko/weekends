@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StartupModal should be in the document 1`] = `
+<section
+  class="flex flex-col font-thin"
+  data-testid="startup-modal"
+>
+  <div
+    class="flex justify-center"
+  >
+    <h2
+      class="mb-2 text-xl"
+    >
+      Day and Hour you finish your work
+    </h2>
+  </div>
+  <div
+    class="flex items-center justify-around"
+  >
+    <div
+      class="flex flex-row items-center"
+    >
+      <div
+        class="mr-2 flex items-center justify-center"
+      >
+        Day
+      </div>
+      <div
+        class="z-10 block"
+      >
+        <button
+          class="flex h-6 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none dark:border-gray-700 dark:focus:border-gray-500"
+          type="button"
+        >
+          Friday
+          <svg
+            class="mr-1 h-4 w-4 text-gray-500 "
+            fill="none"
+            role="img"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 9l-7 7-7-7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="flex flex-row items-center"
+    >
+      <div
+        class="mr-2 flex items-center justify-center"
+      >
+        Hour
+      </div>
+      <div
+        class="z-10 block"
+      >
+        <button
+          class="flex h-6 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none dark:border-gray-700 dark:focus:border-gray-500"
+          type="button"
+        >
+          18:00
+          <svg
+            class="mr-1 h-4 w-4 text-gray-500 "
+            fill="none"
+            role="img"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 9l-7 7-7-7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+`;

@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should center buttons 1`] = `
+<div
+  id="modal-root"
+>
+  <div>
+    <div
+      class="relative z-10"
+    >
+      <div
+        class="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm"
+      >
+        <div
+          class="max-w-xl mx-auto rounded-xl bg-white p-4 shadow-md dark:bg-zinc-900"
+        >
+          <div
+            class="mb-2 text-3xl font-thin text-slate-600 dark:border-b-zinc-600 dark:text-gray-400 "
+          >
+            sample title
+          </div>
+          <div>
+            sample content
+          </div>
+          <div
+            class="flex dark:border-t-zinc-600 justify-center"
+          >
+            <button
+              class="mx-4 w-16 py-2 text-xl font-thin text-slate-600 duration-200 ease-in-out hover:scale-110 focus:scale-110 focus:outline-none dark:text-gray-400"
+            >
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal should center heading 1`] = `
+<div
+  id="modal-root"
+>
+  <div>
+    <div
+      class="relative z-10"
+    >
+      <div
+        class="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm"
+      >
+        <div
+          class="max-w-xl mx-auto rounded-xl bg-white p-4 shadow-md dark:bg-zinc-900"
+        >
+          <div
+            class="mb-2 text-3xl font-thin text-slate-600 dark:border-b-zinc-600 dark:text-gray-400 text-center"
+          >
+            sample title
+          </div>
+          <div>
+            sample content
+          </div>
+          <div
+            class="flex dark:border-t-zinc-600 justify-end"
+          >
+            <button
+              class="mx-4 w-16 py-2 text-xl font-thin text-slate-600 duration-200 ease-in-out hover:scale-110 focus:scale-110 focus:outline-none dark:text-gray-400"
+            >
+              Apply
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

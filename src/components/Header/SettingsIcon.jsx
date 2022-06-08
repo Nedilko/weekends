@@ -8,6 +8,7 @@ function SettingsIcon({ onClick }) {
   return (
     <div className="flex items-center justify-center">
       <svg
+        role="img"
         className="flex h-8 w-8 rounded-full text-slate-500	transition-transform duration-300 ease-in-out hover:rotate-45 dark:text-gray-600"
         onClick={onClick}
         xmlns="http://www.w3.org/2000/svg"

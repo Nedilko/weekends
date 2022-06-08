@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleTheme should render checked 1`] = `undefined`;
+
+exports[`ToggleTheme should render unchecked 1`] = `undefined`;
