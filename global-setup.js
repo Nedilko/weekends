@@ -1,4 +1,3 @@
-// const { chromium } = require('@playwright/test')
 const { chromium } = require('@playwright/test')
 
 module.exports = async (config) => {
