@@ -4,142 +4,115 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/')
 })
 
-test.describe('Verify that user can use settings modal', () => {
-  test('should be used by user', async ({ page }) => {
-    await page.locator('svg').first().click()
-    await page.locator('[placeholder="Have a beer"]').click()
-    await page.locator('[placeholder="Have a beer"]').fill('some beer!')
-    await page.locator('text=Friday').click()
-    await page.locator('text=Wednesday').click()
-    await page.locator('text=18:00').click()
-    await page.locator('text=00:00').click()
-    expect(page.locator('text=Wednesday')).toBeTruthy()
-    expect(page.locator('text=00:00')).toBeTruthy()
-  })
+test.describe('Settings', () => {
+  test('Verify that user can use settings modal', async ({ page }) => {
+    await test.step('should open settings modal', async () => {
+      await page.locator('svg').first().click()
+      const modal = page.locator('[data-testid="settings-modal"]')
+      expect(modal).toBeVisible()
+    })
 
-  test('should be able to click each day', async ({ page }) => {
-    await page.locator('svg').first().click()
+    await test.step('should set new text is input field', async () => {
+      const greetingsText = 'some beer!'
+      const input = page.locator('[placeholder="Have a beer"]')
+      await input.fill(greetingsText)
+      expect(input).toHaveValue(greetingsText)
+    })
 
-    await page.locator('text=Friday').click()
-    await page.locator('text=Monday').click()
+    await test.step('should open day dropdown', async () => {
+      await page.locator('text=Friday').click()
+      expect(page.locator('text=Friday').nth(0)).toBeVisible()
 
-    await page.locator('text=Monday').click()
-    await page.locator('text=Tuesday').click()
+      expect(page.locator('text=Monday')).toBeVisible()
+      expect(page.locator('text=Tuesday')).toBeVisible()
+      expect(page.locator('text=Wednesday')).toBeVisible()
+      expect(page.locator('text=Thursday')).toBeVisible()
+      expect(page.locator('text=Friday').nth(1)).toBeVisible()
+      expect(page.locator('text=Saturday')).toBeVisible()
+      expect(page.locator('text=Sunday')).toBeVisible()
+    })
 
-    await page.locator('text=Tuesday').click()
-    await page.locator('text=Wednesday').click()
+    await test.step('should select day from dropdown', async () => {
+      await test.step('should select Monday', async () => {
+        await page.locator('text=Monday').click()
+        expect(page.locator('text=Monday')).toBeVisible()
+      })
 
-    await page.locator('text=Wednesday').click()
-    await page.locator('text=Thursday').click()
+      await test.step('should select current day', async () => {
+        await page.locator('text=Monday').click()
+        await page.locator('text=Monday').nth(1).click()
+        expect(page.locator('text=Monday')).toBeVisible()
+      })
 
-    await page.locator('text=Thursday').click()
-    await page.locator('text=Friday').click()
+      await test.step('should select Sunday', async () => {
+        await page.locator('text=Monday').click()
+        await page.locator('text=Sunday').click()
+        expect(page.locator('text=Sunday')).toBeVisible()
+      })
+    })
 
-    await page.locator('text=Friday').click()
-    await page.locator('text=Saturday').click()
+    await test.step('should open hour dropdown', async () => {
+      await page.locator('text=18:00').click()
+      expect(page.locator('text=18:00').nth(0)).toBeVisible()
 
-    await page.locator('text=Saturday').click()
-    await page.locator('text=Sunday').click()
+      expect(page.locator('text=00:00')).toBeVisible()
+      expect(page.locator('text=01:00')).toBeVisible()
+      expect(page.locator('text=02:00')).toBeVisible()
+      expect(page.locator('text=03:00')).toBeVisible()
+      expect(page.locator('text=04:00')).toBeVisible()
+      expect(page.locator('text=05:00')).toBeVisible()
+      expect(page.locator('text=06:00')).toBeVisible()
+      expect(page.locator('text=07:00')).toBeVisible()
+      expect(page.locator('text=08:00')).toBeVisible()
+      expect(page.locator('text=09:00')).toBeVisible()
+      expect(page.locator('text=10:00')).toBeVisible()
+      expect(page.locator('text=11:00')).toBeVisible()
+      expect(page.locator('text=12:00')).toBeVisible()
+      expect(page.locator('text=13:00')).toBeVisible()
+      expect(page.locator('text=14:00')).toBeVisible()
+      expect(page.locator('text=15:00')).toBeVisible()
+      expect(page.locator('text=16:00')).toBeVisible()
+      expect(page.locator('text=17:00')).toBeVisible()
+      expect(page.locator('text=18:00').nth(1)).toBeVisible()
+      expect(page.locator('text=19:00')).toBeVisible()
+      expect(page.locator('text=20:00')).toBeVisible()
+      expect(page.locator('text=21:00')).toBeVisible()
+      expect(page.locator('text=22:00')).toBeVisible()
+      expect(page.locator('text=23:00')).toBeVisible()
+    })
 
-    await page.locator('text=Sunday').click()
-    await page.locator('text=Friday').click()
-  })
+    await test.step('should select hour from dropdown', async () => {
+      await test.step('should select 00:00', async () => {
+        await page.locator('text=00:00').click()
+        expect(page.locator('text=00:00')).toBeVisible()
+      })
 
-  test('should be able to click each hour', async ({ page }) => {
-    await page.locator('svg').first().click()
+      await test.step('should select current hour', async () => {
+        await page.locator('text=00:00').click()
+        await page.locator('text=00:00').nth(1).click()
+        expect(page.locator('text=00:00')).toBeVisible()
+      })
 
-    await page.locator('text=18:00').click()
-    await page.locator('text=00:00').click()
+      await test.step('should select 23:00', async () => {
+        await page.locator('text=00:00').click()
+        await page.locator('text=23:00').click()
+        expect(page.locator('text=23:00')).toBeVisible()
+      })
+    })
 
-    await page.locator('text=00:00').click()
-    await page.locator('text=01:00').click()
+    await test.step('should change switcher position', async () => {
+      const switcher = page
+        .locator('[data-testid="settings-modal"]')
+        .locator('role=checkbox')
+      await switcher.click()
+      expect(switcher).toBeChecked()
+      await switcher.click()
+      expect(switcher).not.toBeChecked()
+    })
 
-    await page.locator('text=01:00').click()
-    await page.locator('text=02:00').click()
-
-    await page.locator('text=02:00').click()
-    await page.locator('text=03:00').click()
-
-    await page.locator('text=03:00').click()
-    await page.locator('text=04:00').click()
-
-    await page.locator('text=04:00').click()
-    await page.locator('text=05:00').click()
-
-    await page.locator('text=05:00').click()
-    await page.locator('text=06:00').click()
-
-    await page.locator('text=06:00').click()
-    await page.locator('text=07:00').click()
-
-    await page.locator('text=07:00').click()
-    await page.locator('text=08:00').click()
-
-    await page.locator('text=08:00').click()
-    await page.locator('text=09:00').click()
-
-    await page.locator('text=09:00').click()
-    await page.locator('text=10:00').click()
-
-    await page.locator('text=10:00').click()
-    await page.locator('text=11:00').click()
-
-    await page.locator('text=11:00').click()
-    await page.locator('text=12:00').click()
-
-    await page.locator('text=12:00').click()
-    await page.locator('text=13:00').click()
-
-    await page.locator('text=13:00').click()
-    await page.locator('text=14:00').click()
-
-    await page.locator('text=14:00').click()
-    await page.locator('text=15:00').click()
-
-    await page.locator('text=15:00').click()
-    await page.locator('text=16:00').click()
-
-    await page.locator('text=16:00').click()
-    await page.locator('text=17:00').click()
-
-    await page.locator('text=17:00').click()
-    await page.locator('text=18:00').click()
-
-    await page.locator('text=18:00').click()
-    await page.locator('text=19:00').click()
-
-    await page.locator('text=19:00').click()
-    await page.locator('text=20:00').click()
-
-    await page.locator('text=20:00').click()
-    await page.locator('text=21:00').click()
-
-    await page.locator('text=21:00').click()
-    await page.locator('text=22:00').click()
-
-    await page.locator('text=22:00').click()
-    await page.locator('text=23:00').click()
-
-    await page.locator('text=23:00').click()
-    await page.locator('text=00:00').click()
-  })
-
-  test('should be able to change greetings text', async ({ page }) => {
-    const greetingsText = 'some beer!'
-
-    await page.locator('svg').first().click()
-    const input = page.locator('[placeholder="Have a beer"]')
-    await input.fill(greetingsText)
-    expect(input).toHaveValue(greetingsText)
-  })
-
-  test('should be able to click switcher', async ({ page }) => {
-    await page.locator('svg').first().click()
-    const modal = page.locator('[data-testid="settings-modal"]')
-    const switcher = modal.locator('role=checkbox')
-    await switcher.click()
-    expect(switcher).toBeChecked()
-    await switcher.click()
-    expect(switcher).not.toBeChecked()
+    await test.step('should close modal on Apply click', async () => {
+      await page.locator('text=Apply').click()
+      expect(page.locator('[data-testid="settings-modal"]')).not.toBeVisible()
+    })
   })
 })
