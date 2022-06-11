@@ -12,6 +12,7 @@
     "preview": "vite preview",
     "lint": "eslint --ignore-path .eslintignore --ext .js --ext .jsx .",
     "test": "jest",
+    "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:e2e": "npx playwright test",
     "test:e2e:debug": "PWDEBUG=1 npx playwright test",
