@@ -211,4 +211,77 @@ test.describe('Settings modal', () => {
       expect(page.locator('[data-testid="settings-modal"]')).not.toBeVisible()
     })
   })
+
+  test('Verify that application can use system theme', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' })
+
+    await test.step(
+      'should open settings modal with turned off toggle switch',
+      async () => {
+        await page.locator('svg').first().click()
+        const modal = page.locator('[data-testid="settings-modal"]')
+        expect(modal).toBeVisible()
+        expect(
+          page.locator('[data-testid="settings-modal"] >> role=checkbox')
+        ).not.toBeChecked()
+      }
+    )
+
+    await test.step('should torn on use system theme toggle', async () => {
+      const checkbox = page.locator(
+        '[data-testid="settings-modal"] >> role=checkbox'
+      )
+      await checkbox.click()
+      expect(checkbox).toBeChecked()
+    })
+
+    await test.step('should adjust app theme to system theme', async () => {
+      await page.locator('button:has-text("Apply")').click()
+      expect(page.locator('role=checkbox')).not.toBeVisible()
+      expect(page.locator('html')).not.toHaveClass('dark')
+    })
+
+    await test.step('should turn off use system theme toggle', async () => {
+      await page.locator('svg').first().click()
+      const checkbox = page.locator(
+        '[data-testid="settings-modal"] >> role=checkbox'
+      )
+      await checkbox.click()
+      expect(checkbox).not.toBeChecked()
+    })
+
+    await test.step(
+      'should adjust app theme not to use system theme',
+      async () => {
+        await page.locator('button:has-text("Apply")').click()
+        const themeToggleSwitch = page.locator('role=checkbox')
+        expect(themeToggleSwitch).toBeVisible()
+        expect(themeToggleSwitch).not.toBeChecked()
+        expect(page.locator('html')).not.toHaveClass('dark')
+      }
+    )
+
+    await test.step('should change system theme to dark', async () => {
+      await page.emulateMedia({ colorScheme: 'dark' })
+    })
+
+    await test.step('should reload page', async () => {
+      await page.reload()
+    })
+
+    await test.step('should turn on to use system theme', async () => {
+      await page.locator('svg').first().click()
+      const checkbox = page.locator(
+        '[data-testid="settings-modal"] >> role=checkbox'
+      )
+      await checkbox.click()
+      expect(checkbox).toBeChecked()
+    })
+
+    await test.step('should apply system theme', async () => {
+      await page.locator('button:has-text("Apply")').click()
+      expect(page.locator('html')).toHaveClass('dark')
+      expect(page.locator('role=checkbox')).not.toBeVisible()
+    })
+  })
 })
