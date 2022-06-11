@@ -213,8 +213,6 @@ test.describe('Settings modal', () => {
   })
 
   test('Verify that application can use system theme', async ({ page }) => {
-    await page.emulateMedia({ colorScheme: 'light' })
-
     await test.step(
       'should open settings modal with turned off toggle switch',
       async () => {

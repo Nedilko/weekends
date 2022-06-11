@@ -21,6 +21,7 @@ const config = {
     trace: 'on',
     // trace: 'on-first-retry',
     storageState: 'state.json',
+    colorScheme: 'light',
   },
   projects: [
     {
