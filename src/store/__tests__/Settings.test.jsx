@@ -68,7 +68,7 @@ describe('Settings context provider', () => {
       day: 6,
       hour: 19,
       greetingsText: 'Hello world',
-      theme: 'dark',
+      theme: 'light',
       useSystemTheme: true,
       isFirstLoad: false,
     })
