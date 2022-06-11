@@ -4,7 +4,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/')
 })
 
-test.describe('Settings', () => {
+test.describe('Settings modal', () => {
   test('Verify that user can use settings modal', async ({ page }) => {
     await test.step('should open settings modal', async () => {
       await page.locator('svg').first().click()
@@ -111,7 +111,103 @@ test.describe('Settings', () => {
     })
 
     await test.step('should close modal on Apply click', async () => {
-      await page.locator('text=Apply').click()
+      await page.locator('button:has-text("Apply")').click()
+      expect(page.locator('[data-testid="settings-modal"]')).not.toBeVisible()
+    })
+  })
+
+  test('Input fields validation', async ({ page }) => {
+    await test.step('should open settings modal', async () => {
+      await page.locator('svg').first().click()
+      const modal = page.locator('[data-testid="settings-modal"]')
+      expect(modal).toBeVisible()
+    })
+
+    await test.step(
+      'should highlight greetings input with red color',
+      async () => {
+        const input = page.locator('[placeholder="Have a beer"]')
+        await input.fill('')
+        expect(input).toHaveClass(/border-red-500/)
+        await input.fill('    ')
+        expect(input).toHaveClass(/border-red-500/)
+      }
+    )
+
+    await test.step('should not alloq to click Apply button', async () => {
+      const applyButton = page.locator('button:has-text("Apply")')
+      await applyButton.click()
+      expect(page.locator('[data-testid="settings-modal"]')).toBeVisible()
+    })
+
+    await test.step(
+      'should not allow to type more than 20 characters',
+      async () => {
+        const input = page.locator('[placeholder="Have a beer"]')
+        await input.fill('123456789012345678901')
+        expect(input).toHaveValue('12345678901234567890')
+      }
+    )
+  })
+
+  test('Verify settings modal behaviour', async ({ page }) => {
+    await test.step('should open settings modal', async () => {
+      await page.locator('svg').first().click()
+      const modal = page.locator('[data-testid="settings-modal"]')
+      expect(modal).toBeVisible()
+    })
+
+    await test.step('should change inputs', async () => {
+      await page.locator('[placeholder="Have a beer"]').fill('some beer!')
+
+      await page.locator('text=Friday').click()
+      await page.locator('text=Monday').click()
+
+      await page.locator('text=18:00').click()
+      await page.locator('text=19:00').click()
+
+      await page
+        .locator('[data-testid="settings-modal"] >> role=checkbox')
+        .click()
+    })
+
+    await test.step('should change inputs', async () => {
+      await page.locator('button:has-text("Cancel")').click()
+    })
+
+    await test.step(
+      'should open settings modal with previous values',
+      async () => {
+        await page.locator('svg').first().click()
+        const modal = page.locator('[data-testid="settings-modal"]')
+        expect(modal).toBeVisible()
+        expect(page.locator('[placeholder="Have a beer"]')).toHaveValue(
+          'Have a beer!'
+        )
+        expect(page.locator('text=Friday')).toHaveText('Friday')
+        expect(page.locator('text=18:00')).toHaveText('18:00')
+        expect(
+          page.locator('[data-testid="settings-modal"] >> role=checkbox')
+        ).not.toBeChecked()
+      }
+    )
+
+    await test.step('should change inputs', async () => {
+      await page.locator('[placeholder="Have a beer"]').fill('some beer!')
+
+      await page.locator('text=Friday').click()
+      await page.locator('text=Monday').click()
+
+      await page.locator('text=18:00').click()
+      await page.locator('text=19:00').click()
+
+      await page
+        .locator('[data-testid="settings-modal"] >> role=checkbox')
+        .click()
+    })
+
+    await test.step('should close modal on click outside modal', async () => {
+      await page.mouse.click(0, 0)
       expect(page.locator('[data-testid="settings-modal"]')).not.toBeVisible()
     })
   })
