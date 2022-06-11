@@ -16,6 +16,8 @@
     "test:coverage": "jest --coverage",
     "test:e2e": "npx playwright test",
     "test:e2e:debug": "PWDEBUG=1 npx playwright test",
+    "test:e2e:debug:console": "PWDEBUG=console npx playwright test",
+    "test:e2e:debug:api": "PDEBUG=pw:api npx playwright test",
     "test:e2e:debug:webserver": "DEBUG=pw:webserver npx playwright test",
     "test:e2e:update-screenshots": "npx playwright test --update-snapshots",
     "test:e2e:report": "npx playwright show-report",
