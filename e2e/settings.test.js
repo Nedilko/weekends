@@ -171,7 +171,7 @@ test.describe('Settings modal', () => {
         .click()
     })
 
-    await test.step('should change inputs', async () => {
+    await test.step('should click Cancel button', async () => {
       await page.locator('button:has-text("Cancel")').click()
     })
 
