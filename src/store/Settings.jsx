@@ -6,21 +6,26 @@ import { getSystemTheme } from '@utils/settings'
 const SettingsContext = React.createContext()
 
 export const SettingsContextProvider = ({ children }) => {
-  const [settings, setSettings] = useState(loadSettings())
-  const handleApply = (newSettings) => {
+  const [settings, setSettings] = useState(() => {
+    const loadedSettings = loadSettings()
+    const actualTheme = loadedSettings.useSystemTheme
+      ? getSystemTheme()
+      : loadedSettings.theme
+    return {
+      ...loadedSettings,
+      theme: actualTheme,
+    }
+  })
+  const handleApply = (data) => {
     setSettings((oldSettings) => {
-      const currentTheme = newSettings.useSystemTheme
-        ? getSystemTheme()
-        : newSettings.theme
-
-      const mergedSettings = {
+      const newSettings = {
         ...oldSettings,
-        ...newSettings,
-        theme: currentTheme,
+        ...data,
       }
-      writeSettings(mergedSettings)
-
-      return mergedSettings
+      writeSettings(newSettings)
+      return {
+        ...newSettings,
+      }
     })
   }
 
