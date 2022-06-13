@@ -9,20 +9,20 @@ test.describe('Application Theme', () => {
     const themeSwitcher = page.locator('role=checkbox')
 
     await test.step('should be visible theme toggle switcher', async () => {
-      expect(themeSwitcher).toBeVisible()
-      expect(themeSwitcher).not.toBeChecked()
+      await expect(themeSwitcher).toBeVisible()
+      await expect(themeSwitcher).not.toBeChecked()
     })
 
     await test.step('should change to dark theme', async () => {
       await themeSwitcher.click()
-      expect(themeSwitcher).toBeChecked()
-      expect(page.locator('html')).toHaveClass('dark')
+      await expect(themeSwitcher).toBeChecked()
+      await expect(page.locator('html')).toHaveClass('dark')
     })
 
     await test.step('should change to light theme', async () => {
       await themeSwitcher.click()
-      expect(themeSwitcher).not.toBeChecked()
-      expect(page.locator('html')).not.toHaveClass('dark')
+      await expect(themeSwitcher).not.toBeChecked()
+      await expect(page.locator('html')).not.toHaveClass('dark')
     })
   })
 
@@ -33,8 +33,8 @@ test.describe('Application Theme', () => {
 
     await test.step('should change to dark theme', async () => {
       await themeSwitcher.click()
-      expect(themeSwitcher).toBeChecked()
-      expect(page.locator('html')).toHaveClass('dark')
+      await expect(themeSwitcher).toBeChecked()
+      await expect(page.locator('html')).toHaveClass('dark')
     })
 
     await test.step('should remain dark theme after page reload', async () => {
@@ -45,8 +45,8 @@ test.describe('Application Theme', () => {
 
     await test.step('should change to light theme', async () => {
       await themeSwitcher.click()
-      expect(themeSwitcher).not.toBeChecked()
-      expect(page.locator('html')).not.toHaveClass('dark')
+      await expect(themeSwitcher).not.toBeChecked()
+      await expect(page.locator('html')).not.toHaveClass('dark')
     })
 
     await test.step('should remain light theme after page reload', async () => {
@@ -93,7 +93,7 @@ test.describe('Application Theme', () => {
       'should change to dark theme after page reload',
       async () => {
         await page.reload()
-        expect(page.locator('html')).toHaveClass('dark')
+        await expect(page.locator('html')).toHaveClass('dark')
       }
     )
   })
@@ -107,7 +107,7 @@ test.describe('Application Theme', () => {
       'should open settings modal with turned off toggle switch',
       async () => {
         await page.locator('svg').first().click()
-        expect(page.locator('role=checkbox').nth(0)).not.toBeChecked()
+        await expect(page.locator('role=checkbox').nth(0)).not.toBeChecked()
       }
     )
 
@@ -116,20 +116,20 @@ test.describe('Application Theme', () => {
         '[data-testid="settings-modal"] >> role=checkbox'
       )
       await checkbox.click()
-      expect(checkbox).toBeChecked()
+      await expect(checkbox).toBeChecked()
     })
 
     await test.step('should adjust app theme to system theme', async () => {
       await page.locator('button:has-text("Apply")').click()
-      expect(page.locator('role=checkbox')).not.toBeVisible()
-      expect(page.locator('html')).toHaveClass('dark')
+      await expect(page.locator('role=checkbox')).not.toBeVisible()
+      await expect(page.locator('html')).toHaveClass('dark')
     })
 
     await test.step(
       'should open settings modal with turned on toggle switch',
       async () => {
         await page.locator('svg').first().click()
-        expect(page.locator('role=checkbox').nth(0)).toBeChecked()
+        await expect(page.locator('role=checkbox').nth(0)).toBeChecked()
       }
     )
 
@@ -138,16 +138,16 @@ test.describe('Application Theme', () => {
         '[data-testid="settings-modal"] >> role=checkbox'
       )
       await checkbox.click()
-      expect(checkbox).not.toBeChecked()
+      await expect(checkbox).not.toBeChecked()
     })
 
     await test.step(
       'should adjust app theme to last used app theme',
       async () => {
         await page.locator('button:has-text("Apply")').click()
-        expect(page.locator('role=checkbox')).toBeVisible()
-        expect(page.locator('role=checkbox')).not.toBeChecked()
-        expect(page.locator('html')).not.toHaveClass('dark')
+        await expect(page.locator('role=checkbox')).toBeVisible()
+        await expect(page.locator('role=checkbox')).not.toBeChecked()
+        await expect(page.locator('html')).not.toHaveClass('dark')
       }
     )
 
@@ -157,7 +157,7 @@ test.describe('Application Theme', () => {
       'should open settings modal with turned off toggle switch',
       async () => {
         await page.locator('svg').first().click()
-        expect(page.locator('role=checkbox').nth(0)).toBeChecked()
+        await expect(page.locator('role=checkbox').nth(0)).toBeChecked()
       }
     )
 
@@ -171,15 +171,15 @@ test.describe('Application Theme', () => {
 
     await test.step('should adjust app theme to system theme', async () => {
       await page.locator('button:has-text("Apply")').click()
-      expect(page.locator('role=checkbox')).not.toBeVisible()
-      expect(page.locator('html')).toHaveClass('dark')
+      await expect(page.locator('role=checkbox')).not.toBeVisible()
+      await expect(page.locator('html')).toHaveClass('dark')
     })
 
     await test.step(
       'should open settings modal with turned on toggle switch',
       async () => {
         await page.locator('svg').first().click()
-        expect(page.locator('role=checkbox').nth(0)).toBeChecked()
+        await expect(page.locator('role=checkbox').nth(0)).toBeChecked()
       }
     )
 
@@ -188,16 +188,16 @@ test.describe('Application Theme', () => {
         '[data-testid="settings-modal"] >> role=checkbox'
       )
       await checkbox.click()
-      expect(checkbox).not.toBeChecked()
+      await expect(checkbox).not.toBeChecked()
     })
 
     await test.step(
       'should adjust app theme to last used app theme',
       async () => {
         await page.locator('button:has-text("Apply")').click()
-        expect(page.locator('role=checkbox')).toBeVisible()
-        expect(page.locator('role=checkbox')).toBeChecked()
-        expect(page.locator('html')).toHaveClass('dark')
+        await expect(page.locator('role=checkbox')).toBeVisible()
+        await expect(page.locator('role=checkbox')).toBeChecked()
+        await expect(page.locator('html')).toHaveClass('dark')
       }
     )
   })

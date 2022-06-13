@@ -9,25 +9,25 @@ test.describe('Application first load', () => {
 
   test('Verify application first load', async ({ page }) => {
     await test.step('should open app first load settings modal', async () => {
-      expect(page.locator('[data-testid="startup-modal"]')).toBeVisible()
+      await expect(page.locator('[data-testid="startup-modal"]')).toBeVisible()
     })
 
     await test.step('should be friday and 18:00 set by default', async () => {
-      expect(page.locator('text=Friday')).toBeVisible()
-      expect(page.locator('text=18:00')).toBeVisible()
+      await expect(page.locator('text=Friday')).toBeVisible()
+      await expect(page.locator('text=18:00')).toBeVisible()
     })
 
     await test.step('should open day dropdown', async () => {
       await page.locator('text=Friday').click()
-      expect(page.locator('text=Friday').nth(0)).toBeVisible()
+      await expect(page.locator('text=Friday').nth(0)).toBeVisible()
 
-      expect(page.locator('text=Monday')).toBeVisible()
-      expect(page.locator('text=Tuesday')).toBeVisible()
-      expect(page.locator('text=Wednesday')).toBeVisible()
-      expect(page.locator('text=Thursday')).toBeVisible()
-      expect(page.locator('text=Friday').nth(1)).toBeVisible()
-      expect(page.locator('text=Saturday')).toBeVisible()
-      expect(page.locator('text=Sunday')).toBeVisible()
+      await expect(page.locator('text=Monday')).toBeVisible()
+      await expect(page.locator('text=Tuesday')).toBeVisible()
+      await expect(page.locator('text=Wednesday')).toBeVisible()
+      await expect(page.locator('text=Thursday')).toBeVisible()
+      await expect(page.locator('text=Friday').nth(1)).toBeVisible()
+      await expect(page.locator('text=Saturday')).toBeVisible()
+      await expect(page.locator('text=Sunday')).toBeVisible()
     })
 
     await test.step('should open hour dropdown', async () => {
@@ -64,36 +64,36 @@ test.describe('Application first load', () => {
       await test.step('should select new day', async () => {
         await page.locator('text=Friday').click()
         await page.locator('text=Saturday').click()
-        expect(page.locator('text=Saturday')).toBeVisible()
+        await expect(page.locator('text=Saturday')).toBeVisible()
       })
 
       await test.step('should select new hour', async () => {
         await page.locator('text=18:00').click()
         await page.locator('text=19:00').click()
-        expect(page.locator('text=19:00')).toBeVisible()
+        await expect(page.locator('text=19:00')).toBeVisible()
       })
     })
 
     await test.step('should Apply settings', async () => {
       await page.locator('button:has-text("Apply")').click()
-      expect(page.locator('html')).not.toHaveClass('dark')
-      expect(page.locator('h1')).toHaveText(/weekends countdown/i)
-      expect(page.locator('h2')).toHaveText(/time left to weekends/i)
+      await expect(page.locator('html')).not.toHaveClass('dark')
+      await expect(page.locator('h1')).toHaveText('weekends countdown')
+      await expect(page.locator('h2')).toHaveText(/time left to weekends/i)
     })
   })
 
   test('Verify UI settings modal page on first load', async ({ page }) => {
     await test.step('should match UI', async () => {
-      expect(page.locator('text="Please choose"')).toBeVisible()
-      expect(
+      await expect(page.locator('text="Please choose"')).toBeVisible()
+      await expect(
         page.locator('text="Day and Hour you finish your work"')
       ).toBeVisible()
-      expect(page.locator('[data-testid="startup-modal"]')).toBeVisible()
-      expect(page.locator('text=day').nth(1)).toBeVisible()
-      expect(page.locator('text=Friday')).toBeVisible()
-      expect(page.locator('text=hour').nth(1)).toBeVisible()
-      expect(page.locator('text=18:00')).toBeVisible()
-      expect(page.locator('button:has-text("Apply")')).toBeVisible()
+      await expect(page.locator('[data-testid="startup-modal"]')).toBeVisible()
+      await expect(page.locator('text=day').nth(1)).toBeVisible()
+      await expect(page.locator('text=Friday')).toBeVisible()
+      await expect(page.locator('text=hour').nth(1)).toBeVisible()
+      await expect(page.locator('text=18:00')).toBeVisible()
+      await expect(page.locator('button:has-text("Apply")')).toBeVisible()
     })
   })
 })

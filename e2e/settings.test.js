@@ -112,7 +112,9 @@ test.describe('Settings modal', () => {
 
     await test.step('should close modal on Apply click', async () => {
       await page.locator('button:has-text("Apply")').click()
-      expect(page.locator('[data-testid="settings-modal"]')).not.toBeVisible()
+      await expect(
+        page.locator('[data-testid="settings-modal"]')
+      ).not.toBeVisible()
     })
   })
 
@@ -145,7 +147,7 @@ test.describe('Settings modal', () => {
       async () => {
         const input = page.locator('[placeholder="Have a beer"]')
         await input.fill('123456789012345678901')
-        expect(input).toHaveValue('12345678901234567890')
+        await expect(input).toHaveValue('12345678901234567890')
       }
     )
   })
@@ -208,7 +210,9 @@ test.describe('Settings modal', () => {
 
     await test.step('should close modal on click outside modal', async () => {
       await page.mouse.click(0, 0)
-      expect(page.locator('[data-testid="settings-modal"]')).not.toBeVisible()
+      await expect(
+        page.locator('[data-testid="settings-modal"]')
+      ).not.toBeVisible()
     })
   })
 
@@ -278,8 +282,8 @@ test.describe('Settings modal', () => {
 
     await test.step('should apply system theme', async () => {
       await page.locator('button:has-text("Apply")').click()
-      expect(page.locator('html')).toHaveClass('dark')
-      expect(page.locator('role=checkbox')).not.toBeVisible()
+      await expect(page.locator('html')).toHaveClass('dark')
+      await expect(page.locator('role=checkbox')).not.toBeVisible()
     })
   })
 })
