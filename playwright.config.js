@@ -1,7 +1,8 @@
+const path = require('path')
+require('dotenv').config({
+  path: path.resolve(__dirname, './.env', '.env'),
+})
 const { devices } = require('@playwright/test')
-
-const DEV_SERVER_URL = 'http://localhost:3000'
-// const SITE_URL = 'https://weekends.nac.in.ua'
 
 const config = {
   testDir: './e2e',
@@ -12,14 +13,12 @@ const config = {
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 2 : undefined,
-  reporter: [['list'], ['html']],
+  reporter: process.env.CI ? 'github' : [['list'], ['html']],
   globalSetup: require.resolve('./global-setup'),
   use: {
     actionTimeout: 0,
-    // baseURL: SITE_URL,
-    baseURL: DEV_SERVER_URL,
-    trace: 'on',
-    // trace: 'on-first-retry',
+    baseURL: process.env.SITE_URL,
+    trace: process.env.CI ? 'on-first-retry' : 'on',
     storageState: 'state.json',
     colorScheme: 'light',
   },
@@ -42,23 +41,11 @@ const config = {
         ...devices['Desktop Safari'],
       },
     },
-    {
-      name: 'Mobile Chrome',
-      use: {
-        ...devices['Pixel 5'],
-      },
-    },
-    {
-      name: 'Mobile Safari',
-      use: {
-        ...devices['iPhone 12'],
-      },
-    },
   ],
 
   webServer: {
     command: 'npm run dev',
-    url: DEV_SERVER_URL,
+    url: process.env.DEV_SERVER_URL,
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
     waitOnScheme: {
