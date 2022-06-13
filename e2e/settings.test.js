@@ -225,7 +225,7 @@ test.describe('Settings modal', () => {
       }
     )
 
-    await test.step('should torn on use system theme toggle', async () => {
+    await test.step('should turn on use system theme toggle', async () => {
       const checkbox = page.locator(
         '[data-testid="settings-modal"] >> role=checkbox'
       )
