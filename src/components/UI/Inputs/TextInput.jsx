@@ -17,7 +17,7 @@ function TextInput({ placeholder, value, onChange }) {
 
   useEffect(() => {
     onChange(textValue)
-    if (ref.current.value === '') {
+    if (ref.current.value.trim() === '') {
       setIsValid(false)
     } else {
       setIsValid(true)

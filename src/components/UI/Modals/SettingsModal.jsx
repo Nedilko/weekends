@@ -22,7 +22,7 @@ function SettingsModal({ title, settings, onApply, onCancel }) {
   const [useSystemTheme, setuUseSystemTheme] = useState(settings.useSystemTheme)
 
   const handleApply = () => {
-    if (greetingsText.length > 0) {
+    if (greetingsText.trim().length > 0) {
       onApply({
         greetingsText,
         day,
