@@ -1,10 +1,26 @@
 const { test, expect } = require('@playwright/test')
+const path = require('path')
+const sinon = require('sinon')
 
 test.describe('Application first load', () => {
   test.use({ storageState: {} })
 
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page, context }) => {
+    // Install Sinon in all the pages in the context
+    await context.addInitScript({
+      path: path.join(__dirname, '..', './node_modules/sinon/pkg/sinon.js'),
+    })
+    // Auto-enable sinon right away
+    await context.addInitScript(() => {
+      window.__clock = sinon.useFakeTimers({
+        now: new Date('2022-06-06 13:31:22'),
+      })
+    })
     await page.goto('/')
+  })
+
+  test.afterEach(() => {
+    sinon.restore()
   })
 
   test('Verify application first load', async ({ page }) => {
@@ -78,7 +94,11 @@ test.describe('Application first load', () => {
       await page.locator('button:has-text("Apply")').click()
       await expect(page.locator('html')).not.toHaveClass('dark')
       await expect(page.locator('h1')).toHaveText('weekends countdown')
+      await page.evaluate(() => window.__clock.tick(1000))
       await expect(page.locator('h2')).toHaveText(/time left to weekends/i)
+      await expect(page.locator('//*[@id="root"]/div/main/div/div')).toHaveText(
+        'days5:hours5:minutes28:seconds37'
+      )
     })
   })
 
