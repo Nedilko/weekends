@@ -1,4 +1,20 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
+
+exports[`Separator > should render with custom symbol 1`] = `
+<div
+  class="mt-8 flex items-center justify-center pb-2 text-5xl"
+>
+  ::
+</div>
+`;
+
+exports[`Separator > should render with default symbol 1`] = `
+<div
+  class="mt-8 flex items-center justify-center pb-2 text-5xl"
+>
+  :
+</div>
+`;
 
 exports[`Separator should render with custom symbol 1`] = `
 <div

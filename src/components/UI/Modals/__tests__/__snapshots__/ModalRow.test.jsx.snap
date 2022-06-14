@@ -1,4 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
+
+exports[`ModalRow > should render row content 1`] = `
+<div>
+  <div
+    class="my-1 flex items-center justify-start gap-5"
+  >
+    some text
+  </div>
+</div>
+`;
 
 exports[`ModalRow should render row content 1`] = `
 <div>

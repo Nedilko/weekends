@@ -1,4 +1,151 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
+
+exports[`Dropdown > should render closed 1`] = `
+<div
+  class="mr-2 flex items-center justify-center"
+>
+  sample label
+</div>
+`;
+
+exports[`Dropdown > should render closed on click outside 1`] = `
+<div>
+  <div
+    class="flex flex-row items-center"
+  >
+    <div
+      class="mr-2 flex items-center justify-center"
+    >
+      sample label
+    </div>
+    <div
+      class="z-10 block"
+    >
+      <button
+        class="flex h-6 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none dark:border-gray-700 dark:focus:border-gray-500"
+        type="button"
+      >
+        second
+        <svg
+          class="mr-1 h-4 w-4 text-gray-500 "
+          fill="none"
+          role="img"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 9l-7 7-7-7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dropdown > should render opened 1`] = `
+<div>
+  <div
+    class="flex flex-row items-center"
+  >
+    <div
+      class="mr-2 flex items-center justify-center"
+    >
+      sample label
+    </div>
+    <div
+      class="z-10 block"
+    >
+      <button
+        class="flex h-6 items-center justify-between rounded-md border border-slate-100 pl-2 text-base font-thin focus:border-slate-300 focus:outline-none dark:border-gray-700 dark:focus:border-gray-500"
+        type="button"
+      >
+        second
+        <svg
+          class="mr-1 h-4 w-4 text-gray-500 rotate-180"
+          fill="none"
+          role="img"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 9l-7 7-7-7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <div
+        class="absolute overflow-auto rounded-md bg-white shadow-md dark:bg-zinc-900 mt-1 max-h-28 w-28 cursor-pointer border border-gray-200 dark:border-gray-500"
+      >
+        <div
+          class="px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 font-thin"
+          data-testid="dropdown-item"
+          value="first"
+        >
+          first
+        </div>
+        <div
+          class="px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 font-regular"
+          data-testid="dropdown-item"
+          value="second"
+        >
+          second
+        </div>
+        <div
+          class="px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 font-thin"
+          data-testid="dropdown-item"
+          value="third"
+        >
+          third
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Dropdown > should rotate arrow when opened 1`] = `
+<svg
+  class="mr-1 h-4 w-4 text-gray-500 "
+  fill="none"
+  role="img"
+  stroke="currentColor"
+  stroke-width="2"
+  viewBox="0 0 24 24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M19 9l-7 7-7-7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
+`;
+
+exports[`Dropdown > should rotate arrow when opened 2`] = `
+<svg
+  class="mr-1 h-4 w-4 text-gray-500 rotate-180"
+  fill="none"
+  role="img"
+  stroke="currentColor"
+  stroke-width="2"
+  viewBox="0 0 24 24"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M19 9l-7 7-7-7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
+`;
 
 exports[`Dropdown should render closed 1`] = `
 <div

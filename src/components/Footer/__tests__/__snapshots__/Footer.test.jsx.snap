@@ -1,4 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
+
+exports[`Footer > should render link with text 1`] = `
+<a
+  href="https://nac.in.ua"
+  rel="noreferrer"
+  target="_blank"
+>
+  nac.in.ua
+</a>
+`;
 
 exports[`Footer should render link with text 1`] = `
 <a

@@ -2,11 +2,8 @@ import Settings from '@components/Header/Settings'
 import SettingsContext from '@store/Settings'
 import { render, screen, userEvent } from '@utils/test-utils'
 
-jest.mock('@components/Header/SettingsIcon', () => {
-  const originalModule = jest.requireActual('@components/Header/SettingsIcon')
+vi.mock('@components/Header/SettingsIcon', () => {
   return {
-    __esModule: true,
-    ...originalModule,
     default: ({ onClick }) => {
       return (
         <button onClick={onClick} data-testid="settings-icon">
@@ -17,11 +14,8 @@ jest.mock('@components/Header/SettingsIcon', () => {
   }
 })
 
-jest.mock('@UI/Modals/SettingsModal', () => {
-  const originalModule = jest.requireActual('@UI/Modals/SettingsModal')
+vi.mock('@UI/Modals/SettingsModal', () => {
   return {
-    __esModule: true,
-    ...originalModule,
     default: ({ onApply, onCancel }) => (
       <div data-testid="settings-modal">
         <button onClick={onApply}>Apply</button>
@@ -32,7 +26,7 @@ jest.mock('@UI/Modals/SettingsModal', () => {
 })
 
 describe('Settings component', () => {
-  const handleApply = jest.fn()
+  const handleApply = vi.fn()
 
   beforeEach(() => {
     handleApply.mockClear()

@@ -1,4 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
+
+exports[`Button > should be in the document 1`] = `
+<button
+  class="mx-4 w-16 py-2 text-xl font-thin text-slate-600 duration-200 ease-in-out hover:scale-110 focus:scale-110 focus:outline-none dark:text-gray-400"
+>
+  sample
+</button>
+`;
 
 exports[`Button should be in the document 1`] = `
 <button

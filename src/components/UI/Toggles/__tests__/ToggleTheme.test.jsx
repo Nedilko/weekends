@@ -2,7 +2,7 @@ import ToggleTheme from '@UI/Toggles/ToggleTheme'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('ToggleTheme', () => {
-  const clickHandler = jest.fn()
+  const clickHandler = vi.fn()
 
   beforeEach(() => {
     clickHandler.mockClear()

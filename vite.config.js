@@ -34,7 +34,4 @@ export default defineConfig({
       '@utils': path.resolve(__dirname, './src/utils'),
     },
   },
-  // esbuild: {
-  //   jsxInject: `import React from 'react'`,
-  // },
 })

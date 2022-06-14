@@ -2,8 +2,8 @@ import SettingsModal from '@UI/Modals/SettingsModal'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('SettingsModal', () => {
-  const handleApply = jest.fn()
-  const handleCancel = jest.fn()
+  const handleApply = vi.fn()
+  const handleCancel = vi.fn()
 
   const settings = {
     useSystemTheme: false,
@@ -15,7 +15,7 @@ describe('SettingsModal', () => {
   }
 
   beforeAll(() => {
-    window.HTMLElement.prototype.scrollIntoView = jest.fn()
+    window.HTMLElement.prototype.scrollIntoView = vi.fn()
   })
 
   afterEach(() => {

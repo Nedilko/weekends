@@ -3,40 +3,40 @@ import SettingsContext, { SettingsContextProvider } from '@store/Settings'
 import { useContext } from 'react'
 import { loadSettings, writeSettings } from '@utils/dataAdapter'
 
-jest.mock('@utils/dataAdapter')
+vi.mock('@utils/dataAdapter')
+
+function WrappedComponent() {
+  const { data, handleApply } = useContext(SettingsContext)
+  return (
+    <>
+      <div>{JSON.stringify(data, null, '\t')}</div>
+      <button
+        onClick={() =>
+          handleApply({
+            hour: 19,
+            greetingsText: 'Hello world',
+            theme: 'dark',
+            useSystemTheme: true,
+            isFirstLoad: false,
+          })
+        }
+      >
+        Apply
+      </button>
+    </>
+  )
+}
 
 describe('Settings context provider', () => {
-  function WrappedComponent() {
-    const { data, handleApply } = useContext(SettingsContext)
-    return (
-      <>
-        <div>{JSON.stringify(data, null, '\t')}</div>
-        <button
-          onClick={() =>
-            handleApply({
-              hour: 19,
-              greetingsText: 'Hello world',
-              theme: 'dark',
-              useSystemTheme: true,
-              isFirstLoad: false,
-            })
-          }
-        >
-          Apply
-        </button>
-      </>
-    )
-  }
-
   beforeEach(() => {
-    loadSettings.mockImplementation(() => ({
-      day: 6,
-      hour: 18,
-      greetingsText: 'Hello',
-      theme: 'light',
-      useSystemTheme: false,
-      isFirstLoad: true,
-    }))
+    // loadSettings.mockImplementation(() => ({
+    //   day: 6,
+    //   hour: 18,
+    //   greetingsText: 'Hello',
+    //   theme: 'light',
+    //   useSystemTheme: false,
+    //   isFirstLoad: true,
+    // }))
     writeSettings.mockImplementation(() => {})
   })
 
@@ -46,6 +46,34 @@ describe('Settings context provider', () => {
   })
 
   it('should load settings', () => {
+    loadSettings.mockImplementation(() => ({
+      day: 6,
+      hour: 18,
+      greetingsText: 'Hello',
+      theme: 'light',
+      useSystemTheme: false,
+      isFirstLoad: true,
+    }))
+
+    render(
+      <SettingsContextProvider>
+        <WrappedComponent />
+      </SettingsContextProvider>
+    )
+    expect(loadSettings).toHaveBeenCalledTimes(1)
+    expect(writeSettings).not.toHaveBeenCalled()
+  })
+
+  it('should load alternative settings', () => {
+    loadSettings.mockImplementation(() => ({
+      day: 6,
+      hour: 18,
+      greetingsText: 'Hello',
+      theme: 'light',
+      useSystemTheme: true,
+      isFirstLoad: true,
+    }))
+
     render(
       <SettingsContextProvider>
         <WrappedComponent />
@@ -56,6 +84,43 @@ describe('Settings context provider', () => {
   })
 
   it('should write settings', async () => {
+    loadSettings.mockImplementation(() => ({
+      day: 6,
+      hour: 18,
+      greetingsText: 'Hello',
+      theme: 'light',
+      useSystemTheme: false,
+      isFirstLoad: true,
+    }))
+
+    const user = userEvent.setup()
+    render(
+      <SettingsContextProvider>
+        <WrappedComponent />
+      </SettingsContextProvider>
+    )
+    await user.click(screen.getByRole('button', { name: /apply/i }))
+    expect(loadSettings).toHaveBeenCalledTimes(1)
+    expect(writeSettings).toHaveBeenCalledWith({
+      day: 6,
+      hour: 19,
+      greetingsText: 'Hello world',
+      theme: 'dark',
+      useSystemTheme: true,
+      isFirstLoad: false,
+    })
+  })
+
+  it('should write alternative settings', async () => {
+    loadSettings.mockImplementation(() => ({
+      day: 6,
+      hour: 18,
+      greetingsText: 'Hello',
+      theme: 'light',
+      useSystemTheme: true,
+      isFirstLoad: true,
+    }))
+
     const user = userEvent.setup()
     render(
       <SettingsContextProvider>

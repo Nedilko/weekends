@@ -2,11 +2,8 @@ import HourDropdown from '@UI/Dropdown/HourDropdown'
 import { render } from '@utils/test-utils'
 import { screen } from '@testing-library/react'
 
-jest.mock('@UI/Dropdown/Dropdown', () => {
-  const originalModule = jest.requireActual('@UI/Dropdown/Dropdown')
+vi.mock('@UI/Dropdown/Dropdown', () => {
   return {
-    __esModule: true,
-    ...originalModule,
     default: ({ value, items, label }) => (
       <div data-testid="dropdown">
         <div>{label}</div>
@@ -18,7 +15,7 @@ jest.mock('@UI/Dropdown/Dropdown', () => {
 })
 
 describe('HourDropdown', () => {
-  const handleChage = jest.fn()
+  const handleChage = vi.fn()
 
   beforeEach(() => {
     handleChage.mockClear()

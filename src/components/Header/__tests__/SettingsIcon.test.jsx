@@ -2,7 +2,7 @@ import SettingsIcon from '@components/Header/SettingsIcon'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('SettingsIcon', () => {
-  const handleClick = jest.fn()
+  const handleClick = vi.fn()
   beforeEach(() => {
     handleClick.mockClear()
   })
