@@ -65,6 +65,7 @@
     "prettier": "^2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.10",
     "react-test-renderer": "^18.1.0",
+    "sinon": "^14.0.0",
     "stylelint": "^14.7.1",
     "stylelint-config-standard": "^25.0.0",
     "stylelint-prettier": "^2.0.0",
