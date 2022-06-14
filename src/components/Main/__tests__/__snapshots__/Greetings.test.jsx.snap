@@ -7,11 +7,3 @@ exports[`Greetings > should render greetings component 1`] = `
   Sample greetings text
 </div>
 `;
-
-exports[`Greetings should render greetings component 1`] = `
-<div
-  class="mt-32 text-center text-7xl font-thin uppercase"
->
-  Sample greetings text
-</div>
-`;

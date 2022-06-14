@@ -9,13 +9,3 @@ exports[`Footer > should render link with text 1`] = `
   nac.in.ua
 </a>
 `;
-
-exports[`Footer should render link with text 1`] = `
-<a
-  href="https://nac.in.ua"
-  rel="noreferrer"
-  target="_blank"
->
-  nac.in.ua
-</a>
-`;

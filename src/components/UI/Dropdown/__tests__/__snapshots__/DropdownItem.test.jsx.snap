@@ -19,23 +19,3 @@ exports[`DropdownItem > should render selected 1`] = `
   sample
 </div>
 `;
-
-exports[`DropdownItem should render not selected 1`] = `
-<div
-  class="px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 font-thin"
-  data-testid="dropdown-item"
-  value="sample"
->
-  sample
-</div>
-`;
-
-exports[`DropdownItem should render selected 1`] = `
-<div
-  class="px-2 py-1 text-sm hover:bg-slate-200 dark:hover:bg-slate-700 font-regular"
-  data-testid="dropdown-item"
-  value="sample"
->
-  sample
-</div>
-`;
