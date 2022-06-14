@@ -28,8 +28,11 @@ describe('TextInput', () => {
         onChange={changeHandler}
       />
     )
-    await user.clear(screen.getByTestId('greetings-text-input'))
-    expect(screen.getByTestId('greetings-text-input')).toMatchSnapshot()
+    const input = screen.getByTestId('greetings-text-input')
+    await user.clear(input)
+    expect(input).toMatchSnapshot()
+    await user.type(input, '   ')
+    expect(input).toMatchSnapshot()
   })
 
   it('should call change handler with typed value', async () => {

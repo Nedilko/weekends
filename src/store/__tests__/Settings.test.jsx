@@ -63,7 +63,7 @@ describe('Settings context provider', () => {
       </SettingsContextProvider>
     )
     await user.click(screen.getByRole('button', { name: /apply/i }))
-    expect(loadSettings).toHaveBeenCalledTimes(2)
+    expect(loadSettings).toHaveBeenCalledTimes(1)
     expect(writeSettings).toHaveBeenCalledWith({
       day: 6,
       hour: 19,
