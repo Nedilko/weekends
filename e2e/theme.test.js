@@ -39,8 +39,8 @@ test.describe('Application Theme', () => {
 
     await test.step('should remain dark theme after page reload', async () => {
       await page.reload()
-      expect(themeSwitcher).toBeChecked()
-      expect(page.locator('html')).toHaveClass('dark')
+      await expect(themeSwitcher).toBeChecked()
+      await expect(page.locator('html')).toHaveClass('dark')
     })
 
     await test.step('should change to light theme', async () => {
@@ -51,8 +51,8 @@ test.describe('Application Theme', () => {
 
     await test.step('should remain light theme after page reload', async () => {
       await page.reload()
-      expect(themeSwitcher).not.toBeChecked()
-      expect(page.locator('html')).not.toHaveClass('dark')
+      await expect(themeSwitcher).not.toBeChecked()
+      await expect(page.locator('html')).not.toHaveClass('dark')
     })
 
     await test.step(
