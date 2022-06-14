@@ -14,3 +14,9 @@ Application must have two color themes: light and dark.
 As user to be more informative I want to see application name in the center of screen.
 As user I want timer to have a label at bottom of it, explaining that timer is showing time left to weekends.
 Application Ui must meet design.
+
+### Related stories
+ - [Timer countdown](https://github.com/Nedilko/weekends/issues/86)
+ - [Theme](https://github.com/Nedilko/weekends/issues/85)
+ - [Application first load](https://github.com/Nedilko/weekends/issues/91)
+ - [Settings modal](https://github.com/Nedilko/weekends/issues/92)
