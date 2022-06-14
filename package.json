@@ -12,6 +12,7 @@
     "preview": "vite preview",
     "lint": "eslint --ignore-path .eslintignore --ext .js --ext .jsx .",
     "test": "vitest",
+    "test:unit": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui",
     "test:e2e": "npx playwright test",
