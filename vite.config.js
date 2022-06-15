@@ -12,9 +12,6 @@ export default defineConfig({
     coverage: {
       reporter: ['text', 'html'],
     },
-    minThreads: 4,
-    maxThreads: 8,
-    maxConcurrency: 100,
     exclude: [
       '**/node_modules/**',
       '**/dist/**',
