@@ -13,6 +13,7 @@ export default defineConfig({
       reporter: ['text', 'html'],
     },
     minThreads: 2,
+    maxThreads: 8,
     silent: true,
     exclude: [
       '**/node_modules/**',
