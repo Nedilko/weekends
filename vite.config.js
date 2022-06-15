@@ -14,7 +14,6 @@ export default defineConfig({
     },
     minThreads: 4,
     maxThreads: 8,
-    silent: true,
     exclude: [
       '**/node_modules/**',
       '**/dist/**',
