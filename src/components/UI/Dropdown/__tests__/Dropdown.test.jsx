@@ -2,10 +2,10 @@ import Dropdown from '@UI/Dropdown/Dropdown'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('Dropdown', () => {
-  const handleChage = jest.fn()
+  const handleChage = vi.fn()
 
   beforeAll(() => {
-    window.HTMLElement.prototype.scrollIntoView = jest.fn()
+    window.HTMLElement.prototype.scrollIntoView = vi.fn()
   })
 
   beforeEach(() => {

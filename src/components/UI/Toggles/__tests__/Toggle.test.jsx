@@ -2,7 +2,7 @@ import Toggle from '@UI/Toggles/Toggle'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('Toggle', () => {
-  const clickHandler = jest.fn()
+  const clickHandler = vi.fn()
 
   beforeEach(() => {
     clickHandler.mockClear()

@@ -4,7 +4,7 @@ import { render, screen, userEvent } from '@utils/test-utils'
 import { useState } from 'react'
 
 describe('DarkModeSwitcher', () => {
-  const handleApply = jest.fn()
+  const handleApply = vi.fn()
 
   beforeEach(() => {
     handleApply.mockClear()

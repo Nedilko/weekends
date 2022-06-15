@@ -3,22 +3,16 @@ import { act } from 'react-dom/test-utils'
 import Timer from '@components/Main/Timer'
 import SettingsContext from '@store/Settings'
 
-jest.mock('@components/Main/ActionText', () => {
-  const originalModule = jest.requireActual('@components/Main/ActionText')
+vi.mock('@components/Main/ActionText', () => {
   return {
-    __esModule: true,
-    ...originalModule,
     default: () => {
       return <div data-testid="action-text">Action text</div>
     },
   }
 })
 
-jest.mock('@components/Clock/Clock', () => {
-  const originalModule = jest.requireActual('@components/Clock/Clock')
+vi.mock('@components/Clock/Clock', () => {
   return {
-    __esModule: true,
-    ...originalModule,
     default: ({ time }) => {
       return <div data-testid="seconds">{time.seconds}</div>
     },
@@ -26,18 +20,18 @@ jest.mock('@components/Clock/Clock', () => {
 })
 
 describe('Timer', () => {
-  const onFinishHandler = jest.fn()
+  const onFinishHandler = vi.fn()
   beforeEach(() => {
     onFinishHandler.mockClear()
-    jest.useFakeTimers()
+    vi.useFakeTimers()
   })
   afterEach(() => {
-    jest.useRealTimers()
+    vi.useRealTimers()
   })
 
   it('should render', () => {
     const date = new Date(2022, 4, 23, 18, 12, 11, 0)
-    jest.setSystemTime(date)
+    vi.setSystemTime(date)
     const { container } = render(
       <SettingsContext.Provider value={{ data: { day: 5, hour: 18 } }}>
         <Timer onFinish={onFinishHandler} />
@@ -51,7 +45,7 @@ describe('Timer', () => {
 
   it('should trigger onFinish when time finishes', () => {
     const date = new Date(2022, 4, 23, 18, 0, 0, 0)
-    jest.setSystemTime(date)
+    vi.setSystemTime(date)
     render(
       <SettingsContext.Provider value={{ data: { day: 1, hour: 18 } }}>
         <Timer onFinish={onFinishHandler} />
@@ -62,7 +56,7 @@ describe('Timer', () => {
 
   it('should trigger onFinish on next tick', () => {
     const date = new Date(2022, 4, 23, 17, 59, 59, 0)
-    jest.setSystemTime(date)
+    vi.setSystemTime(date)
     render(
       <SettingsContext.Provider value={{ data: { day: 1, hour: 18 } }}>
         <Timer onFinish={onFinishHandler} />
@@ -71,7 +65,7 @@ describe('Timer', () => {
     const secondsLeft = screen.getByTestId('seconds')
     expect(secondsLeft).toHaveTextContent('1')
     act(() => {
-      jest.runOnlyPendingTimers()
+      vi.runOnlyPendingTimers()
     })
     expect(secondsLeft).toHaveTextContent('0')
     expect(onFinishHandler).toHaveBeenCalledTimes(1)

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`SettingsModal should be in the document 1`] = `
+exports[`SettingsModal > should be in the document 1`] = `
 <section
   class="flex flex-col border-y py-2 text-xl font-thin text-slate-600 dark:text-gray-400"
   data-testid="settings-modal"

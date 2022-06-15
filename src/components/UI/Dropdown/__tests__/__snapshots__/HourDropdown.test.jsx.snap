@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`HourDropdown should render with Hours 1`] = `
+exports[`HourDropdown > should render with Hours 1`] = `
 <div
   data-testid="dropdown"
 >

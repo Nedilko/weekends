@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`DayDropdown should render with Days 1`] = `
+exports[`DayDropdown > should render with Days 1`] = `
 <div
   data-testid="dropdown"
 >

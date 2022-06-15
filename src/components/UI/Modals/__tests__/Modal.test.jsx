@@ -2,8 +2,8 @@ import Modal from '@UI/Modals/Modal'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('Modal', () => {
-  const applyHandler = jest.fn()
-  const cancelHandler = jest.fn()
+  const applyHandler = vi.fn()
+  const cancelHandler = vi.fn()
 
   beforeEach(() => {
     applyHandler.mockClear()

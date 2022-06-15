@@ -1,24 +1,16 @@
 import Header from '@components/Header/Header'
 import { render, screen } from '@utils/test-utils'
 
-jest.mock('@components/Header/Settings', () => {
-  const originalModule = jest.requireActual('@components/Header/Settings')
+vi.mock('@components/Header/Settings', () => {
   return {
-    __esModule: true,
-    ...originalModule,
     default: () => {
       return <div>Settings</div>
     },
   }
 })
 
-jest.mock('@components/Header/DarkModeSwitcher', () => {
-  const originalModule = jest.requireActual(
-    '@components/Header/DarkModeSwitcher'
-  )
+vi.mock('@components/Header/DarkModeSwitcher', () => {
   return {
-    __esModule: true,
-    ...originalModule,
     default: () => {
       return <div>Switcher</div>
     },

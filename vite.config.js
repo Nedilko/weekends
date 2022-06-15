@@ -10,7 +10,7 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/utils/setupTests.js',
     coverage: {
-      reporter: ['text', 'json', 'html'],
+      reporter: ['text', 'html'],
     },
     exclude: [
       '**/node_modules/**',
@@ -34,7 +34,4 @@ export default defineConfig({
       '@utils': path.resolve(__dirname, './src/utils'),
     },
   },
-  // esbuild: {
-  //   jsxInject: `import React from 'react'`,
-  // },
 })

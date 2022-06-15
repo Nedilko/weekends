@@ -2,7 +2,7 @@ import Button from '@UI/Buttons/Button'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('Button', () => {
-  const clickHandler = jest.fn()
+  const clickHandler = vi.fn()
 
   beforeEach(() => {
     clickHandler.mockClear()

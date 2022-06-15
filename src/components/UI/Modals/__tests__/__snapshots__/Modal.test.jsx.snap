@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Modal should center buttons 1`] = `
+exports[`Modal > should center buttons 1`] = `
 <div
   id="modal-root"
 >
@@ -38,7 +38,7 @@ exports[`Modal should center buttons 1`] = `
 </div>
 `;
 
-exports[`Modal should center heading 1`] = `
+exports[`Modal > should center heading 1`] = `
 <div
   id="modal-root"
 >

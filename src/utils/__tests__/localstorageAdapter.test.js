@@ -6,9 +6,9 @@ import {
 describe('localstorage adapter', () => {
   let setItemSpy, getItemSpy
   beforeAll(() => {
-    setItemSpy = jest.spyOn(global.Storage.prototype, 'setItem')
-    getItemSpy = jest.spyOn(global.Storage.prototype, 'getItem')
-    jest.spyOn(console, 'error').mockImplementation(() => {})
+    setItemSpy = vi.spyOn(global.Storage.prototype, 'setItem')
+    getItemSpy = vi.spyOn(global.Storage.prototype, 'getItem')
+    vi.spyOn(console, 'error').mockImplementation(() => {})
   })
 
   beforeEach(() => {

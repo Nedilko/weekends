@@ -1,11 +1,8 @@
 import DropdownItemsList from '@UI/Dropdown/DropdownItemsList'
 import { render, screen, userEvent } from '@utils/test-utils'
 
-jest.mock('@UI/Dropdown/DropdownItem', () => {
-  const originalModule = jest.requireActual('@UI/Dropdown/DropdownItem')
+vi.mock('@UI/Dropdown/DropdownItem', () => {
   return {
-    __esModule: true,
-    ...originalModule,
     default: ({ value, handleSelect }) => (
       <div data-testid="dropdown-item" onClick={() => handleSelect(value)}>
         {value}
@@ -15,7 +12,7 @@ jest.mock('@UI/Dropdown/DropdownItem', () => {
 })
 
 describe('DropdownItemsList', () => {
-  const selectHandler = jest.fn()
+  const selectHandler = vi.fn()
 
   beforeEach(() => {
     selectHandler.mockClear()

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1
 
-exports[`Timer should render 1`] = `
+exports[`Timer > should render 1`] = `
 <div>
   <div
     class="mt-20 flex flex-col items-center"

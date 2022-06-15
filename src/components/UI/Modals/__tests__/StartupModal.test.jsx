@@ -2,7 +2,7 @@ import StartupModal from '@UI/Modals/StartupModal'
 import { render, screen, userEvent } from '@utils/test-utils'
 
 describe('StartupModal', () => {
-  const handleApply = jest.fn()
+  const handleApply = vi.fn()
 
   const settings = {
     useSystemTheme: false,
@@ -14,7 +14,7 @@ describe('StartupModal', () => {
   }
 
   beforeAll(() => {
-    window.HTMLElement.prototype.scrollIntoView = jest.fn()
+    window.HTMLElement.prototype.scrollIntoView = vi.fn()
   })
 
   afterEach(() => {

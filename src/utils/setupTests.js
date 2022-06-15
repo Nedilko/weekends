@@ -1,2 +1,2 @@
 import '@testing-library/jest-dom'
-global.React = require('react')
+globalThis.IS_REACT_ACT_ENVIRONMENT = true
