@@ -12,8 +12,6 @@ export default defineConfig({
     coverage: {
       reporter: ['text', 'html'],
     },
-    minThreads: 4,
-    maxThreads: 8,
     silent: true,
     exclude: [
       '**/node_modules/**',
