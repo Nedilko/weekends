@@ -14,7 +14,7 @@ export default defineConfig({
     },
     minThreads: 4,
     maxThreads: 8,
-    maxConcurrency: 10,
+    maxConcurrency: 20,
     exclude: [
       '**/node_modules/**',
       '**/dist/**',
