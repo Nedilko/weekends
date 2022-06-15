@@ -15,7 +15,7 @@ export default defineConfig({
     reporters: 'dot',
     // minThreads: 4,
     // maxThreads: 8,
-    // maxConcurrency: 20,
+    maxConcurrency: 100,
     exclude: [
       '**/node_modules/**',
       '**/dist/**',
