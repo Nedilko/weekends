@@ -164,7 +164,7 @@ describe('Settings context provider', () => {
         <input
           type="checkbox"
           checked={settings.theme === 'dark'}
-          onClick={() =>
+          onChange={() =>
             dispatch({
               type: 'setTheme',
               payload: 'dark',
