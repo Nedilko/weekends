@@ -1,8 +1,7 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { loadSettings, writeSettings } from '@utils/dataAdapter'
 import { getSystemTheme } from '@utils/settings'
-import { useMemo } from 'react'
 
 const SettingsDataContext = React.createContext()
 const SettingsDispatchContext = React.createContext()
