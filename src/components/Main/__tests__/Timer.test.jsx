@@ -1,7 +1,9 @@
 import { render, screen } from '@utils/test-utils'
 import { act } from 'react-dom/test-utils'
 import Timer from '@components/Main/Timer'
-import SettingsContext from '@store/Settings'
+import { useSettingsData } from '@store/Settings'
+
+vi.mock('@store/Settings')
 
 vi.mock('@components/Main/ActionText', () => {
   return {
@@ -21,10 +23,13 @@ vi.mock('@components/Clock/Clock', () => {
 
 describe('Timer', () => {
   const onFinishHandler = vi.fn()
+
   beforeEach(() => {
     onFinishHandler.mockClear()
+    useSettingsData.mockClear()
     vi.useFakeTimers()
   })
+
   afterEach(() => {
     vi.useRealTimers()
   })
@@ -32,11 +37,8 @@ describe('Timer', () => {
   it('should render', () => {
     const date = new Date(2022, 4, 23, 18, 12, 11, 0)
     vi.setSystemTime(date)
-    const { container } = render(
-      <SettingsContext.Provider value={{ data: { day: 5, hour: 18 } }}>
-        <Timer onFinish={onFinishHandler} />
-      </SettingsContext.Provider>
-    )
+    useSettingsData.mockImplementation(() => ({ day: 5, hour: 18 }))
+    const { container } = render(<Timer onFinish={onFinishHandler} />)
     expect(screen.getByTestId('action-text')).toBeInTheDocument()
     expect(screen.getByTestId('seconds')).toBeInTheDocument()
     expect(onFinishHandler).not.toBeCalled()
@@ -46,22 +48,16 @@ describe('Timer', () => {
   it('should trigger onFinish when time finishes', () => {
     const date = new Date(2022, 4, 23, 18, 0, 0, 0)
     vi.setSystemTime(date)
-    render(
-      <SettingsContext.Provider value={{ data: { day: 1, hour: 18 } }}>
-        <Timer onFinish={onFinishHandler} />
-      </SettingsContext.Provider>
-    )
+    useSettingsData.mockImplementation(() => ({ day: 1, hour: 18 }))
+    render(<Timer onFinish={onFinishHandler} />)
     expect(onFinishHandler).toBeCalled()
   })
 
   it('should trigger onFinish on next tick', () => {
     const date = new Date(2022, 4, 23, 17, 59, 59, 0)
     vi.setSystemTime(date)
-    render(
-      <SettingsContext.Provider value={{ data: { day: 1, hour: 18 } }}>
-        <Timer onFinish={onFinishHandler} />
-      </SettingsContext.Provider>
-    )
+    useSettingsData.mockImplementation(() => ({ day: 1, hour: 18 }))
+    render(<Timer onFinish={onFinishHandler} />)
     const secondsLeft = screen.getByTestId('seconds')
     expect(secondsLeft).toHaveTextContent('1')
     act(() => {
