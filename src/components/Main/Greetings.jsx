@@ -1,12 +1,12 @@
-import SettingsContext from '@store/Settings'
-import { useContext } from 'react'
+import PropTypes from 'prop-types'
 
-function Greetings() {
-  const settings = useContext(SettingsContext)
+Greetings.propTypes = {
+  text: PropTypes.string.isRequired,
+}
+
+function Greetings({ text }) {
   return (
-    <div className="mt-32 text-center text-7xl font-thin uppercase">
-      {settings.data.greetingsText}
-    </div>
+    <div className="mt-32 text-center text-7xl font-thin uppercase">{text}</div>
   )
 }
 

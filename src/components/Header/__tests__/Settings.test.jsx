@@ -1,6 +1,8 @@
 import Settings from '@components/Header/Settings'
-import SettingsContext from '@store/Settings'
+import { useSettingsData, useSettingsDispatch } from '@store/Settings'
 import { render, screen, userEvent } from '@utils/test-utils'
+
+vi.mock('@store/Settings')
 
 vi.mock('@components/Header/SettingsIcon', () => {
   return {
@@ -28,21 +30,19 @@ vi.mock('@UI/Modals/SettingsModal', () => {
 describe('Settings component', () => {
   const handleApply = vi.fn()
 
+  beforeAll(() => {
+    useSettingsData.mockImplementation(() => ({}))
+    useSettingsDispatch.mockImplementation(() => handleApply)
+  })
+
   beforeEach(() => {
     handleApply.mockClear()
+    useSettingsData.mockClear()
+    useSettingsDispatch.mockClear()
   })
 
   it('should render settigns icon', async () => {
-    render(
-      <SettingsContext.Provider
-        value={{
-          data: {},
-          handleApply,
-        }}
-      >
-        <Settings />
-      </SettingsContext.Provider>
-    )
+    render(<Settings />)
     expect(
       screen.getByRole('button', { name: /settings/i })
     ).toBeInTheDocument()
@@ -50,16 +50,7 @@ describe('Settings component', () => {
 
   it('should open settings modal', async () => {
     const user = userEvent.setup()
-    render(
-      <SettingsContext.Provider
-        value={{
-          data: {},
-          handleApply,
-        }}
-      >
-        <Settings />
-      </SettingsContext.Provider>
-    )
+    render(<Settings />)
     const settingsIcon = screen.getByRole('button', { name: /settings/i })
     await user.click(settingsIcon)
     const settingsModal = screen.getByTestId('settings-modal')
@@ -68,16 +59,7 @@ describe('Settings component', () => {
 
   it('should close Settings Modal on Apply button click', async () => {
     const user = userEvent.setup()
-    render(
-      <SettingsContext.Provider
-        value={{
-          data: {},
-          handleApply,
-        }}
-      >
-        <Settings />
-      </SettingsContext.Provider>
-    )
+    render(<Settings />)
     const settingsIcon = screen.getByRole('button', { name: /settings/i })
     await user.click(settingsIcon)
     const applyButton = screen.getByRole('button', { name: /apply/i })
@@ -87,16 +69,7 @@ describe('Settings component', () => {
 
   it('should call apply handler for settings provider on Apply button click', async () => {
     const user = userEvent.setup()
-    render(
-      <SettingsContext.Provider
-        value={{
-          data: {},
-          handleApply,
-        }}
-      >
-        <Settings />
-      </SettingsContext.Provider>
-    )
+    render(<Settings />)
     const settingsIcon = screen.getByRole('button', { name: /settings/i })
     await user.click(settingsIcon)
     const applyButton = screen.getByRole('button', { name: /apply/i })
@@ -106,16 +79,7 @@ describe('Settings component', () => {
 
   it('should close Settings Modal on Cancel button click', async () => {
     const user = userEvent.setup()
-    render(
-      <SettingsContext.Provider
-        value={{
-          data: {},
-          handleApply,
-        }}
-      >
-        <Settings />
-      </SettingsContext.Provider>
-    )
+    render(<Settings />)
     const settingsIcon = screen.getByRole('button', { name: /settings/i })
     await user.click(settingsIcon)
     const cancelButton = screen.getByRole('button', { name: /cancel/i })
@@ -125,16 +89,7 @@ describe('Settings component', () => {
 
   it('should NOT call apply handler for settings provider on Cancel button click', async () => {
     const user = userEvent.setup()
-    render(
-      <SettingsContext.Provider
-        value={{
-          data: {},
-          handleApply,
-        }}
-      >
-        <Settings />
-      </SettingsContext.Provider>
-    )
+    render(<Settings />)
     const settingsIcon = screen.getByRole('button', { name: /settings/i })
     await user.click(settingsIcon)
     const cancelButton = screen.getByRole('button', { name: /cancel/i })

@@ -14,7 +14,7 @@ const config = {
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 2 : undefined,
   reporter: process.env.CI ? 'github' : [['list'], ['html']],
-  globalSetup: require.resolve('./global-setup'),
+  // globalSetup: require.resolve('./global-setup'),
   use: {
     actionTimeout: 0,
     baseURL: process.env.SITE_URL,
