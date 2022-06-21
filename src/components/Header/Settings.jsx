@@ -1,11 +1,12 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import SettingsIcon from '@components/Header/SettingsIcon'
 import SettingsModal from '@UI/Modals/SettingsModal'
-import SettingsContext from '@store/Settings'
+import { useSettingsData, useSettingsDispatch } from '@store/Settings'
 
 function Settings() {
   const [isModalOpened, seIsModalOpened] = useState(false)
-  const settings = useContext(SettingsContext)
+  const settings = useSettingsData()
+  const dispatch = useSettingsDispatch()
 
   const handleOpen = () => {
     seIsModalOpened(true)
@@ -14,7 +15,7 @@ function Settings() {
     seIsModalOpened(false)
   }
   const handleApply = (data) => {
-    settings.handleApply(data)
+    dispatch({ type: 'set', payload: data })
     seIsModalOpened(false)
   }
 
@@ -26,7 +27,7 @@ function Settings() {
           title="Settings"
           onApply={handleApply}
           onCancel={handleClose}
-          settings={settings.data}
+          settings={settings}
         />
       )}
     </>

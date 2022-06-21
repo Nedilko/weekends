@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import Clock from '@components/Clock/Clock'
-import SettingsContext from '@store/Settings'
+import { useSettingsData } from '@store/Settings'
 import { getTimerData } from '@utils/settings'
 import { isFinished } from '@utils/getTimeLeft'
 import Actiontext from '@components/Main/ActionText'
@@ -12,8 +12,8 @@ Timer.propTypes = {
 }
 
 function Timer({ onFinish }) {
-  const settings = useContext(SettingsContext)
-  const time = useCountdown(getTimerData(settings.data))
+  const settings = useSettingsData()
+  const time = useCountdown(getTimerData(settings))
 
   useEffect(() => {
     if (isFinished(time)) {
